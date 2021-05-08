@@ -185,7 +185,9 @@ class RegisterScreen extends Component {
             </View>
           </View>
           <View style={styles.buttonSection}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('AddProfile')}
+              style={styles.button}>
               <Text style={styles.buttonText}>SIGN UP & CONTINUE</Text>
             </TouchableOpacity>
           </View>

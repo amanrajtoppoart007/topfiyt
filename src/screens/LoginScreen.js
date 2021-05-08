@@ -207,7 +207,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   inputBox: {
-    marginVertical: 5,
+    height: 70,
+    marginVertical: 15,
   },
   labelWrapper: {
     marginBottom: 5,

@@ -5,6 +5,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
+
+import AddProfileScreen from '../screens/AddProfileScreen';
 import ScreenSettings from './ScreenSettings';
 
 const Stack = createStackNavigator();
@@ -23,6 +25,11 @@ const AuthNavigator = () => (
     <Stack.Screen
       name="Register"
       component={RegisterScreen}
+      options={ScreenSettings}
+    />
+    <Stack.Screen
+      name="AddProfile"
+      component={AddProfileScreen}
       options={ScreenSettings}
     />
   </Stack.Navigator>
