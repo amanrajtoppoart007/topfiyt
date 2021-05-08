@@ -21,12 +21,21 @@ class RegisterScreen extends Component {
     this.state = {
       email: '',
       password: '',
+      confirmPassword: '',
       remember: false,
-      secureTextEntry: true,
+      passwordSecureText: true,
+      confirmPasswordSecureText: true,
     };
   }
-  toggleSecureInput = () => {
-    this.setState({secureTextEntry: !this.state.secureTextEntry});
+
+  toggleSecureInput = input => {
+    if (input === 'password') {
+      this.setState({passwordSecureText: !this.state.passwordSecureText});
+    } else if (input === 'confirmPassword') {
+      this.setState({
+        confirmPasswordSecureText: !this.state.confirmPasswordSecureText,
+      });
+    }
   };
   render() {
     return (
@@ -124,16 +133,16 @@ class RegisterScreen extends Component {
                 )}
                 rightIcon={() => (
                   <TouchableOpacity
-                    onPress={() => this.toggleSecureInput()}
+                    onPress={() => this.toggleSecureInput('password')}
                     style={{marginHorizontal: 5}}>
                     <Ionicons
-                      name={this.state.secureTextEntry ? 'eye' : 'eye-off'}
+                      name={this.state.passwordSecureText ? 'eye' : 'eye-off'}
                       size={17}
                       color={Colors.primary}
                     />
                   </TouchableOpacity>
                 )}
-                secureTextEntry={this.state.secureTextEntry}
+                secureTextEntry={this.state.passwordSecureText}
                 placeholder={'Enter you password'}
                 inputContainerStyle={styles.inputContainerStyle}
                 style={styles.input}
@@ -143,7 +152,7 @@ class RegisterScreen extends Component {
 
             <View style={styles.inputBox}>
               <View style={styles.labelWrapper}>
-                <Text style={styles.label}>Password</Text>
+                <Text style={styles.label}>Confirm Password</Text>
               </View>
               <Input
                 leftIcon={() => (
@@ -156,16 +165,18 @@ class RegisterScreen extends Component {
                 )}
                 rightIcon={() => (
                   <TouchableOpacity
-                    onPress={() => this.toggleSecureInput()}
+                    onPress={() => this.toggleSecureInput('confirmPassword')}
                     style={{marginHorizontal: 5}}>
                     <Ionicons
-                      name={this.state.secureTextEntry ? 'eye' : 'eye-off'}
+                      name={
+                        this.state.confirmPasswordSecureText ? 'eye' : 'eye-off'
+                      }
                       size={17}
                       color={Colors.primary}
                     />
                   </TouchableOpacity>
                 )}
-                secureTextEntry={this.state.secureTextEntry}
+                secureTextEntry={this.state.confirmPasswordSecureText}
                 placeholder={'Confirm Password'}
                 inputContainerStyle={styles.inputContainerStyle}
                 style={styles.input}
@@ -259,13 +270,13 @@ const styles = StyleSheet.create({
     color: Colors.white,
   },
   nameInputContainerStyle: {
-    width: 167,
+    width: 161,
     height: 40,
     borderRadius: 5,
     backgroundColor: Colors.white,
   },
   nameInput: {
-    width: 167,
+    width: 161,
     height: 40,
     borderRadius: 5,
     fontFamily: Font.PoppinsRegular,
