@@ -53,17 +53,18 @@ class LoginScreen extends Component {
                   <Text style={styles.label}>Email</Text>
                 </View>
                 <Input
+                  multiline={false}
                   leftIcon={() => (
                     <FontAwesome
-                      style={{marginHorizontal: 10}}
+                      style={{marginLeft: 10}}
                       name={'envelope-o'}
-                      size={17}
+                      size={18}
                       color={Colors.primary}
                     />
                   )}
                   placeholder={'Enter your email'}
                   inputContainerStyle={styles.inputContainerStyle}
-                  style={styles.input}
+                  style={[styles.input, {paddingTop: 5}]}
                   placeholderTextColor={Colors.mutedText}
                 />
               </View>
@@ -74,9 +75,9 @@ class LoginScreen extends Component {
                 <Input
                   leftIcon={() => (
                     <Ionicons
-                      style={{marginHorizontal: 10}}
+                      style={{marginLeft: 10}}
                       name={'lock-closed-outline'}
-                      size={17}
+                      size={18}
                       color={Colors.primary}
                     />
                   )}
@@ -86,7 +87,7 @@ class LoginScreen extends Component {
                       style={{marginHorizontal: 5}}>
                       <Ionicons
                         name={this.state.secureTextEntry ? 'eye' : 'eye-off'}
-                        size={17}
+                        size={18}
                         color={Colors.primary}
                       />
                     </TouchableOpacity>
@@ -99,24 +100,26 @@ class LoginScreen extends Component {
                 />
               </View>
             </KeyboardAvoidingView>
-            <View style={styles.extraSection}>
-              <View>
-                <CheckBox
-                  onPress={() =>
-                    this.setState({remember: !this.state.remember})
-                  }
-                  containerStyle={styles.checkboxContainer}
-                  uncheckedColor={Colors.primaryLight}
-                  checkedColor={Colors.primaryLight}
-                  textStyle={styles.text}
-                  title="Remember me"
-                  checked={this.state.remember}
-                />
-              </View>
-              <View>
-                <TouchableOpacity>
-                  <Text style={styles.text}>Forgot Password ?</Text>
-                </TouchableOpacity>
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+              <View style={styles.extraSection}>
+                <View>
+                  <CheckBox
+                    onPress={() =>
+                      this.setState({remember: !this.state.remember})
+                    }
+                    containerStyle={styles.checkboxContainer}
+                    uncheckedColor={Colors.primaryLight}
+                    checkedColor={Colors.primaryLight}
+                    textStyle={styles.text}
+                    title="Remember me"
+                    checked={this.state.remember}
+                  />
+                </View>
+                <View>
+                  <TouchableOpacity>
+                    <Text style={styles.text}>Forgot Password ?</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
             <View style={styles.buttonSection}>
@@ -143,13 +146,7 @@ class LoginScreen extends Component {
                 />
               </View>
             </View>
-            <View
-              style={{
-                marginTop: 30,
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
+            <View style={styles.registerSection}>
               <Text style={styles.registerText}>Don't have an account ? </Text>
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate('Register')}>
@@ -207,7 +204,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   inputBox: {
-    height: 70,
+    height: 65,
     marginVertical: 15,
   },
   labelWrapper: {
@@ -224,6 +221,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 5,
     backgroundColor: Colors.white,
+    alignItems: 'center',
   },
   input: {
     width: 342,
@@ -232,12 +230,16 @@ const styles = StyleSheet.create({
     fontFamily: Font.PoppinsRegular,
     fontSize: 12,
     color: Colors.primary,
+    paddingTop: 0,
+    paddingBottom: 0,
+    textAlignVertical: 'center',
   },
   extraSection: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginHorizontal: 10,
+    width: 360,
+    paddingRight: 10,
   },
   checkboxContainer: {
     backgroundColor: 'transparent',
@@ -304,6 +306,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.white,
     marginHorizontal: 3,
+  },
+  registerSection: {
+    marginTop: 30,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
