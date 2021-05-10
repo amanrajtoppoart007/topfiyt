@@ -65,7 +65,7 @@ class RegisterScreen extends Component {
                 <Input
                   leftIcon={() => (
                     <FontAwesome
-                      style={{marginHorizontal: 10}}
+                      style={{marginLeft: 10}}
                       name={'user-o'}
                       size={17}
                       color={Colors.primary}
@@ -73,7 +73,7 @@ class RegisterScreen extends Component {
                   )}
                   placeholder={'Your First Name'}
                   inputContainerStyle={styles.nameInputContainerStyle}
-                  style={styles.nameInput}
+                  inputStyle={[styles.nameInput, {marginTop: 8}]}
                   placeholderTextColor={Colors.mutedText}
                 />
               </View>
@@ -85,7 +85,7 @@ class RegisterScreen extends Component {
                 <Input
                   leftIcon={() => (
                     <FontAwesome
-                      style={{marginHorizontal: 10}}
+                      style={{marginLeft: 10}}
                       name={'user-o'}
                       size={17}
                       color={Colors.primary}
@@ -93,7 +93,7 @@ class RegisterScreen extends Component {
                   )}
                   placeholder={'Your Last Name'}
                   inputContainerStyle={styles.nameInputContainerStyle}
-                  style={styles.nameInput}
+                  inputStyle={[styles.nameInput, {marginTop: 8}]}
                   placeholderTextColor={Colors.mutedText}
                 />
               </View>
@@ -106,7 +106,7 @@ class RegisterScreen extends Component {
               <Input
                 leftIcon={() => (
                   <FontAwesome
-                    style={{marginHorizontal: 10}}
+                    style={{marginLeft: 10}}
                     name={'envelope-o'}
                     size={17}
                     color={Colors.primary}
@@ -114,7 +114,7 @@ class RegisterScreen extends Component {
                 )}
                 placeholder={'Enter your email'}
                 inputContainerStyle={styles.inputContainerStyle}
-                style={styles.input}
+                inputStyle={[styles.input, {marginTop: 8}]}
                 placeholderTextColor={Colors.mutedText}
               />
             </View>
@@ -125,7 +125,7 @@ class RegisterScreen extends Component {
               <Input
                 leftIcon={() => (
                   <Ionicons
-                    style={{marginHorizontal: 10}}
+                    style={{marginLeft: 10}}
                     name={'lock-closed-outline'}
                     size={17}
                     color={Colors.primary}
@@ -145,7 +145,7 @@ class RegisterScreen extends Component {
                 secureTextEntry={this.state.passwordSecureText}
                 placeholder={'Enter you password'}
                 inputContainerStyle={styles.inputContainerStyle}
-                style={styles.input}
+                inputStyle={styles.input}
                 placeholderTextColor={Colors.mutedText}
               />
             </View>
@@ -157,7 +157,7 @@ class RegisterScreen extends Component {
               <Input
                 leftIcon={() => (
                   <Ionicons
-                    style={{marginHorizontal: 10}}
+                    style={{marginLeft: 10}}
                     name={'lock-closed-outline'}
                     size={17}
                     color={Colors.primary}
@@ -179,7 +179,7 @@ class RegisterScreen extends Component {
                 secureTextEntry={this.state.confirmPasswordSecureText}
                 placeholder={'Confirm Password'}
                 inputContainerStyle={styles.inputContainerStyle}
-                style={styles.input}
+                inputStyle={styles.input}
                 placeholderTextColor={Colors.mutedText}
               />
             </View>
