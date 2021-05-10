@@ -24,10 +24,20 @@ class LoginScreen extends Component {
       remember: false,
       secureTextEntry: true,
     };
+    this.passwordInput = React.createRef();
   }
   toggleSecureInput = () => {
     this.setState({secureTextEntry: !this.state.secureTextEntry});
+    this.passwordInput.current.setNativeProps({
+      inputStyle: styles.input,
+    });
   };
+  componentDidMount() {
+    this.passwordInput.current.setNativeProps({
+      inputStyle: styles.input,
+    });
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -64,7 +74,7 @@ class LoginScreen extends Component {
                   )}
                   placeholder={'Enter your email'}
                   inputContainerStyle={styles.inputContainerStyle}
-                  style={[styles.input, {paddingTop: 5}]}
+                  inputStyle={[styles.input, {paddingTop: 5}]}
                   placeholderTextColor={Colors.mutedText}
                 />
               </View>
@@ -73,6 +83,7 @@ class LoginScreen extends Component {
                   <Text style={styles.label}>Password</Text>
                 </View>
                 <Input
+                  ref={this.passwordInput}
                   leftIcon={() => (
                     <Ionicons
                       style={{marginLeft: 10}}
@@ -95,7 +106,7 @@ class LoginScreen extends Component {
                   secureTextEntry={this.state.secureTextEntry}
                   placeholder={'Enter you password'}
                   inputContainerStyle={styles.inputContainerStyle}
-                  style={styles.input}
+                  inputStyle={styles.input}
                   placeholderTextColor={Colors.mutedText}
                 />
               </View>
