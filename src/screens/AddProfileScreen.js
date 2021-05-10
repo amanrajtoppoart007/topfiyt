@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
+import CountrySelect from "../components/Register/CountrySelect";
 
 class AddProfileScreen extends Component {
   constructor(props) {
@@ -86,11 +87,12 @@ class AddProfileScreen extends Component {
             <Text style={styles.title}>Create your profile</Text>
             <View>
               <Text style={styles.title}>Nationality</Text>
+              <CountrySelect />
             </View>
             <View>
               {this.state.list.map((item, index) => {
                 return (
-                  <View style={styles.cardWrapper}>
+                  <View key={item.id} style={styles.cardWrapper}>
                     <TouchableOpacity
                       onPress={() => this.toggleSelection(index)}
                       style={
@@ -98,7 +100,15 @@ class AddProfileScreen extends Component {
                           ? styles.activeCard
                           : styles.card
                       }>
-                      <Text style={styles.cardTitle}>{item.title}</Text>
+                      <Text
+                        style={[
+                          styles.cardTitle,
+                          this.state.list[index].selected
+                            ? {color: Colors.black}
+                            : {},
+                        ]}>
+                        {item.title}
+                      </Text>
                     </TouchableOpacity>
                   </View>
                 );
