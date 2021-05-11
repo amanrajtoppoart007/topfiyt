@@ -9,6 +9,7 @@ import RegisterScreen from '../screens/RegisterScreen';
 import AddProfileScreen from '../screens/AddProfileScreen';
 import AddPersonalDetailScreen from '../screens/AddPersonalDetailScreen';
 import JobListingScreen from '../screens/JobListingScreen';
+import AddWorkScreen from "../screens/AddWorkScreen";
 import ScreenSettings from './ScreenSettings';
 
 const Stack = createStackNavigator();
@@ -42,6 +43,11 @@ const AuthNavigator = () => (
     <Stack.Screen
       name="JobListing"
       component={JobListingScreen}
+      options={ScreenSettings}
+    />
+    <Stack.Screen
+      name="AddWork"
+      component={AddWorkScreen}
       options={ScreenSettings}
     />
   </Stack.Navigator>

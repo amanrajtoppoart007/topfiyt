@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import { Picker, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Colors from '../layout/Colors';
 
 import Shapes from '../components/PersonalDetails/Shapes';
@@ -10,6 +10,9 @@ import CountrySelect from '../components/CountrySelect';
 import StateSelect from '../components/StateSelect';
 import AddressTextArea from '../components/AddressTextArea';
 import Layout from '../layout/Layout';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Input} from 'react-native-elements';
 
 class AddPersonalDetailScreen extends Component {
   render() {
@@ -45,6 +48,76 @@ class AddPersonalDetailScreen extends Component {
               <Text style={styles.label}>Address</Text>
             </View>
             <AddressTextArea />
+          </View>
+          <View style={styles.row}>
+            <View>
+              <View style={[styles.labelWrapper, {paddingLeft: 10}]}>
+                <Text style={styles.label}>Mobile</Text>
+              </View>
+              <Input
+                leftIcon={() => (
+                  <Ionicons
+                    style={{marginLeft: 10}}
+                    name={'ios-call-outline'}
+                    size={17}
+                    color={Colors.primary}
+                  />
+                )}
+                placeholder={'Your Mobile No.'}
+                inputContainerStyle={styles.rowInputContainerStyle}
+                inputStyle={[styles.rowInput, {marginTop: 8}]}
+                placeholderTextColor={Colors.mutedText}
+              />
+            </View>
+            <View>
+              <View style={[styles.labelWrapper, {paddingLeft: 10}]}>
+                <Text style={styles.label}>Pincode</Text>
+              </View>
+              <Input
+                leftIcon={() => (
+                  <Ionicons
+                    style={{marginLeft: 10}}
+                    name={'location-outline'}
+                    size={17}
+                    color={Colors.primary}
+                  />
+                )}
+                placeholder={'Your Pincode'}
+                inputContainerStyle={styles.rowInputContainerStyle}
+                inputStyle={[styles.rowInput, {marginTop: 8}]}
+                placeholderTextColor={Colors.mutedText}
+              />
+            </View>
+          </View>
+
+          <View>
+            <View style={styles.labelWrapper}>
+              <Text style={styles.label}>Profile</Text>
+            </View>
+            <View style={styles.pickerContainerStyle}>
+              <Picker
+                style={styles.pickerStyle}
+                itemStyle={styles.pickerItemStyle}>
+                <Picker.Item label="Actor" value="actor" />
+                <Picker.Item label="Singer" value="singer" />
+                <Picker.Item label="Dancer" value="dancer" />
+              </Picker>
+            </View>
+          </View>
+
+          <View style={styles.buttonSection}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('AddWork')}
+              style={styles.button}>
+              <Text style={styles.buttonText}>CONTINUE</Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('AddWork')}
+              style={styles.skipButton}>
+              <Text style={styles.skipText}>Skip</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </SafeAreaView>
@@ -84,6 +157,79 @@ const styles = StyleSheet.create({
   },
   labelWrapper: {
     marginVertical: 5,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 0,
+    margin: 0,
+  },
+  rowInputBox: {
+    marginVertical: 5,
+    height: 65,
+  },
+  rowInputContainerStyle: {
+    width: 175,
+    height: 40,
+    borderRadius: 5,
+    backgroundColor: Colors.white,
+  },
+  rowInput: {
+    width: 161,
+    height: 40,
+    borderRadius: 5,
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 12,
+    color: Colors.primary,
+  },
+  pickerContainerStyle: {
+    width: 373,
+    height: 40,
+    borderRadius: 5,
+    backgroundColor: Colors.white,
+  },
+  pickerStyle: {
+    width: 373,
+    height: 40,
+    borderRadius: 5,
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 12,
+    color: Colors.mutedText,
+  },
+  pickerItemStyle: {
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 12,
+    color: Colors.mutedText,
+  },
+  buttonSection: {
+    marginVertical: 25,
+  },
+  button: {
+    width: 373,
+    height: 40,
+    borderRadius: 5,
+    backgroundColor: Colors.primaryLight,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontFamily: Font.PoppinsSemiBold,
+    fontSize: 16,
+    color: Colors.white,
+    fontWeight: 'bold',
+  },
+  skipButton: {
+    width: 373,
+    height: 40,
+    paddingHorizontal: 3,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+  },
+  skipText: {
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 16,
+    color: Colors.white,
   },
 });
 
