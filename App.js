@@ -8,6 +8,8 @@ import Colors from './src/layout/Colors';
 import Layout from './src/layout/Layout';
 import Theme from './src/navigation/Theme';
 import {ImageBackground} from 'react-native';
+import JobCard from './src/components/JobListing/JobCard';
+import JobListing from './src/components/JobListing/JobListing';
 
 export default class App extends React.Component {
   state = {
@@ -48,7 +50,9 @@ export default class App extends React.Component {
     return (
       <SafeAreaProvider>
         <NavigationContainer theme={Theme}>
-          <AuthNavigator />
+          {/* <AuthNavigator /> */}
+          {/* <JobCard/> */}
+          <JobListing/>
         </NavigationContainer>
       </SafeAreaProvider>
     );
