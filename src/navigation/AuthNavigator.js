@@ -7,6 +7,8 @@ import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 
 import AddProfileScreen from '../screens/AddProfileScreen';
+import AddPersonalDetailScreen from '../screens/AddPersonalDetailScreen';
+import JobListingScreen from '../screens/JobListingScreen';
 import ScreenSettings from './ScreenSettings';
 
 const Stack = createStackNavigator();
@@ -30,6 +32,16 @@ const AuthNavigator = () => (
     <Stack.Screen
       name="AddProfile"
       component={AddProfileScreen}
+      options={ScreenSettings}
+    />
+    <Stack.Screen
+      name="AddPersonalDetail"
+      component={AddPersonalDetailScreen}
+      options={ScreenSettings}
+    />
+    <Stack.Screen
+      name="JobListing"
+      component={JobListingScreen}
       options={ScreenSettings}
     />
   </Stack.Navigator>

@@ -1,25 +1,26 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {BottomSheet, ListItem, Avatar} from 'react-native-elements';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Colors from '../../layout/Colors';
-import countries from '../../utils/countries';
+import Colors from '../layout/Colors';
+import states from '../utils/states';
 
-import CountryIcon from '../../assets/images/icons/country.svg';
-import Font from '../../layout/Font';
+import CountryIcon from '../assets/images/icons/country.svg';
+import Font from '../layout/Font';
 
-class CountrySelect extends Component {
+class StateSelect extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isVisible: false,
-      country: null,
+      selected: null,
+      states: states,
     };
   }
 
-  selectCountry(country) {
-    this.setState({country});
+  select(selection) {
+    this.setState({selected: selection});
     this.toggleSelect();
   }
   toggleSelect() {
@@ -28,20 +29,24 @@ class CountrySelect extends Component {
   render() {
     return (
       <View>
-        <Pressable
+        <TouchableOpacity
           onPress={() => this.toggleSelect()}
-          style={styles.selectContainer}>
+          style={
+            this.props.containerStyle
+              ? [styles.selectContainer, this.props.containerStyle]
+              : styles.selectContainer
+          }>
           <View style={styles.iconWrapper}>
             <CountryIcon width={25} height={25} />
           </View>
           <View>
             <Text
               style={
-                this.state.country
-                  ? styles.selectedCountryText
-                  : styles.countryPlaceHolderText
+                this.state.selected
+                  ? styles.selectedOptionText
+                  : styles.placeHolderText
               }>
-              {this.state.country ?? 'Select Country'}
+              {this.state.selected ?? 'Select State'}
             </Text>
           </View>
           <View style={styles.iconWrapper}>
@@ -51,7 +56,7 @@ class CountrySelect extends Component {
               size={25}
             />
           </View>
-        </Pressable>
+        </TouchableOpacity>
         <BottomSheet
           isVisible={this.state.isVisible}
           containerStyle={{
@@ -60,7 +65,7 @@ class CountrySelect extends Component {
           }}>
           <ListItem
             bottomDivider
-            key={'country-list-item-select'}
+            key={'state-list-item-select'}
             containerStyle={{backgroundColor: Colors.primary}}>
             <ListItem.Content
               style={{justifyContent: 'center', alignItems: 'flex-end'}}>
@@ -75,11 +80,11 @@ class CountrySelect extends Component {
               />
             </ListItem.Content>
           </ListItem>
-          {countries.map((item, index) => (
+          {this.state.states.map((item, index) => (
             <ListItem
               bottomDivider
-              onPress={() => this.selectCountry(item.name)}
-              key={`country-list-item-${index}`}
+              onPress={() => this.select(item.name)}
+              key={`state-list-item-${index}`}
               containerStyle={{backgroundColor: Colors.primary}}>
               <ListItem.Content>
                 <ListItem.Title style={{color: 'white'}}>
@@ -102,12 +107,12 @@ const styles = StyleSheet.create({
   iconWrapper: {
     paddingHorizontal: 10,
   },
-  countryPlaceHolderText: {
+  placeHolderText: {
     fontFamily: Font.PoppinsRegular,
     fontSize: 12,
     color: Colors.mutedText,
   },
-  selectedCountryText: {
+  selectedOptionText: {
     fontFamily: Font.PoppinsRegular,
     fontSize: 12,
     color: Colors.black,
@@ -122,6 +127,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-CountrySelect.propTypes = {};
+StateSelect.propTypes = {
+  selectContainerStyles: PropTypes.object,
+};
 
-export default CountrySelect;
+export default StateSelect;

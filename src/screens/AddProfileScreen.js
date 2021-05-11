@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
-import CountrySelect from "../components/Register/CountrySelect";
+import CountrySelect from '../components/CountrySelect';
 
 class AddProfileScreen extends Component {
   constructor(props) {
@@ -85,7 +85,7 @@ class AddProfileScreen extends Component {
           </View>
           <View style={styles.inputBoxContainer}>
             <Text style={styles.title}>Create your profile</Text>
-            <View>
+            <View style={{marginTop: 25, marginBottom: 10}}>
               <Text style={styles.title}>Nationality</Text>
               <CountrySelect />
             </View>
@@ -115,12 +115,18 @@ class AddProfileScreen extends Component {
               })}
             </View>
             <View style={styles.buttonContainer}>
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity
+                onPress={() =>
+                  this.props.navigation.navigate('JobListing')
+                }
+                style={styles.button}>
                 <Text style={styles.buttonText}>Continue</Text>
               </TouchableOpacity>
             </View>
             <View>
-              <TouchableOpacity style={styles.skipButton}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('JobListing')}
+                style={styles.skipButton}>
                 <Text style={styles.skipText}>Skip</Text>
               </TouchableOpacity>
             </View>
