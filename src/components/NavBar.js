@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import { View, Image, StyleSheet, TextInput, StatusBar } from "react-native";
+import { View, Image, StyleSheet, TextInput, StatusBar, TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from '../assets/images/logo/logo.png';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 
-function Header() {
+function NavBar({navigation}) {
   const [show, setShow] = useState(false);
   const myFun = () => {
     setShow(!show);
@@ -14,36 +14,20 @@ function Header() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View>
-          <Icon style={styles.backArrow} name="keyboard-backspace" />
+        <View style={{width: '10%'}}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Icon style={styles.backArrow} name="keyboard-backspace" />
+          </TouchableOpacity>
         </View>
-
-        <View style={styles.logoView}>
+        <View style={[styles.logoView, {width: '90%', paddingRight: 50}]}>
           <Image style={styles.logo} source={logo} />
         </View>
-
-        <View style={styles.icons}>
-          <Icon onPress={() => myFun()} style={styles.icon} name="search" />
-          <Icon style={styles.icon} name="notifications" />
-          <Icon style={styles.icon} name="filter-list" />
-        </View>
       </View>
-
-      {show ? (
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.inputSearch}
-            placeholderTextColor={'white'}
-            placeholder="Search Jobd"
-          />
-          <Icon style={styles.search} name="search" />
-        </View>
-      ) : null}
     </View>
   );
 }
 
-export default Header;
+export default NavBar;
 
 const styles = StyleSheet.create({
   container: {
@@ -53,7 +37,7 @@ const styles = StyleSheet.create({
   header: {
     height: 48,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     borderWidth: 1,
     borderColor: '#CCCCCC',
     backgroundColor: 'white',
@@ -78,10 +62,12 @@ const styles = StyleSheet.create({
   logoView: {
     marginLeft: 10,
     paddingHorizontal: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   logo: {
-    width: 30,
-    height: 30,
+    width: 24,
+    height: 31,
   },
   inputView: {
     flexDirection: 'row',
