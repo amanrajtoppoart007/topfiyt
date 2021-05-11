@@ -20,7 +20,6 @@ class JobCard extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
         <View style={styles.card}>
           <View>
             <Icon
