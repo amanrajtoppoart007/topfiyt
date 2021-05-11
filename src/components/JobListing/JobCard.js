@@ -1,50 +1,56 @@
-import React, {useState} from 'react';
+import React, {Component} from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import Header from '../Header';
 import action from '../../assets/images/card-images/action.jpg';
 import Colors from '../../layout/Colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import PropTypes from 'prop-types';
 
-function JobCard() {
-  const [color, setColor] = useState(false);
-  const show = () => {
-    setColor(!color);
+class JobCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: false,
+    };
+  }
+
+  show = () => {
+    this.setState({color: !this.state.color});
   };
-  return (
-    <View style={styles.container}>
-      {/* <Header/> */}
-      <View style={styles.card}>
-        <View>
-          <Icon
-            onPress={() => show()}
-            style={color ? styles.heart2 : styles.heart}
-            name="favorite"
-          />
-          <Image style={styles.img} source={action} />
-        </View>
+  render() {
+    return (
+      <View style={styles.container}>
+        <Header />
+        <View style={styles.card}>
+          <View>
+            <Icon
+              onPress={() => this.show()}
+              style={this.state.color ? styles.heart2 : styles.heart}
+              name="favorite"
+            />
+            <Image style={styles.img} source={action} />
+          </View>
 
-        <View style={styles.text}>
-          <Text>ACTOR</Text>
-          <Text>COMPANY NAME</Text>
-        </View>
+          <View style={styles.text}>
+            <Text>ACTOR</Text>
+            <Text>COMPANY NAME</Text>
+          </View>
 
-        <View style={styles.para}>
-          <Text style={styles.paraText}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum is simply dummy
-          </Text>
-        </View>
+          <View style={styles.para}>
+            <Text style={styles.paraText}>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum is simply dummy
+            </Text>
+          </View>
 
-        <TouchableOpacity style={styles.applyView}>
-          <Text style={styles.apply}>APPLY</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.applyView}>
+            <Text style={styles.apply}>APPLY</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
-
-export default JobCard;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -106,3 +112,6 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
 });
+JobCard.propTypes = {};
+
+export default JobCard;

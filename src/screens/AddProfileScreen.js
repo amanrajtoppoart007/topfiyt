@@ -85,7 +85,7 @@ class AddProfileScreen extends Component {
           </View>
           <View style={styles.inputBoxContainer}>
             <Text style={styles.title}>Create your profile</Text>
-            <View style={{marginTop: 25, marginBottom: 10}}>
+            <View style={{marginTop: 15, marginBottom: 10}}>
               <Text style={styles.title}>Nationality</Text>
               <CountrySelect />
             </View>
@@ -117,7 +117,7 @@ class AddProfileScreen extends Component {
             <View style={styles.buttonContainer}>
               <TouchableOpacity
                 onPress={() =>
-                  this.props.navigation.navigate('JobListing')
+                  this.props.navigation.navigate('AddPersonalDetail')
                 }
                 style={styles.button}>
                 <Text style={styles.buttonText}>Continue</Text>
@@ -125,7 +125,9 @@ class AddProfileScreen extends Component {
             </View>
             <View>
               <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('JobListing')}
+                onPress={() =>
+                  this.props.navigation.navigate('AddPersonalDetail')
+                }
                 style={styles.skipButton}>
                 <Text style={styles.skipText}>Skip</Text>
               </TouchableOpacity>
@@ -153,7 +155,7 @@ const styles = StyleSheet.create({
     height: 130,
   },
   inputBoxContainer: {
-    marginVertical: 10,
+    marginVertical: 5,
     marginHorizontal: 15,
   },
   title: {
@@ -187,7 +189,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   buttonContainer: {
-    marginVertical: 30,
+    marginVertical: 15,
   },
   button: {
     width: 343,
