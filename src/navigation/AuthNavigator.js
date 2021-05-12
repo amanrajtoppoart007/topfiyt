@@ -14,12 +14,18 @@ import JobDescriptionScreen from '../screens/JobDescriptionScreen';
 import JobListFilterScreen from '../screens/JobListFilterScreen';
 import FavoriteJobScreen from '../screens/FavoriteJobScreen';
 import JobSearchScreen from '../screens/JobSearchScreen';
+import MyJobScreeen from '../screens/MyJobScreen';
 
 import ScreenSettings from './ScreenSettings';
 
 const Stack = createStackNavigator();
 const AuthNavigator = () => (
   <Stack.Navigator>
+     <Stack.Screen
+      name="MyJob"
+      component={MyJobScreeen}
+      options={{headerShown: false}}
+    />
     <Stack.Screen
       name="Welcome"
       component={WelcomeScreen}

@@ -8,12 +8,6 @@ import Colors from './src/layout/Colors';
 import Layout from './src/layout/Layout';
 import Theme from './src/navigation/Theme';
 import {ImageBackground} from 'react-native';
-import JobCard from './src/components/JobListing/JobCard';
-import JobListing from './src/components/JobListing/JobListing';
-import JobListFilter from './src/components/JobListFilter';
-import JobDescription from './src/components/JobDescription';
-import SuccessfullyApplied from './src/screens/SuccessfullyApplied';
-import MyJob from './src/screens/MyJob';
 
 export default class App extends React.Component {
   state = {
@@ -54,13 +48,7 @@ export default class App extends React.Component {
     return (
       <SafeAreaProvider>
         <NavigationContainer theme={Theme}>
-          {/* <AuthNavigator /> */}
-          {/* <JobCard/> */}
-          {/* <JobListing/> */}
-          {/* <JobListFilter/> */}
-          {/* <JobDescription/> */}
-          {/* <SuccessfullyApplied/> */}
-          <MyJob/>
+          <AuthNavigator />
         </NavigationContainer>
       </SafeAreaProvider>
     );
