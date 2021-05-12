@@ -12,6 +12,8 @@ import JobCard from './src/components/JobListing/JobCard';
 import JobListing from './src/components/JobListing/JobListing';
 import JobListFilter from './src/components/JobListFilter';
 import JobDescription from './src/components/JobDescription';
+import SuccessfullyApplied from './src/screens/SuccessfullyApplied';
+import MyJob from './src/screens/MyJob';
 
 export default class App extends React.Component {
   state = {
@@ -55,8 +57,10 @@ export default class App extends React.Component {
           {/* <AuthNavigator /> */}
           {/* <JobCard/> */}
           {/* <JobListing/> */}
-          <JobListFilter/>
+          {/* <JobListFilter/> */}
           {/* <JobDescription/> */}
+          {/* <SuccessfullyApplied/> */}
+          <MyJob/>
         </NavigationContainer>
       </SafeAreaProvider>
     );
