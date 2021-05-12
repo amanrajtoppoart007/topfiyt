@@ -5,7 +5,7 @@ import logo from '../assets/images/logo/logo.png';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 
-function NavBar({navigation}) {
+function BackButtonNavBar({navigation}) {
   const [show, setShow] = useState(false);
   const myFun = () => {
     setShow(!show);
@@ -27,7 +27,7 @@ function NavBar({navigation}) {
   );
 }
 
-export default NavBar;
+export default BackButtonNavBar;
 
 const styles = StyleSheet.create({
   container: {

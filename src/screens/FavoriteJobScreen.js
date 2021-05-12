@@ -1,9 +1,9 @@
 import React from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import Header from '../components/Header';
 import JobCard from '../components/JobListing/JobCard';
 import Colors from '../layout/Colors';
-class JobListingScreen extends React.Component {
+class FavoriteJobScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default JobListingScreen;
+export default FavoriteJobScreen;

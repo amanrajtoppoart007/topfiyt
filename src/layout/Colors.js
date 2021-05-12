@@ -9,4 +9,5 @@ export default {
   red: '#ff1600',
   selected: '#FFFFFF',
   black: '#000000',
+  transparent: 'transparent',
 };

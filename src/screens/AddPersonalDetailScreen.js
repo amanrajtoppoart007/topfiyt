@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Picker, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {Picker} from '@react-native-picker/picker';
 import Colors from '../layout/Colors';
 
 import Shapes from '../components/PersonalDetails/Shapes';
@@ -10,7 +17,7 @@ import CountrySelect from '../components/CountrySelect';
 import StateSelect from '../components/StateSelect';
 import AddressTextArea from '../components/AddressTextArea';
 import Layout from '../layout/Layout';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Input} from 'react-native-elements';
 
@@ -188,6 +195,8 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 5,
     backgroundColor: Colors.white,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   pickerStyle: {
     width: 373,

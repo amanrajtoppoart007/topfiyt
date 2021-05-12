@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import Header from '../Header';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground,
+} from 'react-native';
+
 import action from '../../assets/images/card-images/action.jpg';
 import Colors from '../../layout/Colors';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import PropTypes from 'prop-types';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Font from '../../layout/Font';
 
 class JobCard extends Component {
   constructor(props) {
@@ -22,28 +28,46 @@ class JobCard extends Component {
       <View style={styles.container}>
         <View style={styles.card}>
           <View>
-            <Icon
-              onPress={() => this.show()}
-              style={this.state.color ? styles.heart2 : styles.heart}
-              name="favorite"
-            />
-            <Image style={styles.img} source={action} />
+            <ImageBackground style={styles.bgImage} source={action}>
+              <View
+                style={{
+                  justifyContent: 'flex-end',
+                  alignItems: 'flex-end',
+                  padding: 10,
+                }}>
+                <FontAwesome
+                  onPress={() => this.show()}
+                  style={styles.heart}
+                  backgroundColor={Colors.white}
+                  name={this.state.color ? 'heart' : 'heart-o'}
+                  solid
+                />
+              </View>
+            </ImageBackground>
           </View>
 
-          <View style={styles.text}>
-            <Text>ACTOR</Text>
-            <Text>COMPANY NAME</Text>
+          <View style={{width: '100%'}}>
+            <View style={styles.textWrapper}>
+              <Text style={styles.title}>
+                {this.props.item ? this.props.item.title ?? 'ACTOR' : 'ACTOR'}
+              </Text>
+              <Text style={styles.title}>
+                {this.props.item
+                  ? this.props.item.companyName ?? 'COMPANY NAME'
+                  : 'COMPANY NAME'}
+              </Text>
+            </View>
           </View>
 
           <View style={styles.para}>
-            <Text style={styles.paraText}>
+            <Text style={styles.text}>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum is simply dummy
             </Text>
           </View>
 
-          <TouchableOpacity style={styles.applyView}>
-            <Text style={styles.apply}>APPLY</Text>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('JobListing')} style={styles.applyButton}>
+            <Text style={styles.applyButtonText}>APPLY</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -54,60 +78,60 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.white,
+    marginVertical: 5,
   },
   card: {
     borderWidth: 1,
-    borderColor: 'transparent',
+    borderColor: Colors.transparent,
     borderRadius: 5,
-    marginHorizontal: 29,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  img: {
+  bgImage: {
     alignSelf: 'center',
-    width: 300,
-    height: 130,
+    width: 380,
+    height: 110,
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
   },
   heart: {
-    position: 'relative',
-    top: 30,
-    left: 270,
-    fontSize: 25,
-    color: 'white',
-    zIndex: 1,
-  },
-  heart2: {
-    position: 'relative',
-    top: 30,
-    left: 270,
-    fontSize: 25,
+    fontSize: 30,
+    width: 30,
+    height: 30,
     color: Colors.primary,
-    zIndex: 1,
   },
-  text: {
+  textWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 5,
     marginHorizontal: 10,
   },
+  title: {
+    fontFamily: Font.PoppinsSemiBold,
+    fontSize: 14,
+    color: Colors.black,
+    textTransform: 'uppercase',
+  },
+  text: {
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 14,
+    color: Colors.mutedText,
+  },
   para: {
     marginHorizontal: 10,
     marginVertical: 10,
   },
-  paraText: {
-    fontSize: 12,
-    letterSpacing: 0.6,
-  },
-  applyView: {
+  applyButton: {
+    width: 380,
+    height: 30,
     backgroundColor: Colors.primary,
     borderBottomRightRadius: 5,
     borderBottomLeftRadius: 5,
   },
-  apply: {
+  applyButtonText: {
     textAlign: 'center',
     color: 'white',
     borderRadius: 5,
-
     paddingVertical: 4,
   },
 });
