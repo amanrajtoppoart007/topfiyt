@@ -1,35 +1,35 @@
 import React, {Component} from 'react';
-import {Image, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
-import tick from '../assets/images/logo/tick.png';
+import Success from '../assets/images/svg/success.svg';
 
 export default class ConfirmationScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text />
-        <Text />
-        <Text />
-        <Text />
-        <View style={styles.tickView}>
-          <Image style={styles.tick} source={tick} />
+        <View style={styles.wrapper}>
+          <View style={styles.center}>
+            <Success width={150} height={150} />
+          </View>
+          <View style={styles.center}>
+            <Text style={styles.successText}>SUCCESS !</Text>
+          </View>
+          <View style={[styles.center, styles.textWrapper]}>
+            <Text style={styles.text}>
+              You have successfully applied for the Job position. Our
+              representative will contact you shortly.
+            </Text>
+          </View>
+          <View style={[styles.center, styles.textWrapper]}>
+            <Text style={styles.text}>Want to apply for another job?</Text>
+          </View>
+          <View style={[styles.center, {marginTop: 20}]}>
+            <TouchableOpacity style={styles.homeButton}>
+              <Text style={styles.homeButtonText}>Back to Home</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-
-        <View>
-          <Text style={styles.successText}>SUCCESS !</Text>
-        </View>
-
-        <Text style={styles.text}>
-          You have successfully applied for the Job position. Our representative
-          will contact you shortly.
-        </Text>
-
-        <Text style={styles.text}>Want to apply for another job?</Text>
-
-        <TouchableOpacity style={styles.homeView}>
-          <Text style={styles.home}>Back to Home</Text>
-        </TouchableOpacity>
       </View>
     );
   }
@@ -38,48 +38,45 @@ export default class ConfirmationScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     height: '100%',
-    backgroundColor: 'white',
-    // alignSelf : 'center'
+    backgroundColor: Colors.white,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  tickView: {
-    alignSelf: 'center',
-    marginTop: 30,
-    borderWidth: 2,
-    borderRadius: 360,
-    borderStyle: 'dashed',
-    borderColor: Colors.primary,
-    height: 150,
-    width: 150,
+  wrapper: {
+    padding: 15,
   },
-  tick: {
-    alignSelf: 'center',
-    marginVertical: 38,
+  center: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   successText: {
-    alignSelf: 'center',
+    fontFamily: Font.PoppinsLight,
     fontSize: 25,
+    color: Colors.primary,
+    fontWeight: 'bold',
     marginTop: 30,
     marginBottom: 10,
-    marginLeft: -20,
-    letterSpacing: 1,
-    color: Colors.primary,
   },
-  text: {
-    fontSize: 14,
-    textAlign: 'center',
+  textWrapper: {
     marginVertical: 10,
     marginHorizontal: 20,
+  },
+  text: {
     fontFamily: Font.PoppinsRegular,
+    fontSize: 14,
+    color: Colors.grayText,
+    textAlign: 'center',
   },
-  homeView: {
-    alignSelf: 'center',
-    // borderWidth : 1,
+  homeButton: {
+    width: 160,
+    height: 40,
     backgroundColor: Colors.primary,
-    marginTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  home: {
-    margin: 10,
-    marginHorizontal: 25,
-    color: 'white',
+  homeButtonText: {
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 14,
+    color: Colors.white,
   },
 });

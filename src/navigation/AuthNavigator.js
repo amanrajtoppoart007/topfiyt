@@ -14,7 +14,8 @@ import JobDescriptionScreen from '../screens/JobDescriptionScreen';
 import JobListFilterScreen from '../screens/JobListFilterScreen';
 import FavoriteJobScreen from '../screens/FavoriteJobScreen';
 import JobSearchScreen from '../screens/JobSearchScreen';
-import MyJobScreeen from '../screens/MyJobScreen';
+import MyJobScreen from '../screens/MyJobScreen';
+import ConfirmationScreen from '../screens/ConfirmationScreen';
 
 import ScreenSettings from './ScreenSettings';
 
@@ -22,8 +23,13 @@ const Stack = createStackNavigator();
 const AuthNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen
+      name="Confirmation"
+      component={ConfirmationScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
       name="MyJob"
-      component={MyJobScreeen}
+      component={MyJobScreen}
       options={{headerShown: false}}
     />
     <Stack.Screen
