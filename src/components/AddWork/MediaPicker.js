@@ -14,15 +14,7 @@ class MediaPicker extends Component {
             <Text style={styles.label}>Add Videos </Text>
           </View>
           <View style={{marginHorizontal: 10}}>
-            <View
-              style={{
-                width: 50,
-                height: 50,
-                borderRadius: 5,
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: Colors.white,
-              }}>
+            <View style={styles.button}>
               <FontAwesome5 name={'plus'} size={24} color={Colors.mutedText} />
             </View>
           </View>
@@ -32,15 +24,7 @@ class MediaPicker extends Component {
             <Text style={styles.label}>Add Photo</Text>
           </View>
           <View style={{marginHorizontal: 10}}>
-            <View
-              style={{
-                width: 50,
-                height: 50,
-                borderRadius: 5,
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: Colors.white,
-              }}>
+            <View style={styles.button}>
               <FontAwesome5 name={'plus'} size={24} color={Colors.mutedText} />
             </View>
           </View>
@@ -71,22 +55,13 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     height: 65,
   },
-  inputContainerStyle: {
-    width: 342,
-    height: 40,
+  button: {
+    width: 50,
+    height: 50,
     borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: Colors.white,
-    padding: 0,
-    margin: 0,
-  },
-  input: {
-    width: 342,
-    height: 40,
-    borderRadius: 5,
-    fontFamily: Font.PoppinsRegular,
-    fontSize: 12,
-    color: Colors.primary,
-    paddingHorizontal: 10,
   },
 });
 

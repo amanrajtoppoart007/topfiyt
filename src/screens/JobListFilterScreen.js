@@ -3,7 +3,7 @@ import {ScrollView, StyleSheet, View} from 'react-native';
 import Header from '../components/Header';
 import JobCard from '../components/JobListing/JobCard';
 import Colors from '../layout/Colors';
-class JobListingScreen extends React.Component {
+class JobListFilterScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,7 +57,7 @@ class JobListingScreen extends React.Component {
         </View>
       </View>
     );
-  };
+  }
 }
 
 const styles = StyleSheet.create({
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default JobListingScreen;
+export default JobListFilterScreen;

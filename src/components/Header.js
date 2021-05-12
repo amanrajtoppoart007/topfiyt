@@ -1,46 +1,106 @@
-import React, {useState} from 'react';
-import { View, Image, StyleSheet, TextInput, StatusBar } from "react-native";
+import React from 'react';
+import {
+  View,
+  Image,
+  StyleSheet,
+  TextInput,
+  StatusBar,
+  TouchableOpacity,
+} from 'react-native';
+import {Overlay} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from '../assets/images/logo/logo.png';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
+import Layout from '../layout/Layout';
 
-function Header() {
-  const [show, setShow] = useState(false);
-  const myFun = () => {
-    setShow(!show);
+import Filter from './Filter';
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: false,
+      filter: false,
+    };
+  }
+  toggleSearch = () => {
+    this.setState({search: !this.state.search});
   };
+  toggleFilter = () => {
+    this.setState({filter: !this.state.filter});
+  };
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View>
+            <Icon style={styles.backArrow} name="keyboard-backspace" />
+          </View>
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View>
-          <Icon style={styles.backArrow} name="keyboard-backspace" />
-        </View>
+          <View style={styles.logoView}>
+            <Image style={styles.logo} source={logo} />
+          </View>
 
-        <View style={styles.logoView}>
-          <Image style={styles.logo} source={logo} />
+          <View style={styles.icons}>
+            <Icon
+              onPress={() => this.toggleSearch()}
+              style={styles.icon}
+              name="search"
+            />
+            <Icon style={styles.icon} name="notifications" />
+            <Icon
+              style={styles.icon}
+              onPress={() => this.toggleFilter()}
+              name="filter-list"
+            />
+          </View>
         </View>
+        {this.state.search && (
+          <Overlay
+            fullScreen={true}
+            overlayStyle={{
+              padding: 0,
+              margin: 0,
+              marginTop: 70 + StatusBar.currentHeight,
+              backgroundColor: Colors.transparent,
+            }}
+            backdropStyle={{
+              marginTop: 50 + StatusBar.currentHeight,
+            }}
+            isVisible={this.state.search}
+            onBackdropPress={() => this.toggleSearch()}>
+            <View style={styles.inputView}>
+              <View style={{width: '80%'}}>
+                <TextInput
+                  style={styles.inputSearch}
+                  placeholderTextColor={'white'}
+                  placeholder="Search Job"
+                />
+              </View>
 
-        <View style={styles.icons}>
-          <Icon onPress={() => myFun()} style={styles.icon} name="search" />
-          <Icon style={styles.icon} name="notifications" />
-          <Icon style={styles.icon} name="filter-list" />
-        </View>
+              <TouchableOpacity
+                style={styles.search}
+                onPress={() => this.toggleSearch()}>
+                <Icon size={18} color={Colors.white} name="search" />
+              </TouchableOpacity>
+            </View>
+          </Overlay>
+        )}
+
+        {this.state.filter && (
+          <Overlay
+            overlayStyle={{
+              backgroundColor: Colors.transparent,
+            }}
+            fullScreen={true}
+            isVisible={this.state.filter}
+            onBackdropPress={() => this.toggleFilter()}>
+            <Filter toggleFilter={() => this.toggleFilter()} />
+          </Overlay>
+        )}
       </View>
-
-      {show ? (
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.inputSearch}
-            placeholderTextColor={'white'}
-            placeholder="Search Jobd"
-          />
-          <Icon style={styles.search} name="search" />
-        </View>
-      ) : null}
-    </View>
-  );
+    );
+  }
 }
 
 export default Header;
@@ -53,12 +113,11 @@ const styles = StyleSheet.create({
   header: {
     height: 48,
     flexDirection: 'row',
-    justifyContent: 'space-between',
     borderWidth: 1,
     borderColor: '#CCCCCC',
     backgroundColor: 'white',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 15,
   },
   icons: {
     display: 'flex',
@@ -80,25 +139,25 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   logo: {
-    width: 30,
-    height: 30,
+    width: 24,
+    height: 31,
   },
   inputView: {
+    width: Layout.window.width,
+    height: 60,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     zIndex: 1,
     backgroundColor: Colors.primary,
+    paddingHorizontal: 10,
   },
   inputSearch: {
-    textAlign: 'left',
-    fontSize: 18,
-    fontFamily: Font.PoppinsLight,
-    paddingLeft: 15,
+    fontFamily: Font.PoppinsRegular,
+    color: Colors.white,
   },
   search: {
-    fontSize: 25,
-    color: 'white',
+    width: '10%',
     marginRight: 15,
   },
 });
