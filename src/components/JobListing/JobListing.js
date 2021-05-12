@@ -15,8 +15,6 @@ import Font from '../../layout/Font';
 import {Slider} from 'react-native-elements';
 
 export default class JobListing extends Component {
-  
-
   render() {
     return (
       <View style={{flex: 1}}>
@@ -31,8 +29,6 @@ export default class JobListing extends Component {
           <JobCard />
           <JobCard />
         </ScrollView>
-
-       
       </View>
     );
   }
@@ -46,9 +42,9 @@ const styles = StyleSheet.create({
     marginTop: 32,
     //   marginLeft : 30
   },
-//   modal: {
-//     backgroundColor: Colors.primary,
-//   },
+  //   modal: {
+  //     backgroundColor: Colors.primary,
+  //   },
   modalView: {
     //   margin: 20,
     backgroundColor: Colors.primary,
@@ -100,17 +96,17 @@ const styles = StyleSheet.create({
     borderRadius: 1,
     height: 35,
   },
-  salaryView : {
+  salaryView: {
     //   flexDirection : 'column',
     // borderWidth : 1
   },
-  salary : {
+  salary: {
     //   alignSelf : 'flex-start'
   },
-  minMax : {
-      marginTop : 20,
-      display : 'flex',
-      flexDirection : 'row',
-      justifyContent : 'space-evenly'
-  }
+  minMax: {
+    marginTop: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
 });

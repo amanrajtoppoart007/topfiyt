@@ -21,7 +21,7 @@ import ScreenSettings from './ScreenSettings';
 const Stack = createStackNavigator();
 const AuthNavigator = () => (
   <Stack.Navigator>
-     <Stack.Screen
+    <Stack.Screen
       name="MyJob"
       component={MyJobScreeen}
       options={{headerShown: false}}

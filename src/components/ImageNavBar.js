@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, StyleSheet, StatusBar} from 'react-native';
 import logo from '../assets/images/logo/logo.png';
-import Colors from "../layout/Colors";
+import Colors from '../layout/Colors';
 function ImageNavBar() {
   return (
     <View style={styles.container}>
