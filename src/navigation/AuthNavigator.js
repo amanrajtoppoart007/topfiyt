@@ -20,6 +20,7 @@ import UploadResumeScreen from '../screens/UploadResumeScreen';
 
 import ScreenSettings from './ScreenSettings';
 
+
 const Stack = createStackNavigator();
 const AuthNavigator = () => (
   <Stack.Navigator>
