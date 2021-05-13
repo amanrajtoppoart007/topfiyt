@@ -6,6 +6,9 @@ import Font from '../layout/Font'
 import { Switch } from 'react-native-elements';
 
 export default class SettingsScreen extends Component {
+    toggle = () => {
+
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -14,7 +17,10 @@ export default class SettingsScreen extends Component {
             <View >
                 <View style={styles.notification}>
                 <Text style={styles.text}>Notifications</Text>
-                <Switch value={false} color={Font.primary}></Switch>
+                <Switch 
+                onValueChange={this.toggle}
+                value={false} 
+                color={Font.primary}></Switch>
                 </View>
                 <View style={styles.line}/>
             </View>
@@ -49,12 +55,13 @@ const styles = StyleSheet.create({
         fontFamily : Font.PoppinsRegular
     },
     line : {
-        width : '100%',
+        // width : '100%',
         height : 1,
         color : Colors.primary,
         borderWidth : 0.3,
         borderColor : Colors.primary,
         marginBottom : 10,
-        opacity : 0.6
+        opacity : 0.6,
+        marginHorizontal : 15
     }
 })
