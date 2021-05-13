@@ -5,9 +5,9 @@ import Rail from './Helper/Rail';
 import RailSelected from './Helper/RailSelected';
 import Label from './Helper/Label';
 import Notch from './Helper/Notch';
-import {Text,View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import Colors from '../../layout/Colors';
-import Font from "../../layout/Font";
+import Font from '../../layout/Font';
 function CustomRangeSlider() {
   const [low, setLow] = useState(0);
   const [high, setHigh] = useState(100);

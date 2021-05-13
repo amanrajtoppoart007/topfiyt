@@ -14,24 +14,19 @@ import JobDescriptionScreen from '../screens/JobDescriptionScreen';
 import JobListFilterScreen from '../screens/JobListFilterScreen';
 import FavoriteJobScreen from '../screens/FavoriteJobScreen';
 import JobSearchScreen from '../screens/JobSearchScreen';
-import MyJobScreeen from '../screens/MyJobScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import ForumScreen from '../screens/ForumScreen';
-import FeaturedProfessional from '../screens/FeaturedProfessional';
+import MyJobScreen from '../screens/MyJobScreen';
+import ConfirmationScreen from '../screens/ConfirmationScreen';
+import UploadResumeScreen from '../screens/UploadResumeScreen';
+
 import ScreenSettings from './ScreenSettings';
 
 
 const Stack = createStackNavigator();
 const AuthNavigator = () => (
   <Stack.Navigator>
-     <Stack.Screen
-      name="FeaturedProfessional"
-      component={FeaturedProfessional}
-      options={{headerShown: false}}
-    />
-     <Stack.Screen
-      name="MyJob"
-      component={MyJobScreeen}
+    <Stack.Screen
+      name="UploadResume"
+      component={UploadResumeScreen}
       options={{headerShown: false}}
     />
     <Stack.Screen
@@ -88,6 +83,16 @@ const AuthNavigator = () => (
       name="FavoriteJob"
       component={FavoriteJobScreen}
       options={ScreenSettings}
+    />
+    <Stack.Screen
+      name="Confirmation"
+      component={ConfirmationScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="MyJob"
+      component={MyJobScreen}
+      options={{headerShown: false}}
     />
   </Stack.Navigator>
 );

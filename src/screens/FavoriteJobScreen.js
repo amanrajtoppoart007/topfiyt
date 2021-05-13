@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import Header from '../components/Header';
 import JobCard from '../components/JobListing/JobCard';
 import Colors from '../layout/Colors';
@@ -57,7 +57,7 @@ class FavoriteJobScreen extends React.Component {
         </View>
       </View>
     );
-  };
+  }
 }
 
 const styles = StyleSheet.create({

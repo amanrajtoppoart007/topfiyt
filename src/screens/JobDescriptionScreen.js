@@ -72,9 +72,9 @@ export default class JobDescriptionScreen extends Component {
                 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
                 erat, sed diam voluqtua. At vero eos et accusam et justo duo
                 dolorea et ea rebum Lorem ipsum dolor sit amet, consetetur
-                sadipcing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-                et dolore magna aliquyam erat, sed diam voluqtua. At vero eos et
-                accusam et justo duo dolorea et ea rebum
+                sadipcing elitr, sed diam nonumy eirmod tempor invidunt ut
+                labore et dolore magna aliquyam erat, sed diam voluqtua. At vero
+                eos et accusam et justo duo dolorea et ea rebum
               </Text>
             </View>
 

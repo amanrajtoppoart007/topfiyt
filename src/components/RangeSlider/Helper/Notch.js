@@ -1,10 +1,8 @@
-import React, { memo } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, {memo} from 'react';
+import {View, StyleSheet} from 'react-native';
 
 const Notch = props => {
-  return (
-    <View style={styles.root} {...props}/>
-  );
+  return <View style={styles.root} {...props} />;
 };
 
 export default memo(Notch);

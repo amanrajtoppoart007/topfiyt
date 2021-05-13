@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
-import { View, Image, StyleSheet, TextInput, StatusBar, TouchableOpacity } from "react-native";
+import React from 'react';
+import {
+  View,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from '../assets/images/logo/logo.png';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 
 function BackButtonNavBar({navigation}) {
-  const [show, setShow] = useState(false);
-  const myFun = () => {
-    setShow(!show);
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -31,8 +31,7 @@ export default BackButtonNavBar;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight,
-    backgroundColor: 'white',
+    backgroundColor: Colors.white,
   },
   header: {
     height: 48,
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: '#CCCCCC',
-    backgroundColor: 'white',
+    backgroundColor: Colors.white,
     alignItems: 'center',
     paddingHorizontal: 15,
   },
@@ -84,7 +83,7 @@ const styles = StyleSheet.create({
   },
   search: {
     fontSize: 25,
-    color: 'white',
+    color: Colors.white,
     marginRight: 15,
   },
 });
