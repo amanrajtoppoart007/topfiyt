@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import CustomStatusBar from '../components/CustomStatusBar';
 import Colors from '../layout/Colors';
 import Upload from '../assets/images/svg/upload.svg';
