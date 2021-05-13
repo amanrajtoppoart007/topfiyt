@@ -18,16 +18,15 @@ export default ImageNavBar;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight,
-    backgroundColor: 'white',
+    backgroundColor: Colors.white,
   },
   header: {
-    height: 48,
+    height: 44,
     flexDirection: 'row',
-    justifyContent: 'center',
     backgroundColor: Colors.white,
-    alignItems: 'center',
     paddingHorizontal: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   logoView: {
     marginLeft: 10,

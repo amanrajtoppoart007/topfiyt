@@ -34,9 +34,6 @@ class MainHeader extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          {/* <View>
-            <Icon style={styles.backArrow} name="keyboard-backspace" />
-          </View> */}
 
           <View style={{alignItems: 'flex-end'}}>
             <Text style={styles.line1} />
@@ -114,8 +111,7 @@ export default MainHeader;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight,
-    backgroundColor: 'white',
+    backgroundColor: Colors.white,
   },
   header: {
     height: 48,
@@ -133,7 +129,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginLeft: 10,
     marginBottom: 3,
-    borderColor : Colors.primary
+    borderColor: Colors.primary,
   },
   line2: {
     width: 18,
@@ -143,8 +139,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 3,
     color: Colors.primary,
-    borderColor : Colors.primary
-
+    borderColor: Colors.primary,
   },
   line3: {
     width: 10,
@@ -154,8 +149,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 3,
     color: Colors.primary,
-    borderColor : Colors.primary
-
+    borderColor: Colors.primary,
   },
   icons: {
     display: 'flex',
