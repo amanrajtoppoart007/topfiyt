@@ -1801,6 +1801,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.1.0.tgz#e42b1bef12d2415411519fd528e64b593b1363dc"
   integrity sha512-W/J0fNYVO01tioHjvYWQ9m6RgndVtbElzYozBq1ZPrHO/iCzlqoySHl4gO/fpCl9QEFjvJfjPgtPMTMlsoq5DQ==
 
+"@react-native-masked-view/masked-view@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@react-native-masked-view/masked-view/-/masked-view-0.2.4.tgz#305a548abd47dee494a38f90016432d3a6e4164c"
+  integrity sha512-2Y9OXWHRutYmdyW+bNMaFTW8uTBpaaK20xdIFoVtqahEOO9++B+ut3CAWKPZcdRtb9ikG0LUKChGqMeocg0PGA==
+
 "@react-native-picker/picker@^1.16.0":
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-1.16.0.tgz#3e5268da892349a35c66ab7bd75e834147621e5a"
@@ -1832,6 +1837,20 @@
     query-string "^7.0.0"
     react-is "^16.13.0"
 
+"@react-navigation/drawer@^6.0.0-next.9":
+  version "6.0.0-next.9"
+  resolved "https://registry.yarnpkg.com/@react-navigation/drawer/-/drawer-6.0.0-next.9.tgz#23093c2d6530db98d05578f0b9d4da3c5f00103d"
+  integrity sha512-S/eV1H/S9VIpDF+RpJw4LeaEKqgAoqSP4VLuYSoonk5jXGJ6NFE70hDCOXxmKyPVjRdF/PFHAUqyjFkT4DWGFg==
+  dependencies:
+    "@react-navigation/elements" "^1.0.0-next.9"
+    color "^3.1.3"
+    warn-once "^0.1.0"
+
+"@react-navigation/elements@^1.0.0-next.9":
+  version "1.0.0-next.9"
+  resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.0.0-next.9.tgz#d4a9bdb20f230f3c6e6dfe189a64ae2d2b3ec04b"
+  integrity sha512-fBQncfg9k/k8j8Gmh/KDmZrmt+rzZkos52JXXVxrzaByOQ9ie0qXl2RdTFuLf5FdjKk6TZEvmzosZMWMU29Kfg==
+
 "@react-navigation/native@^6.0.0-next.3":
   version "6.0.0-next.3"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-6.0.0-next.3.tgz#d26b75bd4cc54f42c331f581555cccea5f4b2315"
@@ -1848,13 +1867,15 @@
   dependencies:
     nanoid "^3.1.22"
 
-"@react-navigation/stack@^5.14.4":
-  version "5.14.4"
-  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-5.14.4.tgz#32f6717c03494f0ca6cf0dd43d8302af824de9e9"
-  integrity sha512-gQjWK8JHtVkD1p7wzjtSPuScJI0mSAk/N/gzgjQZo+rDUwgM8rOTDcVNRbtEOqCEgLQcZrZQHwhOjkrJirehjQ==
+"@react-navigation/stack@^6.0.0-next.15":
+  version "6.0.0-next.15"
+  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-6.0.0-next.15.tgz#95e01a64a801852cc6323eb66bdab59c1b3808f1"
+  integrity sha512-89B3+cyKC4i67nX3O9cjuUzrP2O7PS2F+AKDobh5thw/CaEPiw3AM7OPEtUz+UF3JfBuU+xmSQUwLRZGuadtQg==
   dependencies:
+    "@react-navigation/elements" "^1.0.0-next.9"
     color "^3.1.3"
     react-native-iphone-x-helper "^1.3.0"
+    warn-once "^0.1.0"
 
 "@sideway/address@^4.1.0":
   version "4.1.1"
@@ -7252,10 +7273,10 @@ react-native-safe-area-context@^3.2.0:
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.2.0.tgz#06113c6b208f982d68ab5c3cebd199ca93db6941"
   integrity sha512-k2Nty4PwSnrg9HwrYeeE+EYqViYJoOFwEy9LxL5RIRfoqxAq/uQXNGwpUg2/u4gnKpBbEPa9eRh15KKMe/VHkA==
 
-react-native-screens@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-3.1.1.tgz#2cd4496c5e3ed1ffbaf77962b8fcc10be3af2158"
-  integrity sha512-cjhK85T8LQ7uqqmwvLb8FKNk1RfgJd1jtbUm1lOxUmJreFki5Wh2SUlx0DAvNG35U6quGD15KPYRducGa+M04g==
+react-native-screens@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-3.2.0.tgz#e2c8a4879c72f49af5b49e8859c84978a95d112b"
+  integrity sha512-pV4a32neQA69xhVsL9k1J/rM/SiP5zgGHjJsnNVEcuhBu+dlsutT2YFszQN4MgpP2dhHHu1O7DyRSHti+wh7Wg==
 
 react-native-size-matters@^0.3.1:
   version "0.3.1"
@@ -8813,6 +8834,11 @@ walker@^1.0.7, walker@~1.0.5:
   integrity sha1-L3+bj9ENZ3JisYqITijRlhjgKPs=
   dependencies:
     makeerror "1.0.x"
+
+warn-once@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/warn-once/-/warn-once-0.1.0.tgz#4f58d89b84f968d0389176aa99e0cf0f14ffd4c8"
+  integrity sha512-recZTSvuaH/On5ZU5ywq66y99lImWqzP93+AiUo9LUwG8gXHW+LJjhOd6REJHm7qb0niYqrEQJvbHSQfuJtTqA==
 
 wcwidth@^1.0.1:
   version "1.0.1"
