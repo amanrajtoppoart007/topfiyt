@@ -1,28 +1,22 @@
 import React from 'react';
-import {Image} from 'react-native';
 import 'react-native-gesture-handler';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import SideBar from '../components/SideBar';
+import HomeScreen from '../screens/HomeScreen';
+import EmployerListScreen from '../screens/EmployerListScreen';
+import AgentListScreen from '../screens/AgentListScreen';
+import ForumScreen from '../screens/ForumScreen';
+import ResumeWritingServiceScreen from '../screens/ResumeWritingServiceScreen';
+import NewsListScreen from '../screens/NewsListScreen';
+import MyJob from '../screens/MyJobScreen';
+import MyProfileScreen from '../screens/MyProfileScreen';
 
-import ProfileNavigator from './ProfileNavigator';
-
-import BookingNavigator from './BookingNavigator';
-
-import NotificationScreen from '../screens/NotificationScreen';
-
-import PaymentScreen from '../screens/PaymentScreen';
-import ContactScreen from '../screens/ContactScreen';
-
-import WishListScreen from '../screens/WishListScreen';
-import OrderListScreen from '../screens/Product/OrderListScreen';
-
-import ProductNavigator from './ProductNavigator';
 import ScreenSettings from './ScreenSettings';
 
 const Drawer = createDrawerNavigator();
 
-const ProductDrawerNavigator = () => (
+const DrawerNavigator = () => (
   <Drawer.Navigator
     screenOptions={{
       cardOverlayEnabled: true,
@@ -31,110 +25,62 @@ const ProductDrawerNavigator = () => (
     }}
     drawerContent={props => <SideBar {...props} />}>
     <Drawer.Screen
-      name="Shop"
-      component={ProductNavigator}
+      name="Home"
+      component={HomeScreen}
       options={{
         title: 'Home',
-        drawerIcon: () => (
-          <Image
-            style={{width: 24, height: 24}}
-            source={require('../assets/icons/home.png')}
-          />
-        ),
       }}
     />
     <Drawer.Screen
-      name="Profile"
-      component={ProfileNavigator}
+      name="Employers"
+      component={EmployerListScreen}
       options={{
         title: 'My Profile',
-        drawerIcon: () => (
-          <Image
-            style={{width: 24, height: 24}}
-            source={require('../assets/icons/man.png')}
-          />
-        ),
       }}
     />
     <Drawer.Screen
-      name="Notification"
-      component={NotificationScreen}
+      name="Agents"
+      component={AgentListScreen}
       options={{
-        title: 'Notification',
-        drawerIcon: () => (
-          <Image
-            style={{width: 24, height: 24}}
-            source={require('../assets/icons/bell.png')}
-          />
-        ),
+        title: 'Agents',
       }}
     />
     <Drawer.Screen
-      name="Bookings"
-      component={BookingNavigator}
+      name="Forum"
+      component={ForumScreen}
       options={{
-        title: 'Bookings',
-        drawerIcon: () => (
-          <Image
-            style={{width: 24, height: 24}}
-            source={require('../assets/icons/calendar.png')}
-          />
-        ),
+        title: 'Community/Forum',
       }}
     />
     <Drawer.Screen
-      name="WishList"
-      component={WishListScreen}
+      name="ResumeWritingService"
+      component={ResumeWritingServiceScreen}
       options={{
-        title: 'Wish List',
-        drawerIcon: () => (
-          <Image
-            style={{width: 24, height: 24}}
-            source={require('../assets/icons/love.png')}
-          />
-        ),
+        title: 'Resume Writing Service',
       }}
     />
     <Drawer.Screen
-      name="OrderList"
-      component={OrderListScreen}
+      name="News"
+      component={NewsListScreen}
       options={{
         title: 'My Orders',
-        drawerIcon: () => (
-          <Image
-            style={{width: 24, height: 24}}
-            source={require('../assets/icons/orders.png')}
-          />
-        ),
       }}
     />
     <Drawer.Screen
-      name="Payments"
-      component={PaymentScreen}
+      name="MyJobs"
+      component={MyJob}
       options={{
-        title: 'Payments',
-        drawerIcon: () => (
-          <Image
-            style={{width: 24, height: 24}}
-            source={require('../assets/icons/wallet.png')}
-          />
-        ),
+        title: 'My Jobs',
       }}
     />
     <Drawer.Screen
-      name="Contact"
-      component={ContactScreen}
+      name="MyProfile"
+      component={MyProfileScreen}
       options={{
         title: 'Contact Us',
-        drawerIcon: () => (
-          <Image
-            style={{width: 24, height: 24}}
-            source={require('../assets/icons/telephone-call.png')}
-          />
-        ),
       }}
     />
   </Drawer.Navigator>
 );
 
-export default ProductDrawerNavigator;
+export default DrawerNavigator;

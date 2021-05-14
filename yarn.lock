@@ -1826,10 +1826,10 @@
   resolved "https://registry.yarnpkg.com/@react-native/polyfills/-/polyfills-1.0.0.tgz#05bb0031533598f9458cf65a502b8df0eecae780"
   integrity sha512-0jbp4RxjYopTsIdLl+/Fy2TiwVYHy4mgeu07DG4b/LyM0OS/+lPP5c9sbnt/AMlnF6qz2JRZpPpGw1eMNS6A4w==
 
-"@react-navigation/core@^6.0.0-next.3":
-  version "6.0.0-next.3"
-  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-6.0.0-next.3.tgz#61d2f8e453c5e94ec6f6288bcdceaace3096c164"
-  integrity sha512-rhDnE2bi8TOaFyYJ6jrRZvl0mGMMP6PVeS6n+sbL3764Fr6TeP9gAR+0Cxrq1Wx3lhTi4sJB/KjWYTOEd7+xrQ==
+"@react-navigation/core@^6.0.0-next.7":
+  version "6.0.0-next.7"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-6.0.0-next.7.tgz#9b96acf261e024b8c16263874618ab06285330bb"
+  integrity sha512-N4VbtA4yQa6cLABitHMpD8zlYSD2X0+/8gxR8zKefCumUkHXOM+oS5OKsUSNvcV3ryUAN6popWTRJ5a9GZGiWQ==
   dependencies:
     "@react-navigation/routers" "^6.0.0-next.2"
     escape-string-regexp "^4.0.0"
@@ -1851,12 +1851,12 @@
   resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.0.0-next.9.tgz#d4a9bdb20f230f3c6e6dfe189a64ae2d2b3ec04b"
   integrity sha512-fBQncfg9k/k8j8Gmh/KDmZrmt+rzZkos52JXXVxrzaByOQ9ie0qXl2RdTFuLf5FdjKk6TZEvmzosZMWMU29Kfg==
 
-"@react-navigation/native@^6.0.0-next.3":
-  version "6.0.0-next.3"
-  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-6.0.0-next.3.tgz#d26b75bd4cc54f42c331f581555cccea5f4b2315"
-  integrity sha512-yPdQVh11EjXgyDXbx3VfoCOaAUm7u/Ar8t6f9CPokSJpGq+qaUBxlY4P9zBtEbZuvHeTbdjWWqLQG+IHxi7Ybw==
+"@react-navigation/native@^6.0.0-next.7":
+  version "6.0.0-next.7"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-6.0.0-next.7.tgz#b63d1be8149b2afe0e6d32162496ef00874e9bc0"
+  integrity sha512-6bp0pUlc9RZJtxPNKRsbpTk69Cruophla+maSeCC6WHa6d6NxQCzSPP81Dsb9pcEVXyYffX3i5RzMxuInD7nNg==
   dependencies:
-    "@react-navigation/core" "^6.0.0-next.3"
+    "@react-navigation/core" "^6.0.0-next.7"
     escape-string-regexp "^4.0.0"
     nanoid "^3.1.22"
 
@@ -6471,9 +6471,9 @@ ms@2.1.2:
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
 nanoid@^3.1.22:
-  version "3.1.22"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.22.tgz#b35f8fb7d151990a8aebd5aa5015c03cf726f844"
-  integrity sha512-/2ZUaJX2ANuLtTvqTlgqBQNJoQO398KyJgZloL0PZkC0dpysjncRUPsFe3DUPzz/y3h+u7C46np8RMuvF3jsSQ==
+  version "3.1.23"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.23.tgz#f744086ce7c2bc47ee0a8472574d5c78e4183a81"
+  integrity sha512-FiB0kzdP0FFVGDKlRLEQ1BgDzU87dy5NnzjeW9YZNt+/c3+q82EQDUwniSAUxp/F0gFNI1ZhKU1FqYsMuqZVnw==
 
 nanomatch@^1.2.9:
   version "1.2.13"
