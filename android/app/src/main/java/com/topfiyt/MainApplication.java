@@ -14,6 +14,8 @@ import java.util.Arrays;
 import org.unimodules.adapters.react.ModuleRegistryAdapter;
 import org.unimodules.adapters.react.ReactModuleRegistryProvider;
 import org.unimodules.core.interfaces.SingletonModule;
+import com.facebook.react.bridge.JSIModulePackage; // <- reanimated 2 support
+import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- reanimated 2 support
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -44,6 +46,10 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSMainModuleName() {
           return "index";
         }
+          @Override
+          protected JSIModulePackage getJSIModulePackage() {
+              return new ReanimatedJSIModulePackage(); // <- reanimated 2 support
+          }
       };
 
   @Override

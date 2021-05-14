@@ -34,7 +34,6 @@ class MainHeader extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-
           <View style={{alignItems: 'flex-end'}}>
             <Text style={styles.line1} />
             <Text style={styles.line2} />
@@ -111,6 +110,7 @@ export default MainHeader;
 
 const styles = StyleSheet.create({
   container: {
+    height: 48,
     backgroundColor: Colors.white,
   },
   header: {

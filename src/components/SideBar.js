@@ -29,12 +29,7 @@ const SideBar = props => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: Colors.background}}>
-      <TouchableOpacity onPress={() => closeMenu()} style={styles.backButton}>
-        <Image
-          style={{width: 37, height: 37, marginHorizontal: 20}}
-          source={require('../assets/icons/back.png')}
-        />
-      </TouchableOpacity>
+      <TouchableOpacity onPress={() => closeMenu()} style={styles.backButton} />
       <View style={styles.sideMenuProfile}>
         <Text style={styles.name}>Mathew James</Text>
         <Text style={styles.email}>mathewjames@gmail.com</Text>
@@ -42,12 +37,6 @@ const SideBar = props => {
       <DrawerContentScrollView {...props}>
         <DrawerItemList labelStyle={styles.drawerItem} {...props} />
         <DrawerItem
-          icon={() => (
-            <Image
-              style={{width: 24, height: 24}}
-              source={require('../assets/icons/logout.png')}
-            />
-          )}
           labelStyle={styles.drawerItem}
           label={'Log Out'}
           onPress={() => logOut()}
@@ -59,7 +48,7 @@ const SideBar = props => {
 
 const styles = StyleSheet.create({
   drawerItem: {
-    fontFamily: Font.AntonioLight,
+    fontFamily: Font.PoppinsSemiBold,
     fontSize: 17,
     color: Colors.white,
   },
@@ -75,12 +64,12 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   name: {
-    fontFamily: Font.AntonioRegular,
+    fontFamily: Font.PoppinsSemiBold,
     fontSize: 25,
     color: Colors.white,
   },
   email: {
-    fontFamily: Font.AntonioLight,
+    fontFamily: Font.PoppinsRegular,
     fontSize: 16,
     color: Colors.gray,
   },

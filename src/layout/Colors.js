@@ -16,4 +16,5 @@ export default {
   warning: '#F3A540',
   lightCyan: '#1FABA7',
   danger: '#F73E3E',
+  grayBg: '#F5F5F5',
 };

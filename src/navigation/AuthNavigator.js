@@ -20,11 +20,18 @@ import SettingsScreen from '../screens/SettingsScreen';
 import ApplyNowScreen from '../screens/ApplyNowScreen';
 import MyJobDetailScreen from '../screens/MyJobDetailScreen';
 
+import DrawerNavigator from './DrawerNavigator';
+
 import ScreenSettings from './ScreenSettings';
 
 const Stack = createStackNavigator();
 const AuthNavigator = () => (
   <Stack.Navigator>
+    <Stack.Screen
+      name="MainStack"
+      component={DrawerNavigator}
+      options={{headerShown: false}}
+    />
     <Stack.Screen
       name="MyJobDetail"
       component={MyJobDetailScreen}
