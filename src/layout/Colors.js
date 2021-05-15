@@ -12,4 +12,5 @@ export default {
   black: '#000000',
   transparent: 'transparent',
   blackFaded: 'rgb(106,105,105)',
+  lightgray : 'lightgray'
 };

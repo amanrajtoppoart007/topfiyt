@@ -16,6 +16,8 @@ import FavoriteJobScreen from '../screens/FavoriteJobScreen';
 import JobSearchScreen from '../screens/JobSearchScreen';
 import MyJobScreen from '../screens/MyJobScreen';
 import ConfirmationScreen from '../screens/ConfirmationScreen';
+import FeaturedProfessional from '../screens/FeaturedProfessional';
+import ShareApp from '../screens/ShareApp';
 import UploadResumeScreen from '../screens/UploadResumeScreen';
 
 import ScreenSettings from './ScreenSettings';
@@ -25,7 +27,12 @@ const Stack = createStackNavigator();
 const AuthNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen
-      name="UploadResume"
+      name="ShareApp"
+      component={ShareApp}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="UploadResumeScreen"
       component={UploadResumeScreen}
       options={{headerShown: false}}
     />
