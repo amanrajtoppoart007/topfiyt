@@ -12,6 +12,7 @@ import Colors from '../layout/Colors';
 import Upload from '../assets/images/svg/upload.svg';
 import BackButtonNavBar from '../components/BackButtonNavBar';
 import Font from '../layout/Font';
+
 class UploadResumeScreen extends Component {
   render() {
     return (

@@ -15,6 +15,8 @@ import FavoriteJobScreen from '../screens/FavoriteJobScreen';
 import JobSearchScreen from '../screens/JobSearchScreen';
 import MyJobScreen from '../screens/MyJobScreen';
 import ConfirmationScreen from '../screens/ConfirmationScreen';
+import FeaturedProfessional from '../screens/FeaturedProfessional';
+import ShareApp from '../screens/ShareApp';
 import UploadResumeScreen from '../screens/UploadResumeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import ApplyNowScreen from '../screens/ApplyNowScreen';
