@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import WelcomeScreen from '../screens/WelcomeScreen';
@@ -19,20 +18,44 @@ import ConfirmationScreen from '../screens/ConfirmationScreen';
 import FeaturedProfessional from '../screens/FeaturedProfessional';
 import ShareApp from '../screens/ShareApp';
 import UploadResumeScreen from '../screens/UploadResumeScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+import ApplyNowScreen from '../screens/ApplyNowScreen';
+import MyJobDetailScreen from '../screens/MyJobDetailScreen';
+
+import DrawerNavigator from './DrawerNavigator';
 
 import ScreenSettings from './ScreenSettings';
-
 
 const Stack = createStackNavigator();
 const AuthNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen
-      name="ShareApp"
-      component={ShareApp}
+      name="MainStack"
+      component={DrawerNavigator}
       options={{headerShown: false}}
     />
     <Stack.Screen
-      name="UploadResumeScreen"
+      name="MyJobDetail"
+      component={MyJobDetailScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="ApplyNow"
+      component={ApplyNowScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="MyJob"
+      component={MyJobScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="Settings"
+      component={SettingsScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="UploadResume"
       component={UploadResumeScreen}
       options={{headerShown: false}}
     />
@@ -94,11 +117,6 @@ const AuthNavigator = () => (
     <Stack.Screen
       name="Confirmation"
       component={ConfirmationScreen}
-      options={{headerShown: false}}
-    />
-    <Stack.Screen
-      name="MyJob"
-      component={MyJobScreen}
       options={{headerShown: false}}
     />
   </Stack.Navigator>

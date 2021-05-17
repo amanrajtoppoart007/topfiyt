@@ -9,7 +9,7 @@ export default class ForumScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <HeaderSearch/>
+        <HeaderSearch />
         <View style={styles.header}>
           <View style={styles.upperLine}>
             <Text style={styles.community}>COMMUNITY</Text>
@@ -25,23 +25,25 @@ export default class ForumScreen extends Component {
         </View>
 
         <View>
-            <Text style={styles.discussions}>Recent Discussions</Text>
-            <View style={styles.card}>
-                <View style={styles.cardHeader}>
-                <Text style={styles.webinar}>Webinar How to Promote Your Film</Text>
-                <Text style={styles.time}>05:34 pm</Text>
-                </View>
+          <Text style={styles.discussions}>Recent Discussions</Text>
+          <View style={styles.card}>
+            <View style={styles.cardHeader}>
+              <Text style={styles.webinar}>
+                Webinar How to Promote Your Film
+              </Text>
+              <Text style={styles.time}>05:34 pm</Text>
+            </View>
 
             <View style={styles.cardBody}>
-                <View style={{marginLeft : 7}}>
+              <View style={{marginLeft: 7}}>
                 <Text style={styles.cardForum}>Posted in Forum</Text>
                 <Text style={styles.generalChat}>General Chat</Text>
-                </View>
-            <TouchableOpacity style={styles.postParent}>
-            <Text style={styles.post}>See Post</Text>
-            </TouchableOpacity>
+              </View>
+              <TouchableOpacity style={styles.postParent}>
+                <Text style={styles.post}>See Post</Text>
+              </TouchableOpacity>
             </View>
-            </View>
+          </View>
         </View>
       </View>
     );
@@ -90,79 +92,78 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: 5,
   },
-  discussions : {
-    fontSize : 12,
-    fontFamily : Font.PoppinsRegular,
-    marginTop : 10,
-    marginHorizontal : 15
+  discussions: {
+    fontSize: 12,
+    fontFamily: Font.PoppinsRegular,
+    marginTop: 10,
+    marginHorizontal: 15,
   },
   bottomLineText: {
     fontSize: 12,
     fontFamily: Font.PoppinsRegular,
     color: Colors.white,
     marginHorizontal: 10,
-    opacity : 0.6
+    opacity: 0.6,
   },
-  card : {
-      borderWidth : 1,
-      borderRadius : 5,
-      borderColor : 'lightgray',
-      margin : 10,
-      shadowColor: "#000",
-//     shadowOffset: {
-// 	width: 0,
-// 	height: 0.1,
-//     },
-// shadowOpacity: 0.25,
-// shadowRadius: 1.84,
-// elevation: 5,
+  card: {
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: 'lightgray',
+    margin: 10,
+    shadowColor: '#000',
+    //     shadowOffset: {
+    // 	width: 0,
+    // 	height: 0.1,
+    //     },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 1.84,
+    // elevation: 5,
   },
-  cardHeader : {
-      flexDirection : 'row',
-      justifyContent : 'space-between',
-      marginHorizontal : 10,
+  cardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 10,
   },
-  webinar : {
-    fontSize : 12,
-    fontFamily : Font.PoppinsRegular,
-    width : 160,
-    marginVertical : 5
+  webinar: {
+    fontSize: 12,
+    fontFamily: Font.PoppinsRegular,
+    width: 160,
+    marginVertical: 5,
   },
-  time : {
-    fontSize : 12,
-    fontFamily : Font.PoppinsRegular,
-    marginVertical : 5,
-    opacity : 0.5
+  time: {
+    fontSize: 12,
+    fontFamily: Font.PoppinsRegular,
+    marginVertical: 5,
+    opacity: 0.5,
   },
-  cardBody : {
-      flexDirection : 'row',
-      justifyContent : 'space-between',
-      marginHorizontal :  15,
-      paddingBottom : 10,
-      marginTop : 5
-
+  cardBody: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 15,
+    paddingBottom: 10,
+    marginTop: 5,
   },
-  cardForum : {
-    fontSize : 10,
-    fontFamily : Font.PoppinsRegular,
-    color : Colors.primary
+  cardForum: {
+    fontSize: 10,
+    fontFamily: Font.PoppinsRegular,
+    color: Colors.primary,
   },
-  generalChat : {
-    fontSize : 10,
-    fontFamily : Font.PoppinsRegular,
+  generalChat: {
+    fontSize: 10,
+    fontFamily: Font.PoppinsRegular,
   },
-  postParent : {
-      justifyContent : 'center',
-      borderWidth : 0.7,
-      borderRadius : 5,
-      borderColor : Colors.primary
+  postParent: {
+    justifyContent: 'center',
+    borderWidth: 0.7,
+    borderRadius: 5,
+    borderColor: Colors.primary,
   },
-  post : {
-    fontSize : 10,
-    fontFamily : Font.PoppinsRegular,
-      color : Colors.primary,
-      textAlign : "center",
-      marginHorizontal : 14,
-      paddingVertical : -5
-  }
+  post: {
+    fontSize: 10,
+    fontFamily: Font.PoppinsRegular,
+    color: Colors.primary,
+    textAlign: 'center',
+    marginHorizontal: 14,
+    paddingVertical: -5,
+  },
 });

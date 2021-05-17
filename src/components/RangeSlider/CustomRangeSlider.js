@@ -47,7 +47,6 @@ function CustomRangeSlider() {
 const styles = StyleSheet.create({
   sliderStyle: {
     backgroundColor: Colors.transparent,
-    color: Colors.white,
   },
   titleWrapper: {
     flexDirection: 'row',

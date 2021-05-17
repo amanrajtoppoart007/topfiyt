@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from '../assets/images/logo/logo.png';
 import Colors from '../layout/Colors';
@@ -19,8 +14,11 @@ function BackButtonNavBar({navigation}) {
             <Icon style={styles.backArrow} name="keyboard-backspace" />
           </TouchableOpacity>
         </View>
-        <View style={[styles.logoView, {width: '90%', paddingRight: 50}]}>
+        <View style={[styles.logoView, {width: '80%'}]}>
           <Image style={styles.logo} source={logo} />
+        </View>
+        <View style={[styles.icons, {width: '10%'}]}>
+          <Icon style={styles.icon} name="notifications" />
         </View>
       </View>
     </View>
@@ -47,7 +45,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'flex-end',
     flexDirection: 'row',
-    marginHorizontal: 10,
   },
   icon: {
     fontSize: 30,
