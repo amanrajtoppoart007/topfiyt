@@ -30,19 +30,20 @@ class HeaderSearch extends React.Component {
   toggleFilter = () => {
     this.setState({filter: !this.state.filter});
   };
+  openDrawer() {
+    this.props.navigation.openDrawer();
+  }
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          {/* <View>
-            <Icon style={styles.backArrow} name="keyboard-backspace" />
-          </View> */}
-
-          <View style={{alignItems: 'flex-end'}}>
+          <TouchableOpacity
+            onPress={() => this.openDrawer()}
+            style={{alignItems: 'flex-end'}}>
             <Text style={styles.line1} />
             <Text style={styles.line2} />
             <Text style={styles.line3} />
-          </View>
+          </TouchableOpacity>
 
           <View style={styles.logoView}>
             <Image style={styles.logo} source={logo} />

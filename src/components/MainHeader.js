@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   TextInput,
   StatusBar,
   TouchableOpacity,
+  Pressable,
 } from 'react-native';
 import {Overlay} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -16,7 +17,8 @@ import Font from '../layout/Font';
 import Layout from '../layout/Layout';
 
 import Filter from './Filter';
-class MainHeader extends React.Component {
+import PropTypes from 'prop-types';
+class MainHeader extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,26 +32,26 @@ class MainHeader extends React.Component {
   toggleFilter = () => {
     this.setState({filter: !this.state.filter});
   };
+  openDrawer() {
+    this.props.navigation.openDrawer();
+  }
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <View style={{alignItems: 'flex-end'}}>
+          <Pressable
+            onPress={() => this.openDrawer()}
+            style={{alignItems: 'flex-end'}}>
             <Text style={styles.line1} />
             <Text style={styles.line2} />
             <Text style={styles.line3} />
-          </View>
+          </Pressable>
 
           <View style={styles.logoView}>
             <Image style={styles.logo} source={logo} />
           </View>
 
           <View style={styles.icons}>
-            {/* <Icon
-              onPress={() => this.toggleSearch()}
-              style={styles.icon}
-              name="search"
-            /> */}
             <Icon style={styles.icon} name="notifications" />
             <Icon
               style={styles.icon}
@@ -61,15 +63,8 @@ class MainHeader extends React.Component {
         {this.state.search && (
           <Overlay
             fullScreen={true}
-            overlayStyle={{
-              padding: 0,
-              margin: 0,
-              marginTop: 70 + StatusBar.currentHeight,
-              backgroundColor: Colors.transparent,
-            }}
-            backdropStyle={{
-              marginTop: 50 + StatusBar.currentHeight,
-            }}
+            overlayStyle={styles.searchOverLay}
+            backdropStyle={{marginTop: 50 + StatusBar.currentHeight}}
             isVisible={this.state.search}
             onBackdropPress={() => this.toggleSearch()}>
             <View style={styles.inputView}>
@@ -106,10 +101,15 @@ class MainHeader extends React.Component {
   }
 }
 
+MainHeader.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
+
 export default MainHeader;
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: StatusBar.currentHeight,
     height: 48,
     backgroundColor: Colors.white,
   },
@@ -191,5 +191,11 @@ const styles = StyleSheet.create({
   search: {
     width: '10%',
     marginRight: 15,
+  },
+  searchOverLay: {
+    padding: 0,
+    margin: 0,
+    marginTop: 70 + StatusBar.currentHeight,
+    backgroundColor: Colors.transparent,
   },
 });

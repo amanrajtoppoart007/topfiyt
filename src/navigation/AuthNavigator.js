@@ -8,7 +8,7 @@ import AddPersonalDetailScreen from '../screens/AddPersonalDetailScreen';
 import AddWorkScreen from '../screens/AddWorkScreen';
 import ConfirmationScreen from '../screens/ConfirmationScreen';
 import UploadResumeScreen from '../screens/UploadResumeScreen';
-import DrawerNavigator from './DrawerNavigator';
+import MainNavigator from './MainNavigator';
 import ScreenSettings from './ScreenSettings';
 const Stack = createStackNavigator();
 const AuthNavigator = () => (
@@ -55,7 +55,7 @@ const AuthNavigator = () => (
     />
     <Stack.Screen
       name="MainStack"
-      component={DrawerNavigator}
+      component={MainNavigator}
       options={{headerShown: false}}
     />
   </Stack.Navigator>

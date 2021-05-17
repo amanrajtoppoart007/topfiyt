@@ -1,9 +1,8 @@
-import {createDrawerNavigator} from '@react-navigation/drawer';
 import React from 'react';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import SideBar from '../components/SideBar';
 import HomeNavigator from './HomeNavigator';
 import ScreenSettings from './ScreenSettings';
-
 import EmployerListScreen from '../screens/EmployerListScreen';
 import AgentListScreen from '../screens/AgentListScreen';
 import ForumScreen from '../screens/ForumScreen';
@@ -14,7 +13,7 @@ import MyProfileScreen from '../screens/MyProfileScreen';
 
 const Drawer = createDrawerNavigator();
 
-const AppNavigator = () => {
+const MainNavigator = () => {
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -22,15 +21,12 @@ const AppNavigator = () => {
         gestureEnabled: true,
         ...ScreenSettings,
       }}
-      drawerContentOptions={{
-        activeTintColor: '#e91e63',
-      }}
       drawerContent={props => <SideBar {...props} />}>
       <Drawer.Screen
-        name="Home"
+        name="HomeStack"
         component={HomeNavigator}
         options={{
-          title: 'Home',
+          title: 'HomeStack',
         }}
       />
 
@@ -87,4 +83,4 @@ const AppNavigator = () => {
   );
 };
 
-export default AppNavigator;
+export default MainNavigator;

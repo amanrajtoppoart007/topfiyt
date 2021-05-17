@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {Image, Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  Image,
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import arrow from '../assets/images/logo/arrow.png';
 import HeaderSearch from '../components/HeaderSearch';
 import Colors from '../layout/Colors';
@@ -9,7 +16,7 @@ export default class ForumScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <HeaderSearch />
+        <HeaderSearch navigation={this.props.navigation} />
         <View style={styles.header}>
           <View style={styles.upperLine}>
             <Text style={styles.community}>COMMUNITY</Text>
@@ -26,24 +33,172 @@ export default class ForumScreen extends Component {
 
         <View>
           <Text style={styles.discussions}>Recent Discussions</Text>
-          <View style={styles.card}>
-            <View style={styles.cardHeader}>
-              <Text style={styles.webinar}>
-                Webinar How to Promote Your Film
-              </Text>
-              <Text style={styles.time}>05:34 pm</Text>
-            </View>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={{marginBottom: 200}}>
+              <View style={styles.card}>
+                <View style={styles.cardHeader}>
+                  <Text style={styles.webinar}>
+                    Webinar How to Promote Your Film
+                  </Text>
+                  <Text style={styles.time}>05:34 pm</Text>
+                </View>
 
-            <View style={styles.cardBody}>
-              <View style={{marginLeft: 7}}>
-                <Text style={styles.cardForum}>Posted in Forum</Text>
-                <Text style={styles.generalChat}>General Chat</Text>
+                <View style={styles.cardBody}>
+                  <View style={{marginLeft: 7}}>
+                    <Text style={styles.cardForum}>Posted in Forum</Text>
+                    <Text style={styles.generalChat}>General Chat</Text>
+                  </View>
+                  <TouchableOpacity style={styles.postParent}>
+                    <Text style={styles.post}>See Post</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-              <TouchableOpacity style={styles.postParent}>
-                <Text style={styles.post}>See Post</Text>
-              </TouchableOpacity>
+              <View style={styles.card}>
+                <View style={styles.cardHeader}>
+                  <Text style={styles.webinar}>
+                    Webinar How to Promote Your Film
+                  </Text>
+                  <Text style={styles.time}>05:34 pm</Text>
+                </View>
+
+                <View style={styles.cardBody}>
+                  <View style={{marginLeft: 7}}>
+                    <Text style={styles.cardForum}>Posted in Forum</Text>
+                    <Text style={styles.generalChat}>General Chat</Text>
+                  </View>
+                  <TouchableOpacity style={styles.postParent}>
+                    <Text style={styles.post}>See Post</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View style={styles.card}>
+                <View style={styles.cardHeader}>
+                  <Text style={styles.webinar}>
+                    Webinar How to Promote Your Film
+                  </Text>
+                  <Text style={styles.time}>05:34 pm</Text>
+                </View>
+
+                <View style={styles.cardBody}>
+                  <View style={{marginLeft: 7}}>
+                    <Text style={styles.cardForum}>Posted in Forum</Text>
+                    <Text style={styles.generalChat}>General Chat</Text>
+                  </View>
+                  <TouchableOpacity style={styles.postParent}>
+                    <Text style={styles.post}>See Post</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View style={styles.card}>
+                <View style={styles.cardHeader}>
+                  <Text style={styles.webinar}>
+                    Webinar How to Promote Your Film
+                  </Text>
+                  <Text style={styles.time}>05:34 pm</Text>
+                </View>
+
+                <View style={styles.cardBody}>
+                  <View style={{marginLeft: 7}}>
+                    <Text style={styles.cardForum}>Posted in Forum</Text>
+                    <Text style={styles.generalChat}>General Chat</Text>
+                  </View>
+                  <TouchableOpacity style={styles.postParent}>
+                    <Text style={styles.post}>See Post</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View style={styles.card}>
+                <View style={styles.cardHeader}>
+                  <Text style={styles.webinar}>
+                    Webinar How to Promote Your Film
+                  </Text>
+                  <Text style={styles.time}>05:34 pm</Text>
+                </View>
+
+                <View style={styles.cardBody}>
+                  <View style={{marginLeft: 7}}>
+                    <Text style={styles.cardForum}>Posted in Forum</Text>
+                    <Text style={styles.generalChat}>General Chat</Text>
+                  </View>
+                  <TouchableOpacity style={styles.postParent}>
+                    <Text style={styles.post}>See Post</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View style={styles.card}>
+                <View style={styles.cardHeader}>
+                  <Text style={styles.webinar}>
+                    Webinar How to Promote Your Film
+                  </Text>
+                  <Text style={styles.time}>05:34 pm</Text>
+                </View>
+
+                <View style={styles.cardBody}>
+                  <View style={{marginLeft: 7}}>
+                    <Text style={styles.cardForum}>Posted in Forum</Text>
+                    <Text style={styles.generalChat}>General Chat</Text>
+                  </View>
+                  <TouchableOpacity style={styles.postParent}>
+                    <Text style={styles.post}>See Post</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View style={styles.card}>
+                <View style={styles.cardHeader}>
+                  <Text style={styles.webinar}>
+                    Webinar How to Promote Your Film
+                  </Text>
+                  <Text style={styles.time}>05:34 pm</Text>
+                </View>
+
+                <View style={styles.cardBody}>
+                  <View style={{marginLeft: 7}}>
+                    <Text style={styles.cardForum}>Posted in Forum</Text>
+                    <Text style={styles.generalChat}>General Chat</Text>
+                  </View>
+                  <TouchableOpacity style={styles.postParent}>
+                    <Text style={styles.post}>See Post</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View style={styles.card}>
+                <View style={styles.cardHeader}>
+                  <Text style={styles.webinar}>
+                    Webinar How to Promote Your Film
+                  </Text>
+                  <Text style={styles.time}>05:34 pm</Text>
+                </View>
+
+                <View style={styles.cardBody}>
+                  <View style={{marginLeft: 7}}>
+                    <Text style={styles.cardForum}>Posted in Forum</Text>
+                    <Text style={styles.generalChat}>General Chat</Text>
+                  </View>
+                  <TouchableOpacity style={styles.postParent}>
+                    <Text style={styles.post}>See Post</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View style={styles.card}>
+                <View style={styles.cardHeader}>
+                  <Text style={styles.webinar}>
+                    Webinar How to Promote Your Film
+                  </Text>
+                  <Text style={styles.time}>05:34 pm</Text>
+                </View>
+
+                <View style={styles.cardBody}>
+                  <View style={{marginLeft: 7}}>
+                    <Text style={styles.cardForum}>Posted in Forum</Text>
+                    <Text style={styles.generalChat}>General Chat</Text>
+                  </View>
+                  <TouchableOpacity style={styles.postParent}>
+                    <Text style={styles.post}>See Post</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
             </View>
-          </View>
+          </ScrollView>
         </View>
       </View>
     );
@@ -110,14 +265,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: 'lightgray',
     margin: 10,
-    shadowColor: '#000',
-    //     shadowOffset: {
-    // 	width: 0,
-    // 	height: 0.1,
-    //     },
-    // shadowOpacity: 0.25,
-    // shadowRadius: 1.84,
-    // elevation: 5,
+    marginVertical: 5,
+    shadowColor: Colors.black,
   },
   cardHeader: {
     flexDirection: 'row',

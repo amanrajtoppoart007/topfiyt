@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  RefreshControlBase,
-} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import Colors from '../layout/Colors';
 import details from '../assets/images/profile/details.png';
 import competences from '../assets/images/profile/competences.png';
@@ -18,7 +11,6 @@ import projects from '../assets/images/profile/projects.png';
 import reference from '../assets/images/profile/reference.png';
 import skills from '../assets/images/profile/skills.png';
 import Font from '../layout/Font';
-import MainHeader from '../components/MainHeader';
 import BackButtonNavBar from '../components/BackButtonNavBar';
 
 export default class ResumeScreen extends Component {

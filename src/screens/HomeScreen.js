@@ -42,7 +42,7 @@ class HomeScreen extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <CustomStatusBar />
-        <MainHeader />
+        <MainHeader navigation={this.props.navigation} />
         <ScrollView>
           <View style={styles.wrapper}>
             <View>

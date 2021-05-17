@@ -3,9 +3,7 @@ import {
   SafeAreaView,
   View,
   StyleSheet,
-  Image,
   Text,
-  Linking,
   TouchableOpacity,
 } from 'react-native';
 
@@ -28,7 +26,7 @@ const SideBar = props => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: Colors.background}}>
+    <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={() => closeMenu()} style={styles.backButton} />
       <View style={styles.sideMenuProfile}>
         <Text style={styles.name}>Mathew James</Text>
@@ -47,6 +45,7 @@ const SideBar = props => {
 };
 
 const styles = StyleSheet.create({
+  container: {flex: 1, backgroundColor: Colors.background},
   drawerItem: {
     fontFamily: Font.PoppinsSemiBold,
     fontSize: 17,

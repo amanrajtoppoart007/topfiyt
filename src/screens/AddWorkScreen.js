@@ -12,8 +12,7 @@ import {
 import Feather from 'react-native-vector-icons/Feather';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
-import {Input} from 'react-native-elements';
-import MediaPicker from '../components/AddWork/MediaPicker';
+import AddProject from '../components/AddWork/AddProject';
 import BackButtonNavBar from '../components/BackButtonNavBar';
 
 class AddWorkScreen extends Component {
@@ -58,11 +57,11 @@ class AddWorkScreen extends Component {
       if (key === this.index) {
         return (
           <Animated.View key={key}>
-            <MediaPicker />
+            <AddProject />
           </Animated.View>
         );
       } else {
-        return <MediaPicker />;
+        return <AddProject />;
       }
     });
 
@@ -72,30 +71,8 @@ class AddWorkScreen extends Component {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.wrapper}>
             <View>
-              <View style={styles.inputBox}>
-                <View style={styles.labelWrapper}>
-                  <Text style={styles.label}>Project Name</Text>
-                </View>
-                <Input
-                  placeholder={'Project Name'}
-                  inputContainerStyle={styles.inputContainerStyle}
-                  inputStyle={styles.input}
-                  placeholderTextColor={Colors.mutedText}
-                />
-              </View>
-              <View style={styles.inputBox}>
-                <View style={styles.labelWrapper}>
-                  <Text style={styles.label}>Role</Text>
-                </View>
-                <Input
-                  placeholder={'Role'}
-                  inputContainerStyle={styles.inputContainerStyle}
-                  inputStyle={styles.input}
-                  placeholderTextColor={Colors.mutedText}
-                />
-              </View>
               <View style={{marginVertical: 15}}>
-                <MediaPicker />
+                <AddProject />
                 {newList && newList}
               </View>
               <View>
@@ -116,16 +93,14 @@ class AddWorkScreen extends Component {
               </View>
               <View style={styles.buttonSection}>
                 <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('AddWork')}
+                  onPress={() => this.props.navigation.navigate('UploadResume')}
                   style={styles.button}>
                   <Text style={styles.buttonText}>CONTINUE</Text>
                 </TouchableOpacity>
               </View>
               <View>
                 <TouchableOpacity
-                  onPress={() =>
-                    this.props.navigation.navigate('JobDescription')
-                  }
+                  onPress={() => this.props.navigation.navigate('UploadResume')}
                   style={styles.skipButton}>
                   <Text style={styles.skipText}>Skip</Text>
                 </TouchableOpacity>
@@ -155,27 +130,6 @@ const styles = StyleSheet.create({
     fontFamily: Font.PoppinsRegular,
     fontSize: 16,
     color: Colors.white,
-  },
-  inputBox: {
-    marginVertical: 5,
-    height: 65,
-  },
-  inputContainerStyle: {
-    width: 342,
-    height: 40,
-    borderRadius: 5,
-    backgroundColor: Colors.white,
-    padding: 0,
-    margin: 0,
-  },
-  input: {
-    width: 342,
-    height: 40,
-    borderRadius: 5,
-    fontFamily: Font.PoppinsRegular,
-    fontSize: 12,
-    color: Colors.primary,
-    paddingHorizontal: 10,
   },
   addMoreButton: {
     flexDirection: 'row',
