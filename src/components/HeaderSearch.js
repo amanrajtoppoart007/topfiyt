@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginLeft: 10,
     marginBottom: 3,
-    borderColor : Colors.primary
+    borderColor: Colors.primary,
   },
   line2: {
     width: 18,
@@ -138,8 +138,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 3,
     color: Colors.primary,
-    borderColor : Colors.primary
-
+    borderColor: Colors.primary,
   },
   line3: {
     width: 10,
@@ -149,8 +148,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 3,
     color: Colors.primary,
-    borderColor : Colors.primary
-
+    borderColor: Colors.primary,
   },
   icons: {
     display: 'flex',
@@ -165,7 +163,7 @@ const styles = StyleSheet.create({
   searchIcon: {
     fontSize: 28,
     opacity: 0.7,
-    color : Colors.primary
+    color: Colors.primary,
   },
   backArrow: {
     fontSize: 30,

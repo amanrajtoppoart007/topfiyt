@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {View,FlatList} from 'react-native';
+import {View, FlatList} from 'react-native';
 import SkillCheckBoxItem from './SkillCheckBoxItem';
 
 class SkillCheckBoxList extends Component {

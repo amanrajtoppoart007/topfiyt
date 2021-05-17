@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import rk from '../assets/images/card-images/rk.jpg';
 import forward from '../assets/images/logo/forward.png';
 import Colors from '../layout/Colors';
@@ -20,12 +20,12 @@ export default class AgentScreen extends Component {
             </View>
 
             <View style={styles.icons}>
-            <TouchableOpacity>
+              <TouchableOpacity>
                 <Icon style={styles.heart} name="favorite-border" />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image source={forward} />
-            </TouchableOpacity>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Image source={forward} />
+              </TouchableOpacity>
             </View>
           </View>
 
@@ -34,10 +34,10 @@ export default class AgentScreen extends Component {
             industry. Lorem Ipsum is simply dummy
           </Text>
 
-        <TouchableOpacity style={styles.cardFooter}>
-             <Text style={styles.seeMore}>See More</Text>
+          <TouchableOpacity style={styles.cardFooter}>
+            <Text style={styles.seeMore}>See More</Text>
             <Icon style={styles.arrowForward} name="arrow-forward" />
-        </TouchableOpacity>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -46,13 +46,12 @@ export default class AgentScreen extends Component {
 
 const styles = StyleSheet.create({
   card: {
-      marginHorizontal : 10,
-      marginVertical : 10,
-      borderWidth: 1,
-      borderTopRightRadius : 10,
-      borderBottomLeftRadius : 10,
-      borderColor : Colors.lightgray
-    
+    marginHorizontal: 10,
+    marginVertical: 10,
+    borderWidth: 1,
+    borderTopRightRadius: 10,
+    borderBottomLeftRadius: 10,
+    borderColor: Colors.lightgray,
   },
   cardHeader: {
     flexDirection: 'row',
@@ -68,45 +67,44 @@ const styles = StyleSheet.create({
     width: 35,
     height: 35,
     borderRadius: 40,
-    marginHorizontal : 4,
-    marginTop : 5
+    marginHorizontal: 4,
+    marginTop: 5,
   },
-  agentText : {
-    fontFamily : Font.PoppinsSemiBold,
-    fontSize : 12,
-    marginLeft : 10,
-    marginTop : 7
+  agentText: {
+    fontFamily: Font.PoppinsSemiBold,
+    fontSize: 12,
+    marginLeft: 10,
+    marginTop: 7,
   },
-  icons : {
-      flexDirection : 'row',
-      alignItems : "center"
+  icons: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  heart : {
-      fontSize : 17,
-      marginRight : 5,
-      color : Colors.primary
+  heart: {
+    fontSize: 17,
+    marginRight: 5,
+    color: Colors.primary,
   },
-  text : {
-      fontFamily : Font.PoppinsRegular,
-      fontSize : 10,
-      marginHorizontal : 10,
-      marginVertical : 10
+  text: {
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 10,
+    marginHorizontal: 10,
+    marginVertical: 10,
   },
-  cardFooter : {
-      flexDirection : 'row',
-      alignItems : 'center',
-      marginLeft : 10,
-      marginBottom : 10
+  cardFooter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginBottom: 10,
   },
-  seeMore : {
-      color : Colors.primary,
-      fontFamily : Font.PoppinsRegular,
-      fontSize : 10,
+  seeMore: {
+    color: Colors.primary,
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 10,
   },
-  arrowForward : {
-      fontSize : 14,
-      color : Colors.primary,
-      marginLeft : 5
-
-  }
+  arrowForward: {
+    fontSize: 14,
+    color: Colors.primary,
+    marginLeft: 5,
+  },
 });

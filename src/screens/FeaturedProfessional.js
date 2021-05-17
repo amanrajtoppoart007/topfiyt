@@ -1,12 +1,7 @@
-import React, { Component } from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
-import rk from '../assets/images/card-images/rk.jpg'
-import MainHeader from '../components/MainHeader'
-import Colors from '../layout/Colors'
-import Font from '../layout/Font'
 import React, {Component} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import rk from '../assets/images/card-images/rk.jpg';
+import MainHeader from '../components/MainHeader';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 

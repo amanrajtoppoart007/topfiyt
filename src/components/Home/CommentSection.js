@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View,TextInput} from 'react-native';
+import {StyleSheet, Text, View, TextInput} from 'react-native';
 import Colors from '../../layout/Colors';
 
 import User from '../../assets/images/svg/user.svg';
