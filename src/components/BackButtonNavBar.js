@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, StatusBar } from "react-native";
+import {
+  View,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  StatusBar,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from '../assets/images/logo/logo.png';
 import Colors from '../layout/Colors';

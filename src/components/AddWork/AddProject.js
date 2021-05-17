@@ -4,7 +4,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import Colors from '../../layout/Colors';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Font from '../../layout/Font';
-import { Input } from "react-native-elements";
+import {Input} from 'react-native-elements';
 
 class AddProject extends Component {
   render() {
@@ -47,12 +47,15 @@ class AddProject extends Component {
             </View>
             <View style={{marginHorizontal: 10}}>
               <View style={styles.button}>
-                <FontAwesome5 name={'plus'} size={24} color={Colors.mutedText} />
+                <FontAwesome5
+                  name={'plus'}
+                  size={24}
+                  color={Colors.mutedText}
+                />
               </View>
             </View>
           </View>
         </View>
-
       </React.Fragment>
     );
   }
