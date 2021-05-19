@@ -67,7 +67,7 @@ class JobCard extends Component {
           </View>
 
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('JobListing')}
+            onPress={() => this.props.navigation.navigate('JobDescription')}
             style={styles.applyButton}>
             <Text style={styles.applyButtonText}>APPLY</Text>
           </TouchableOpacity>
