@@ -64,6 +64,7 @@ class HomeScreen extends Component {
           </View>
         </ScrollView>
         <FAB
+          onPress={() => this.props.navigation.navigate('JobSection')}
           title={'Jobs'}
           size={'large'}
           titleStyle={styles.floatingButtonTextStyle}

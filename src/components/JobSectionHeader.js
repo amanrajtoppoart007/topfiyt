@@ -8,14 +8,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {Overlay} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from '../assets/images/logo/logo.png';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 import Layout from '../layout/Layout';
 
+import {Icon} from 'react-native-elements';
+
 import Filter from './Filter';
-class Header extends React.Component {
+class JobSectionHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,8 +34,14 @@ class Header extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <View>
-            <Icon style={styles.backArrow} name="keyboard-backspace" />
+          <View style={styles.backButtonWrapper}>
+            <Icon
+              iconStyle={styles.backArrow}
+              color={Colors.primary}
+              name="long-arrow-left"
+              type="font-awesome"
+              onPress={() => this.props.navigation.goBack()}
+            />
           </View>
 
           <View style={styles.logoView}>
@@ -44,14 +51,26 @@ class Header extends React.Component {
           <View style={styles.icons}>
             <Icon
               onPress={() => this.toggleSearch()}
-              style={styles.icon}
+              iconStyle={styles.icon}
               name="search"
             />
-            <Icon style={styles.icon} name="notifications" />
+            <Icon
+              iconStyle={styles.icon}
+              type={'material'}
+              name="notifications-none"
+            />
             <Icon
               style={styles.icon}
               onPress={() => this.toggleFilter()}
-              name="filter-list"
+              name="equalizer"
+              type={'simple-line-icon'}
+              iconStyle={[
+                styles.icon,
+                {
+                  transform: [{rotate: '270deg'}],
+                  fontSize: 18,
+                },
+              ]}
             />
           </View>
         </View>
@@ -103,7 +122,7 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default JobSectionHeader;
 
 const styles = StyleSheet.create({
   container: {
@@ -115,30 +134,36 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderWidth: 1,
     borderColor: '#CCCCCC',
-    backgroundColor: 'white',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  backButtonWrapper: {
+    width: '20%',
+    alignItems: 'flex-start',
+  },
+  logoView: {
+    width: '50%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   icons: {
-    display: 'flex',
-    alignItems: 'flex-end',
+    width: '30%',
     flexDirection: 'row',
-    marginHorizontal: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   icon: {
-    fontSize: 30,
+    fontSize: 25,
+    marginHorizontal: 3,
     opacity: 0.7,
   },
   backArrow: {
     fontSize: 30,
-    marginLeft: 10,
+    marginHorizontal: 15,
     color: Colors.primary,
   },
-  logoView: {
-    marginLeft: 10,
-    paddingHorizontal: 15,
-  },
   logo: {
+    marginLeft: 10,
     width: 24,
     height: 31,
   },

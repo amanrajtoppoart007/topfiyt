@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import Header from '../components/Header';
+import JobSectionHeader from '../components/JobSectionHeader';
 import JobCard from '../components/JobListing/JobCard';
 import Colors from '../layout/Colors';
 class JobListingScreen extends React.Component {
@@ -39,7 +39,7 @@ class JobListingScreen extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <Header />
+        <JobSectionHeader navigation={this.props.navigation} />
         <View style={styles.container}>
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.wrapper}>

@@ -1,12 +1,12 @@
 import React from 'react';
 import {ScrollView, View} from 'react-native';
-import Header from '../components/Header';
+import JobSectionHeader from '../components/JobSectionHeader';
 import JobCard from '../components/JobListing/JobCard';
 
 function JobSearchScreen() {
   return (
     <View style={{flex: 1}}>
-      <Header />
+      <JobSectionHeader />
       <ScrollView>
         <JobCard />
         <JobCard />

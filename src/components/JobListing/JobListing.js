@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
-import Header from '../Header';
+import JobSectionHeader from '../JobSectionHeader';
 import JobCard from './JobCard';
 import Colors from '../../layout/Colors';
 import Font from '../../layout/Font';
@@ -18,7 +18,7 @@ export default class JobListing extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <Header />
+        <JobSectionHeader />
         <ScrollView>
           <JobCard />
           <JobCard />

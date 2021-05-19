@@ -3,6 +3,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import SideBar from '../components/SideBar';
 import HomeNavigator from './HomeNavigator';
 import MyJobNavigator from './MyJobNavigator';
+import JobSectionNavigator from './JobSectionNavigator';
 import ScreenSettings from './ScreenSettings';
 
 import FeaturedProfessionalScreen from '../screens/FeaturedProfessionalScreen';
@@ -59,6 +60,13 @@ const MainNavigator = () => {
         component={ForumScreen}
         options={{
           title: 'Community/Forum',
+        }}
+      />
+      <Drawer.Screen
+        name="JobSection"
+        component={JobSectionNavigator}
+        options={{
+          title: 'Job Section',
         }}
       />
       <Drawer.Screen
