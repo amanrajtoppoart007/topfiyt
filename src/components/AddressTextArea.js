@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, TextInput, View } from 'react-native';
-import { Input } from 'react-native-elements';
+import {StyleSheet, View} from 'react-native';
+import {Input} from 'react-native-elements';
 import Colors from '../layout/Colors';
 import Layout from '../layout/Layout';
 import Home from '../assets/images/svg/home.svg';
-import Font from "../layout/Font";
+import Font from '../layout/Font';
 
 class AddressTextArea extends Component {
   render() {

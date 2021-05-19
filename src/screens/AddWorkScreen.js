@@ -47,16 +47,6 @@ class AddWorkScreen extends Component {
     );
   };
 
-  onClose(index) {
-    console.log('i clicked' + index);
-    let newList = this.state.list.map((item, key) => {
-      if (key !== index) {
-        return item;
-      }
-    });
-    this.setState({list: newList});
-  }
-
   render() {
     const animationItem = this.animatedValue.interpolate({
       inputRange: [0, 1],
@@ -66,18 +56,12 @@ class AddWorkScreen extends Component {
     let newList = this.state.list.map((item, key) => {
       if (key === this.index) {
         return (
-          <Animated.View key={key.toString()}>
-            <AddProject index={key} onClose={() => this.onClose(key)} />
+          <Animated.View index={key + 1} key={key.toString()}>
+            <AddProject />
           </Animated.View>
         );
       } else {
-        return (
-          <AddProject
-            onClose={() => this.onClose(key)}
-            index={key}
-            key={key.toString()}
-          />
-        );
+        return <AddProject index={key + 1} key={key.toString()} />;
       }
     });
 
@@ -89,7 +73,7 @@ class AddWorkScreen extends Component {
             <View>
               <View>
                 <View style={{marginVertical: 15}}>
-                  <AddProject />
+                  <AddProject index={0} />
                   {newList && newList}
                 </View>
                 <View>
