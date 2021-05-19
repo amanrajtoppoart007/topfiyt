@@ -2,14 +2,17 @@ import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import SideBar from '../components/SideBar';
 import HomeNavigator from './HomeNavigator';
+import MyJobNavigator from './MyJobNavigator';
 import ScreenSettings from './ScreenSettings';
+
+import FeaturedProfessionalScreen from '../screens/FeaturedProfessionalScreen';
 import EmployerListScreen from '../screens/EmployerListScreen';
 import AgentListScreen from '../screens/AgentListScreen';
 import ForumScreen from '../screens/ForumScreen';
 import ResumeWritingServiceScreen from '../screens/ResumeWritingServiceScreen';
 import NewsListScreen from '../screens/NewsListScreen';
-import MyJob from '../screens/MyJobScreen';
 import MyProfileScreen from '../screens/MyProfileScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -30,6 +33,13 @@ const MainNavigator = () => {
         }}
       />
 
+      <Drawer.Screen
+        name="FeaturedProfessionals"
+        component={FeaturedProfessionalScreen}
+        options={{
+          title: 'Featured Professional',
+        }}
+      />
       <Drawer.Screen
         name="Employers"
         component={EmployerListScreen}
@@ -66,8 +76,8 @@ const MainNavigator = () => {
         }}
       />
       <Drawer.Screen
-        name="MyJobs"
-        component={MyJob}
+        name="MyJob"
+        component={MyJobNavigator}
         options={{
           title: 'My Jobs',
         }}
@@ -77,6 +87,13 @@ const MainNavigator = () => {
         component={MyProfileScreen}
         options={{
           title: 'Contact Us',
+        }}
+      />
+      <Drawer.Screen
+        name="Setting"
+        component={SettingsScreen}
+        options={{
+          title: 'Setting',
         }}
       />
     </Drawer.Navigator>

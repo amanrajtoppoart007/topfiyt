@@ -9,7 +9,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 class SearchBox extends Component {
   render() {
     return (
-      <View style={{height: 60}}>
+      <View style={{height: 60, zIndex: -1}}>
         <View style={styles.searchBox}>
           <User width={50} height={50} />
           <View style={styles.inputContainerStyle}>

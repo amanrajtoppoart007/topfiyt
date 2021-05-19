@@ -4,34 +4,29 @@ import {
   Text,
   Image,
   StyleSheet,
-  TextInput,
   StatusBar,
-  TouchableOpacity,
   Pressable,
 } from 'react-native';
-import {Overlay} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import DropDownPicker from 'react-native-dropdown-picker';
+
 import logo from '../assets/images/logo/logo.png';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 import Layout from '../layout/Layout';
-
-import Filter from './Filter';
 import PropTypes from 'prop-types';
 class MainHeader extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: false,
-      filter: false,
+      items: [
+        {label: 'EN', value: 'english'},
+        {label: 'HI', value: 'hindi'},
+        {label: 'RU', value: 'russian'},
+      ],
     };
   }
-  toggleSearch = () => {
-    this.setState({search: !this.state.search});
-  };
-  toggleFilter = () => {
-    this.setState({filter: !this.state.filter});
-  };
+
   openDrawer() {
     this.props.navigation.openDrawer();
   }
@@ -53,49 +48,8 @@ class MainHeader extends Component {
 
           <View style={styles.icons}>
             <Icon style={styles.icon} name="notifications" />
-            <Icon
-              style={styles.icon}
-              onPress={() => this.toggleFilter()}
-              name="filter-list"
-            />
           </View>
         </View>
-        {this.state.search && (
-          <Overlay
-            fullScreen={true}
-            overlayStyle={styles.searchOverLay}
-            backdropStyle={{marginTop: 50 + StatusBar.currentHeight}}
-            isVisible={this.state.search}
-            onBackdropPress={() => this.toggleSearch()}>
-            <View style={styles.inputView}>
-              <View style={{width: '80%'}}>
-                <TextInput
-                  style={styles.inputSearch}
-                  placeholderTextColor={'white'}
-                  placeholder="Search Job"
-                />
-              </View>
-
-              <TouchableOpacity
-                style={styles.search}
-                onPress={() => this.toggleSearch()}>
-                <Icon size={18} color={Colors.white} name="search" />
-              </TouchableOpacity>
-            </View>
-          </Overlay>
-        )}
-
-        {this.state.filter && (
-          <Overlay
-            overlayStyle={{
-              backgroundColor: Colors.transparent,
-            }}
-            fullScreen={true}
-            isVisible={this.state.filter}
-            onBackdropPress={() => this.toggleFilter()}>
-            <Filter toggleFilter={() => this.toggleFilter()} />
-          </Overlay>
-        )}
       </View>
     );
   }
@@ -134,7 +88,6 @@ const styles = StyleSheet.create({
   line2: {
     width: 18,
     height: 1,
-    //   color : 'gray',
     borderWidth: 1,
     marginLeft: 10,
     marginBottom: 3,
@@ -144,7 +97,6 @@ const styles = StyleSheet.create({
   line3: {
     width: 10,
     height: 1,
-    //   color : 'gray',
     borderWidth: 1,
     marginLeft: 10,
     marginBottom: 3,
@@ -156,6 +108,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     flexDirection: 'row',
     marginHorizontal: 10,
+    zIndex: 9999999,
   },
   icon: {
     fontSize: 30,

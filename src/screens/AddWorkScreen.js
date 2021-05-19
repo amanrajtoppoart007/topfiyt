@@ -47,6 +47,16 @@ class AddWorkScreen extends Component {
     );
   };
 
+  onClose(index) {
+    console.log('i clicked' + index);
+    let newList = this.state.list.map((item, key) => {
+      if (key !== index) {
+        return item;
+      }
+    });
+    this.setState({list: newList});
+  }
+
   render() {
     const animationItem = this.animatedValue.interpolate({
       inputRange: [0, 1],
@@ -56,12 +66,18 @@ class AddWorkScreen extends Component {
     let newList = this.state.list.map((item, key) => {
       if (key === this.index) {
         return (
-          <Animated.View key={key}>
-            <AddProject />
+          <Animated.View key={key.toString()}>
+            <AddProject index={key} onClose={() => this.onClose(key)} />
           </Animated.View>
         );
       } else {
-        return <AddProject />;
+        return (
+          <AddProject
+            onClose={() => this.onClose(key)}
+            index={key}
+            key={key.toString()}
+          />
+        );
       }
     });
 
@@ -71,34 +87,43 @@ class AddWorkScreen extends Component {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.wrapper}>
             <View>
-              <View style={{marginVertical: 15}}>
-                <AddProject />
-                {newList && newList}
-              </View>
               <View>
-                <TouchableOpacity
-                  onPress={() => this.addMore()}
-                  style={styles.addMoreButton}>
-                  <View style={{marginHorizontal: 3}}>
-                    <Feather
-                      name={'plus-circle'}
-                      size={23}
-                      color={Colors.white}
-                    />
-                  </View>
-                  <View style={{marginHorizontal: 3}}>
-                    <Text style={styles.addMoreButtonText}>Add More</Text>
-                  </View>
-                </TouchableOpacity>
+                <View style={{marginVertical: 15}}>
+                  <AddProject />
+                  {newList && newList}
+                </View>
+                <View>
+                  <TouchableOpacity
+                    onPress={() => this.addMore()}
+                    style={styles.addMoreButton}>
+                    <View style={{marginHorizontal: 3}}>
+                      <Feather
+                        name={'plus-circle'}
+                        size={23}
+                        color={Colors.white}
+                      />
+                    </View>
+                    <View style={{marginHorizontal: 3}}>
+                      <Text style={styles.addMoreButtonText}>Add More</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.buttonSection}>
+                  <TouchableOpacity
+                    onPress={() =>
+                      this.props.navigation.navigate('UploadResume')
+                    }
+                    style={styles.button}>
+                    <Text style={styles.buttonText}>CONTINUE</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-              <View style={styles.buttonSection}>
+              <View style={styles.rowCenter}>
                 <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('UploadResume')}
-                  style={styles.button}>
-                  <Text style={styles.buttonText}>CONTINUE</Text>
+                  onPress={() => this.props.navigation.goBack()}
+                  style={styles.prevButton}>
+                  <Text style={styles.prevButtonText}>Prev</Text>
                 </TouchableOpacity>
-              </View>
-              <View>
                 <TouchableOpacity
                   onPress={() => this.props.navigation.navigate('UploadResume')}
                   style={styles.skipButton}>
@@ -119,8 +144,6 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     padding: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   labelWrapper: {
     marginBottom: 3,
@@ -145,7 +168,7 @@ const styles = StyleSheet.create({
     marginVertical: 50,
   },
   button: {
-    width: 342,
+    width: '100%',
     height: 40,
     borderRadius: 5,
     backgroundColor: Colors.primaryLight,
@@ -159,7 +182,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   skipButton: {
-    width: 342,
+    width: '50%',
     height: 40,
     paddingHorizontal: 3,
     justifyContent: 'center',
@@ -169,6 +192,23 @@ const styles = StyleSheet.create({
     fontFamily: Font.PoppinsRegular,
     fontSize: 16,
     color: Colors.white,
+  },
+  prevButton: {
+    width: '50%',
+    height: 40,
+    paddingHorizontal: 3,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  prevButtonText: {
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 16,
+    color: Colors.white,
+  },
+  rowCenter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });
 AddWorkScreen.propTypes = {

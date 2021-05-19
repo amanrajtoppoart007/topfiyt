@@ -18,4 +18,8 @@ export default {
   lightCyan: '#1FABA7',
   danger: '#F73E3E',
   grayBg: '#F5F5F5',
+  dividerDark: '#1d1d1d',
+  border: '#c7bdbd',
+  invertBackground: '#F9F9F9',
+  newsDescription: '#7E7373',
 };

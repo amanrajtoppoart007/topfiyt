@@ -1,120 +1,148 @@
 import React, {Component} from 'react';
-import {Text, View, TouchableOpacity, StyleSheet, Image} from 'react-native';
-import Header from '../components/Header';
+import {View, StyleSheet, SafeAreaView, FlatList, Text } from 'react-native';
+import CardItem from '../components/MyJob/CardItem';
 import Colors from '../layout/Colors';
+import CustomStatusBar from '../components/CustomStatusBar';
+import NavBar from '../components/NavBar';
 import Font from '../layout/Font';
-import myjob from '../assets/images/logo/myjob.png';
-import MainHeader from '../components/MainHeader';
 
-export default class MyJob extends Component {
+class MyJobScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      agents: [
+        {
+          jobTitle: 'Actor',
+          key: 'my-job-item-one',
+          status: 'pending',
+        },
+        {
+          jobTitle: 'Actress',
+          key: 'my-job-item-two',
+          status: 'selected',
+        },
+        {
+          jobTitle: 'Director',
+          key: 'my-job-item-three',
+          status: 'rejected',
+        },
+        {
+          jobTitle: 'Producer',
+          key: 'my-job-item-four',
+          status: 'pending',
+        },
+        {
+          jobTitle: 'Set Designer',
+          key: 'my-job-item-five',
+          status: 'selected',
+        },
+        {
+          jobTitle: 'Director of Photography',
+          key: 'my-job-item-six',
+          status: 'rejected',
+        },
+        {
+          jobTitle: 'Costume Designer',
+          key: 'my-job-item-seven',
+          status: 'pending',
+        },
+        {
+          jobTitle: 'Prop Master',
+          key: 'my-job-item-eight',
+          status: 'selected',
+        },
+        {
+          jobTitle: 'Makeup Artist',
+          key: 'my-job-item-nine',
+          status: 'rejected',
+        },
+        {
+          jobTitle: 'Movie Editor',
+          key: 'my-job-item-ten',
+          status: 'pending',
+        },
+        {
+          jobTitle: 'Composer',
+          key: 'my-job-item-eleven',
+          status: 'selected',
+        },
+        {
+          jobTitle: 'Art director',
+          key: 'my-job-item-twelve',
+          status: 'rejected',
+        },
+        {
+          jobTitle: 'Assistant director',
+          key: 'my-job-item-thirteen',
+          status: 'pending',
+        },
+        {
+          jobTitle: 'Best boy',
+          key: 'my-job-item-fourteen',
+          status: 'selected',
+        },
+        {
+          jobTitle: 'Camera operator',
+          key: 'my-job-item-fifteen',
+          status: 'rejected',
+        },
+        {
+          jobTitle: 'Cable person',
+          key: 'my-job-item-sixteen',
+          status: 'pending',
+        },
+      ],
+    };
+  }
+
+  _renderItem = ({item}) => {
+    return (
+      <View style={{marginVertical: 5}}>
+        <CardItem navigation={this.props.navigation} item={item} />
+      </View>
+    );
+  };
+  keyExtractor = item => item.key.toString();
   render() {
     return (
-      <View>
-        <MainHeader />
-
-        <Text style={styles.myjobs}>My Jobs</Text>
-
-        <View style={styles.cardContainer}>
-          <View style={styles.cardHeader}>
-            <View style={styles.topContainer}>
-              <Text style={styles.name}>ACTOR</Text>
-              <Text style={styles.date}>Applied 22 April 2020</Text>
+      <SafeAreaView style={styles.container}>
+        <CustomStatusBar />
+        <NavBar navigation={this.props.navigation} />
+        <View style={styles.content}>
+          <View>
+            <View style={{marginVertical: 10}}>
+              <Text style={styles.pageTitle}>My Jobs</Text>
             </View>
-
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <View style={{position: 'relative', top: 5, left: -5}}>
-                <Image style={styles.myjob} source={myjob} />
-              </View>
-              <TouchableOpacity style={styles.btnView}>
-                <Text style={styles.btn}>SELECTED</Text>
-              </TouchableOpacity>
+            <View>
+              <FlatList
+                showsVerticalScrollIndicator={false}
+                keyExtractor={this.keyExtractor}
+                data={this.state.agents}
+                renderItem={this._renderItem}
+              />
             </View>
-          </View>
-
-          <View style={styles.textView}>
-            <Text style={styles.companyName}>COMPANY NAME</Text>
-            <Text style={styles.paraText}>
-              Lorem ipsum dolor sit amet, consetetur sadipcing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluqtua
-            </Text>
           </View>
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  cardContainer: {
-    borderWidth: 1,
-    borderColor: 'lightgray',
-    //  flexDirection : 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 10,
-    //  height : '50%'
+  container: {
+    flex: 1,
+    backgroundColor: Colors.invertBackground,
   },
-  myjobs: {
-    fontSize: 16,
-    fontFamily: Font.PoppinsSemiBold,
-    marginLeft: 10,
-    marginVertical: 10,
-  },
-  cardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginLeft: 12,
-  },
-  topContainer: {
-    flexDirection: 'row',
+  content: {
+    padding: 15,
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  name: {
-    fontSize: 12,
+  pageTitle: {
     fontFamily: Font.PoppinsSemiBold,
-    color: Colors.mutedText,
-  },
-  date: {
-    fontSize: 7,
-    fontFamily: Font.PoppinsRegular,
-    marginLeft: 10,
-    color: Colors.mutedText,
-  },
-
-  myjob: {
-    //   marginLeft : 4,
-    //   marginTop : 2,
-    // margin : 5
-    // paddingTop : 8
-  },
-  btnView: {
-    //  borderWidth : 1,
-    // height : 26,
-    // width : 86,
-    marginTop: 5,
-    marginRight: 2,
-    backgroundColor: Colors.primary,
-  },
-  btn: {
-    color: Colors.white,
-    margin: 8,
-    marginHorizontal: 18,
-  },
-  textView: {
-    marginVertical: 10,
-    marginHorizontal: 12,
-  },
-  companyName: {
-    color: Colors.primary,
-    fontFamily: Font.PoppinsRegular,
-    fontSize: 10,
-    marginTop: -18,
-    marginBottom: 1,
-  },
-  paraText: {
-    fontSize: 10,
-    letterSpacing: 0.5,
-    fontFamily: Font.PoppinsRegular,
-    color: Colors.mutedText,
+    fontSize: 16,
+    color: Colors.black,
+    fontWeight: 'bold',
   },
 });
+export default MyJobScreen;

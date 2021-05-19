@@ -1,6 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
+import MyJobDetailScreen from '../screens/MyJobDetailScreen';
 const Stack = createStackNavigator();
 import ScreenSettings from './ScreenSettings';
 const HomeNavigator = () => (
@@ -13,6 +14,11 @@ const HomeNavigator = () => (
     <Stack.Screen
       name="Home"
       component={HomeScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="MyJobDetail"
+      component={MyJobDetailScreen}
       options={{headerShown: false}}
     />
   </Stack.Navigator>

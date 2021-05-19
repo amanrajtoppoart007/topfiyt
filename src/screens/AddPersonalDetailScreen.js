@@ -62,6 +62,7 @@ class AddPersonalDetailScreen extends Component {
                 <Text style={styles.label}>Mobile</Text>
               </View>
               <Input
+                keyboardType={'number-pad'}
                 leftIcon={() => (
                   <Ionicons
                     style={{marginLeft: 10}}
@@ -81,6 +82,7 @@ class AddPersonalDetailScreen extends Component {
                 <Text style={styles.label}>Pincode</Text>
               </View>
               <Input
+                keyboardType={'number-pad'}
                 leftIcon={() => (
                   <Ionicons
                     style={{marginLeft: 10}}

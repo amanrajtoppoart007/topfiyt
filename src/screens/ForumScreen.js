@@ -252,6 +252,7 @@ const styles = StyleSheet.create({
     fontFamily: Font.PoppinsRegular,
     marginTop: 10,
     marginHorizontal: 15,
+    color: Colors.black,
   },
   bottomLineText: {
     fontSize: 12,
@@ -276,6 +277,7 @@ const styles = StyleSheet.create({
   webinar: {
     fontSize: 12,
     fontFamily: Font.PoppinsRegular,
+    color: Colors.black,
     width: 160,
     marginVertical: 5,
   },

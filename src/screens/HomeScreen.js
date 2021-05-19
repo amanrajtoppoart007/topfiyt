@@ -8,6 +8,7 @@ import MainHeader from '../components/MainHeader';
 import CustomStatusBar from '../components/CustomStatusBar';
 import Font from '../layout/Font';
 import SearchBox from '../components/Home/SearchBox';
+import {FAB} from 'react-native-elements';
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -62,6 +63,15 @@ class HomeScreen extends Component {
             </View>
           </View>
         </ScrollView>
+        <FAB
+          title={'Jobs'}
+          size={'large'}
+          titleStyle={styles.floatingButtonTextStyle}
+          style={styles.floatingButtonStyle}
+          containerStyle={styles.floatingButtonStyle}
+          placement={'right'}
+          color={Colors.primary}
+        />
       </SafeAreaView>
     );
   }
@@ -70,6 +80,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.white,
+  },
+  floatingButtonStyle: {
+    width: 65,
+    height: 65,
+    borderRadius: 65 / 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.primary,
+  },
+  floatingButtonTextStyle: {
+    width: 40,
+    fontSize: 12,
+    fontFamily: Font.PoppinsRegular,
+    color: Colors.white,
+    alignSelf: 'center',
+    marginLeft: 20,
   },
   wrapper: {
     padding: 15,

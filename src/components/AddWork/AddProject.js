@@ -1,16 +1,33 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Colors from '../../layout/Colors';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Font from '../../layout/Font';
-import {Input} from 'react-native-elements';
+import {Input, Icon} from 'react-native-elements';
 
 class AddProject extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
+    const {onClose} = this.props;
     return (
-      <React.Fragment>
+      <View>
         <View style={[styles.card, {marginBottom: 15}]}>
+          {this.props.index === 0 && (
+            <View style={styles.closeButtonWrapper}>
+              <TouchableOpacity onPress={onClose}>
+                <Icon
+                  name={'closecircleo'}
+                  type={'ant-design'}
+                  size={25}
+                  color={Colors.white}
+                />
+              </TouchableOpacity>
+            </View>
+          )}
+
           <View style={styles.inputBox}>
             <View style={styles.labelWrapper}>
               <Text style={styles.label}>Project Name</Text>
@@ -56,7 +73,7 @@ class AddProject extends Component {
             </View>
           </View>
         </View>
-      </React.Fragment>
+      </View>
     );
   }
 }
@@ -88,7 +105,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 5,
     fontFamily: Font.PoppinsRegular,
-    fontSize: 12,
+    fontSize: 10,
     color: Colors.primary,
     paddingHorizontal: 10,
   },
@@ -109,8 +126,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.white,
   },
+  closeButtonWrapper: {
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
 });
 
-AddProject.propTypes = {};
+AddProject.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 
 export default AddProject;

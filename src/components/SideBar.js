@@ -4,91 +4,216 @@ import {
   View,
   StyleSheet,
   Text,
-  TouchableOpacity,
-} from 'react-native';
+  FlatList,
+  Pressable, StatusBar,
+} from "react-native";
 
-import {
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from '@react-navigation/drawer';
+import {Icon, ListItem, Divider} from 'react-native-elements';
 
-import Font from '../layout/Font';
 import Colors from '../layout/Colors';
+import Font from '../layout/Font';
 
 const SideBar = props => {
+  const menus = [
+    {
+      key: 'menu-item-one',
+      title: 'Home',
+      route: 'Home',
+    },
+    {
+      key: 'menu-item-two',
+      title: 'Featured Professionals',
+      route: 'FeaturedProfessionals',
+    },
+    {
+      key: 'menu-item-three',
+      title: 'Employers',
+      route: 'Employers',
+    },
+    {
+      key: 'menu-item-four',
+      title: 'Agents',
+      route: 'Agents',
+    },
+    {
+      key: 'menu-item-five',
+      title: 'Community /Forum',
+      route: 'Forum',
+    },
+    {
+      key: 'menu-item-six',
+      title: 'Resume Writing Service',
+      route: 'ResumeWritingService',
+    },
+    {
+      key: 'menu-item-seven',
+      title: 'News',
+      route: 'News',
+    },
+  ];
+
+  const settings = [
+    {
+      key: 'menu-item-one',
+      title: 'My Profile',
+      route: 'MyProfile',
+    },
+    {
+      key: 'menu-item-two',
+      title: 'My Job',
+      route: 'MyJob',
+    },
+    {
+      key: 'menu-item-three',
+      title: 'Share App',
+      route: 'ShareApp',
+    },
+    {
+      key: 'menu-item-four',
+      title: 'Setting',
+      route: 'Setting',
+    },
+    {
+      key: 'menu-item-five',
+      title: 'Logout',
+      route: 'Login',
+    },
+  ];
+
   const closeMenu = () => {
     props.navigation.closeDrawer();
   };
 
-  const logOut = () => {
+  const logout = () => {
     props.navigation.navigate('Login');
   };
-
+  const keyExtractor = item => item.key.toString();
+  const renderItem = ({item}) => (
+    <Pressable
+      style={styles.menuContainerStyle}
+      onPress={() =>
+        item.route === 'LogOut'
+          ? logout()
+          : props.navigation.navigate(item.route)
+      }>
+      <View style={styles.menuContentWrapper}>
+        <View>
+          <Text style={{color: Colors.white}}>{item.title}</Text>
+        </View>
+        <View>
+          <Icon
+            iconStyle={[
+              styles.menuIconStyle,
+              {color: Colors.white, fontSize: 10},
+            ]}
+            containerStyle={[
+              styles.menuIconContainerStyle,
+              {backgroundColor: Colors.primary},
+            ]}
+            name={'chevron-right'}
+            type={'font-awesome-5'}
+          />
+        </View>
+      </View>
+    </Pressable>
+  );
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity onPress={() => closeMenu()} style={styles.backButton} />
-      <View style={styles.sideMenuProfile}>
-        <Text style={styles.name}>Mathew James</Text>
-        <Text style={styles.email}>mathewjames@gmail.com</Text>
+      <View style={styles.card}>
+        <View style={styles.titleContainer}>
+          <View>
+            <Text style={styles.name}>Hi John !</Text>
+            <Text style={styles.mobile}>009939349</Text>
+          </View>
+          <View>
+            <Pressable onPress={() => closeMenu()}>
+              <Icon
+                iconStyle={[styles.menuIconStyle, {color: Colors.primary}]}
+                containerStyle={[
+                  styles.menuIconContainerStyle,
+                  {backgroundColor: Colors.white},
+                ]}
+                name={'closecircleo'}
+                type={'antdesign'}
+              />
+            </Pressable>
+          </View>
+        </View>
       </View>
-      <DrawerContentScrollView {...props}>
-        <DrawerItemList labelStyle={styles.drawerItem} {...props} />
-        <DrawerItem
-          labelStyle={styles.drawerItem}
-          label={'Log Out'}
-          onPress={() => logOut()}
+      <Divider style={styles.divider} />
+      <View>
+        <FlatList
+          keyExtractor={keyExtractor}
+          data={menus}
+          renderItem={renderItem}
         />
-      </DrawerContentScrollView>
+      </View>
+      <Divider style={styles.divider} />
+      <View>
+        <FlatList
+          keyExtractor={keyExtractor}
+          data={settings}
+          renderItem={renderItem}
+        />
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: Colors.background},
-  drawerItem: {
-    fontFamily: Font.PoppinsSemiBold,
-    fontSize: 17,
+  container: {
+    flex: 1,
+    backgroundColor: Colors.primary,
+    paddingTop: StatusBar.currentHeight,
+  },
+  divider: {
+    backgroundColor: Colors.dividerDark,
+    width: '90%',
+    alignSelf: 'center',
+  },
+  titleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 10,
+  },
+  menuContainerStyle: {
+    height: 40,
+    backgroundColor: Colors.primary,
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+  },
+  menuContentWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  menuIconStyle: {
+    fontSize: 20,
     color: Colors.white,
   },
-  backButton: {
-    marginTop: 20,
-    height: 50,
+  menuIconContainerStyle: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: Colors.primary,
     justifyContent: 'center',
-    alignItems: 'flex-start',
+    alignItems: 'center',
   },
-  sideMenuProfile: {
-    height: 60,
-    marginHorizontal: 50,
-    marginVertical: 20,
+  card: {
+    backgroundColor: Colors.primary,
+    justifyContent: 'center',
+    padding: 20,
   },
   name: {
     fontFamily: Font.PoppinsSemiBold,
-    fontSize: 25,
+    fontSize: 14,
     color: Colors.white,
   },
-  email: {
+  mobile: {
     fontFamily: Font.PoppinsRegular,
-    fontSize: 16,
-    color: Colors.gray,
-  },
-
-  sideMenuProfileIcon: {
-    resizeMode: 'center',
-    width: 100,
-    height: 100,
-    borderRadius: 100 / 2,
-    alignSelf: 'center',
-  },
-  iconStyle: {
-    width: 15,
-    height: 15,
-    marginHorizontal: 5,
-  },
-  customItem: {
-    padding: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
+    fontSize: 12,
+    color: Colors.white,
   },
 });
 

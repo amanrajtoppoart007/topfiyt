@@ -63,14 +63,14 @@ class PostCard extends Component {
                   size={14}
                   color={Colors.primary}
                 />
-                <Text style={styles.counterText}>382k</Text>
+                <Text style={styles.counterText}>1k</Text>
               </TouchableOpacity>
             </View>
             <View>
               <TouchableOpacity
                 onPress={() => this.comment()}
                 style={styles.counter}>
-                <Text style={styles.counterText}>452k</Text>
+                <Text style={styles.counterText}>1k</Text>
                 <Text style={[styles.counterText, {marginHorizontal: 5}]}>
                   Comments
                 </Text>
