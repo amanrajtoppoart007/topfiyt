@@ -6,7 +6,7 @@ import RegisterScreen from '../screens/RegisterScreen';
 import AddProfileScreen from '../screens/AddProfileScreen';
 import AddPersonalDetailScreen from '../screens/AddPersonalDetailScreen';
 import AddWorkScreen from '../screens/AddWorkScreen';
-import ConfirmationScreen from '../screens/ConfirmationScreen';
+import SubmissionConfirmationScreen from '../screens/SubmissionConfirmationScreen';
 import UploadResumeScreen from '../screens/UploadResumeScreen';
 import MainNavigator from './MainNavigator';
 import ScreenSettings from './ScreenSettings';
@@ -45,7 +45,7 @@ const AuthNavigator = () => (
     />
     <Stack.Screen
       name="Confirmation"
-      component={ConfirmationScreen}
+      component={SubmissionConfirmationScreen}
       options={{headerShown: false}}
     />
     <Stack.Screen

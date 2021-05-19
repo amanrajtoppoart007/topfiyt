@@ -8,7 +8,6 @@ import {
   Pressable,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import DropDownPicker from 'react-native-dropdown-picker';
 
 import logo from '../assets/images/logo/logo.png';
 import Colors from '../layout/Colors';
@@ -70,7 +69,7 @@ const styles = StyleSheet.create({
   header: {
     height: 48,
     flexDirection: 'row',
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: '#CCCCCC',
     backgroundColor: 'white',
     justifyContent: 'space-between',
@@ -126,29 +125,5 @@ const styles = StyleSheet.create({
   logo: {
     width: 24,
     height: 31,
-  },
-  inputView: {
-    width: Layout.window.width,
-    height: 60,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    zIndex: 1,
-    backgroundColor: Colors.primary,
-    paddingHorizontal: 10,
-  },
-  inputSearch: {
-    fontFamily: Font.PoppinsRegular,
-    color: Colors.white,
-  },
-  search: {
-    width: '10%',
-    marginRight: 15,
-  },
-  searchOverLay: {
-    padding: 0,
-    margin: 0,
-    marginTop: 70 + StatusBar.currentHeight,
-    backgroundColor: Colors.transparent,
   },
 });

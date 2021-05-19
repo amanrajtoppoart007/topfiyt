@@ -13,7 +13,7 @@ import BackButtonNavBar from '../components/BackButtonNavBar';
 import Font from '../layout/Font';
 import CustomStatusBar from '../components/CustomStatusBar';
 import SkillCheckBoxList from '../components/JobDescription/SkillCheckBoxList';
-import Layout from "../layout/Layout";
+import Layout from '../layout/Layout';
 
 class JobDescriptionScreen extends Component {
   render() {
@@ -29,7 +29,11 @@ class JobDescriptionScreen extends Component {
             <Text style={styles.brandText}>BRAND PVT. LTD.</Text>
           </View>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <TouchableOpacity style={styles.applyNowButton}>
+            <TouchableOpacity
+              onPress={() =>
+                this.props.navigation.navigate('SubmissionConfirmation')
+              }
+              style={styles.applyNowButton}>
               <Text style={styles.applyNowButtonText}>Apply Now</Text>
             </TouchableOpacity>
           </View>

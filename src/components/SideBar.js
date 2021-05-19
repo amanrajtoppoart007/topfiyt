@@ -128,10 +128,10 @@ const SideBar = props => {
           <View>
             <Pressable onPress={() => closeMenu()}>
               <Icon
-                iconStyle={[styles.menuIconStyle, {color: Colors.primary}]}
+                iconStyle={[styles.menuIconStyle, {color: Colors.white}]}
                 containerStyle={[
                   styles.menuIconContainerStyle,
-                  {backgroundColor: Colors.white},
+                  {backgroundColor: Colors.transparent},
                 ]}
                 name={'closecircleo'}
                 type={'antdesign'}

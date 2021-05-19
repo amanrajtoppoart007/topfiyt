@@ -4,6 +4,7 @@ const Stack = createStackNavigator();
 import ScreenSettings from './ScreenSettings';
 import JobListingScreen from '../screens/JobListingScreen';
 import JobDescriptionScreen from '../screens/JobDescriptionScreen';
+import SubmissionConfirmationScreen from '../screens/SubmissionConfirmationScreen';
 const JobSectionNavigator = () => (
   <Stack.Navigator
     screenOptions={{
@@ -19,6 +20,11 @@ const JobSectionNavigator = () => (
     <Stack.Screen
       name="JobDescription"
       component={JobDescriptionScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="SubmissionConfirmation"
+      component={SubmissionConfirmationScreen}
       options={{headerShown: false}}
     />
   </Stack.Navigator>

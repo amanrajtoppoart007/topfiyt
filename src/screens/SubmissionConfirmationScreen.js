@@ -4,7 +4,7 @@ import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 import Success from '../assets/images/svg/success.svg';
 
-export default class ConfirmationScreen extends Component {
+export default class SubmissionConfirmationScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -25,7 +25,9 @@ export default class ConfirmationScreen extends Component {
             <Text style={styles.text}>Want to apply for another job?</Text>
           </View>
           <View style={[styles.center, {marginTop: 20}]}>
-            <TouchableOpacity style={styles.homeButton}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('Home')}
+              style={styles.homeButton}>
               <Text style={styles.homeButtonText}>Back to Home</Text>
             </TouchableOpacity>
           </View>
