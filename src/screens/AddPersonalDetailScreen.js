@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 5,
     fontFamily: Font.PoppinsRegular,
-    fontSize: 12,
+    fontSize: 10,
     color: Colors.primary,
   },
   pickerContainerStyle: {
