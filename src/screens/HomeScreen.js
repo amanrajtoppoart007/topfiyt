@@ -52,9 +52,9 @@ class HomeScreen extends Component {
                 <Text style={styles.pageTitle}>Recent Post</Text>
               </View>
               <View>
-                {this.state.jobs.map(() => {
+                {this.state.jobs.map((item, index) => {
                   return (
-                    <View style={{marginVertical: 8}}>
+                    <View key={index.toString()} style={{marginVertical: 8}}>
                       <PostCard />
                     </View>
                   );
