@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {CheckBox} from 'react-native-elements';
 import CustomStatusBar from '../components/CustomStatusBar';
 import Colors from '../layout/Colors';
 import Upload from '../assets/images/svg/upload.svg';
@@ -14,6 +15,12 @@ import BackButtonNavBar from '../components/BackButtonNavBar';
 import Font from '../layout/Font';
 
 class UploadResumeScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checked: 'doc',
+    };
+  }
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -22,6 +29,59 @@ class UploadResumeScreen extends Component {
         <View style={styles.wrapper}>
           <View style={styles.marginVertical}>
             <Upload style={styles.introImage} />
+          </View>
+          <View style={styles.marginVertical}>
+            <View style={styles.center}>
+              <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                <Text
+                  style={[
+                    styles.helperText,
+                    {
+                      color:
+                        this.state.checked === 'doc'
+                          ? Colors.primary
+                          : Colors.mutedText,
+                    },
+                  ]}>
+                  Max (5MB)
+                </Text>
+                <CheckBox
+                  checkedIcon="dot-circle-o"
+                  uncheckedIcon="circle-o"
+                  title={'Upload Doc.'}
+                  checkedColor={Colors.primary}
+                  uncheckedColor={Colors.primary}
+                  checked={this.state.checked === 'doc'}
+                  onPress={() => this.setState({checked: 'doc'})}
+                  containerStyle={styles.checkboxContainerStyle}
+                />
+              </View>
+              <View>
+                <Text
+                  style={[
+                    styles.helperText,
+                    {
+                      color:
+                        this.state.checked === 'video'
+                          ? Colors.primary
+                          : Colors.mutedText,
+                    },
+                  ]}>
+                  Max (5MB)
+                </Text>
+                <CheckBox
+                  checkedIcon="dot-circle-o"
+                  uncheckedIcon="circle-o"
+                  title={'Upload Video'}
+                  checkedColor={Colors.primary}
+                  uncheckedColor={Colors.primary}
+                  checked={this.state.checked === 'video'}
+                  onPress={() => this.setState({checked: 'video'})}
+                  containerStyle={styles.checkboxContainerStyle}
+                />
+              </View>
+
+            </View>
           </View>
           <View style={styles.marginVertical}>
             <View style={styles.uploadBox}>
@@ -47,22 +107,37 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.white,
   },
+  helperText: {
+    alignSelf: 'flex-end',
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 8,
+  },
+  center: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   wrapper: {
-    padding: 15,
+    padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   marginVertical: {
-    marginVertical: 15,
+    marginVertical: 10,
   },
   introImage: {
-    width: 342,
-    height: 210,
+    width: 300,
+    height: 200,
   },
-
+  checkboxContainerStyle: {
+    backgroundColor: Colors.transparent,
+    borderColor: Colors.transparent,
+    margin: 0,
+    padding: 0,
+  },
   uploadBox: {
-    width: 236,
-    height: 236,
+    width: 220,
+    height: 200,
     borderWidth: 3,
     borderRadius: 1,
     borderColor: Colors.primary,
@@ -77,7 +152,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   button: {
-    width: 171,
+    width: 185,
     height: 40,
     backgroundColor: Colors.primary,
     justifyContent: 'center',

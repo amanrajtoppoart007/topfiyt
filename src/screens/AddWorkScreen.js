@@ -48,7 +48,7 @@ class AddWorkScreen extends Component {
   };
 
   render() {
-    const animationItem = this.animatedValue.interpolate({
+    this.animatedValue.interpolate({
       inputRange: [0, 1],
       outputRange: [-59, 0],
     });
