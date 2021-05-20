@@ -88,18 +88,20 @@ class NewsListScreen extends Component {
       <SafeAreaView style={styles.container}>
         <CustomStatusBar />
         <NavBar navigation={this.props.navigation} />
-        <ScrollView>
-          <View style={styles.content}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <View style={styles.adWrapper}>
               <Image
                 style={styles.adImage}
                 source={require('../assets/images/news/ad.png')}
               />
             </View>
-            <View>
-              {this.state.news.map((item, index) => {
-                return <CardItem key={index.toString()} item={item} />;
-              })}
+            <View style={styles.content}>
+              <View>
+                {this.state.news.map((item, index) => {
+                  return <CardItem key={index.toString()} item={item} />;
+                })}
+              </View>
             </View>
           </View>
         </ScrollView>
@@ -114,16 +116,19 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.invertBackground,
   },
   content: {
-    padding: 15,
+    padding: 10,
+    paddingTop: 0,
     justifyContent: 'center',
     alignItems: 'center',
   },
   adWrapper: {
-    width: Layout.window.width * 0.95,
+    width: Layout.window.width * 0.9,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   adImage: {
     width: '100%',
-    height: 60,
+    height: 80,
   },
 });
 export default NewsListScreen;

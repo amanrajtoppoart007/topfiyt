@@ -13,7 +13,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 import AddProject from '../components/AddWork/AddProject';
-import BackButtonNavBar from '../components/BackButtonNavBar';
+import OnlyBackButtonNavBar from '../components/OnlyBackIconNavBar';
 
 class AddWorkScreen extends Component {
   constructor(props) {
@@ -67,7 +67,7 @@ class AddWorkScreen extends Component {
 
     return (
       <SafeAreaView style={styles.container}>
-        <BackButtonNavBar navigation={this.props.navigation} />
+        <OnlyBackButtonNavBar navigation={this.props.navigation} />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.wrapper}>
             <View>

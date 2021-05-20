@@ -8,24 +8,44 @@ import {
   View,
 } from 'react-native';
 import {CheckBox} from 'react-native-elements';
+import AwesomeAlert from 'react-native-awesome-alerts';
+
 import CustomStatusBar from '../components/CustomStatusBar';
 import Colors from '../layout/Colors';
 import Upload from '../assets/images/svg/upload.svg';
-import BackButtonNavBar from '../components/BackButtonNavBar';
 import Font from '../layout/Font';
+import OnlyBackButtonNavBar from '../components/OnlyBackIconNavBar';
 
 class UploadResumeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       checked: 'doc',
+      showAlert: false,
     };
   }
+
+  showAlert = () => {
+    this.setState({
+      showAlert: true,
+    });
+    setTimeout(() => {
+      this.props.navigation.navigate('Login');
+    }, 6000);
+  };
+
+  hideAlert = () => {
+    this.setState({
+      showAlert: false,
+    });
+  };
+
   render() {
+    const {showAlert} = this.state;
     return (
       <SafeAreaView style={styles.container}>
         <CustomStatusBar />
-        <BackButtonNavBar navigation={this.props.navigation} />
+        <OnlyBackButtonNavBar navigation={this.props.navigation} />
         <View style={styles.wrapper}>
           <View style={styles.marginVertical}>
             <Upload style={styles.introImage} />
@@ -80,7 +100,6 @@ class UploadResumeScreen extends Component {
                   containerStyle={styles.checkboxContainerStyle}
                 />
               </View>
-
             </View>
           </View>
           <View style={styles.marginVertical}>
@@ -92,17 +111,56 @@ class UploadResumeScreen extends Component {
           </View>
           <View style={styles.marginVertical}>
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Login')}
+              onPress={() => this.showAlert()}
               style={styles.button}>
               <Text style={styles.buttonText}>SUBMIT & CONTINUE</Text>
             </TouchableOpacity>
           </View>
         </View>
+        <AwesomeAlert
+          show={showAlert}
+          showProgress={false}
+          title="Success!"
+          message="Thanks For Registering, You Can Continue With Login"
+          closeOnTouchOutside={false}
+          closeOnHardwareBackPress={false}
+          showCancelButton={false}
+          showConfirmButton={false}
+          onCancelPressed={() => {
+            this.hideAlert();
+            this.navigation.navigate('Login');
+          }}
+          onConfirmPressed={() => {
+            this.hideAlert();
+            this.navigation.navigate('Login');
+          }}
+          contentContainerStyle={styles.alertContentContainerStyle}
+          titleStyle={styles.alertTitleStyle}
+          messageStyle={styles.alertMessageStyle}
+        />
       </SafeAreaView>
     );
   }
 }
 const styles = StyleSheet.create({
+  alertContentContainerStyle: {
+    width: 300,
+    height: 300,
+    borderRadius: 20,
+    backgroundColor: Colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  alertTitleStyle: {
+    fontFamily: Font.PoppinsSemiBold,
+    fontSize: 25,
+    color: Colors.white,
+  },
+  alertMessageStyle: {
+    fontFamily: Font.PoppinsSemiBold,
+    fontSize: 18,
+    color: Colors.white,
+  },
   container: {
     flex: 1,
     backgroundColor: Colors.white,
