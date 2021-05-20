@@ -4,6 +4,7 @@ import SideBar from '../components/SideBar';
 import HomeNavigator from './HomeNavigator';
 import MyJobNavigator from './MyJobNavigator';
 import JobSectionNavigator from './JobSectionNavigator';
+import ProfileNavigator from './ProfileNavigator';
 import ScreenSettings from './ScreenSettings';
 
 import FeaturedProfessionalScreen from '../screens/FeaturedProfessionalScreen';
@@ -12,7 +13,6 @@ import AgentListScreen from '../screens/AgentListScreen';
 import ForumScreen from '../screens/ForumScreen';
 import ResumeWritingServiceScreen from '../screens/ResumeWritingServiceScreen';
 import NewsListScreen from '../screens/NewsListScreen';
-import MyProfileScreen from '../screens/MyProfileScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const Drawer = createDrawerNavigator();
@@ -45,7 +45,7 @@ const MainNavigator = () => {
         name="Employers"
         component={EmployerListScreen}
         options={{
-          title: 'My Profile',
+          title: 'Employers',
         }}
       />
       <Drawer.Screen
@@ -80,7 +80,7 @@ const MainNavigator = () => {
         name="News"
         component={NewsListScreen}
         options={{
-          title: 'My Orders',
+          title: 'News',
         }}
       />
       <Drawer.Screen
@@ -92,9 +92,9 @@ const MainNavigator = () => {
       />
       <Drawer.Screen
         name="MyProfile"
-        component={MyProfileScreen}
+        component={ProfileNavigator}
         options={{
-          title: 'Contact Us',
+          title: 'My Profile',
         }}
       />
       <Drawer.Screen
