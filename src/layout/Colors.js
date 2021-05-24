@@ -2,7 +2,7 @@ export default {
   primary: '#1FABA7',
   primaryLight: '#1BECCF',
   secondary: '#FFFFFF',
-  white: '#FFFFFF',
+  white: '#ffffff',
   mutedText: 'rgba(137,128,128,0.89)',
   grayText: 'rgba(102, 102, 102, 1)',
   facebook: '#4267B2',

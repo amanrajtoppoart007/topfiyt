@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     padding: 5,
   },
+
   textAreaContainerStyle: {
     backgroundColor: Colors.transparent,
     borderWidth: 0,

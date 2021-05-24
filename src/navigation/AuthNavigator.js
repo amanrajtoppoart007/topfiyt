@@ -9,10 +9,23 @@ import AddWorkScreen from '../screens/AddWorkScreen';
 import SubmissionConfirmationScreen from '../screens/SubmissionConfirmationScreen';
 import UploadResumeScreen from '../screens/UploadResumeScreen';
 import MainNavigator from './MainNavigator';
+
+import CreatePersonalDetailScreen from '../screens/Resume/CreatePersonalDetailScreen';
+import WorkExperienceScreen from '../screens/Resume/WorkExperienceScreen';
 import ScreenSettings from './ScreenSettings';
 const Stack = createStackNavigator();
 const AuthNavigator = () => (
   <Stack.Navigator>
+    <Stack.Screen
+      name="WorkExperience"
+      component={WorkExperienceScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="CreatePersonal"
+      component={CreatePersonalDetailScreen}
+      options={{headerShown: false}}
+    />
     <Stack.Screen
       name="Welcome"
       component={WelcomeScreen}

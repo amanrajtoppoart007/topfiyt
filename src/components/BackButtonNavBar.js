@@ -35,7 +35,6 @@ export default BackButtonNavBar;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight,
     backgroundColor: Colors.white,
   },
   header: {
