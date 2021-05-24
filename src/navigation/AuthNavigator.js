@@ -14,10 +14,22 @@ import CreatePersonalDetailScreen from '../screens/Resume/CreatePersonalDetailSc
 import WorkExperienceScreen from '../screens/Resume/WorkExperienceScreen';
 import EducationScreen from '../screens/Resume/EducationScreen';
 import ProjectScreen from '../screens/Resume/ProjectScreen';
+import ReferenceScreen from '../screens/Resume/ReferenceScreen';
+import CompetencesScreen from '../screens/Resume/CompetencesScreen';
 import ScreenSettings from './ScreenSettings';
 const Stack = createStackNavigator();
 const AuthNavigator = () => (
   <Stack.Navigator>
+    <Stack.Screen
+      name="Competences"
+      component={CompetencesScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="Reference"
+      component={ReferenceScreen}
+      options={{headerShown: false}}
+    />
     <Stack.Screen
       name="Project"
       component={ProjectScreen}
