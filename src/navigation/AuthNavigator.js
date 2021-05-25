@@ -11,6 +11,7 @@ import UploadResumeScreen from '../screens/UploadResumeScreen';
 import MemberShipUpgradeScreen from '../screens/MemberShipUpgradeScreen';
 import ChangePasswordScreen from '../screens/ChangePasswordScreen';
 import ResetPasswordConfirmationScreen from '../screens/ResetPasswordConfirmationScreen';
+import PaymentScreen from '../screens/PaymentScreen';
 import MainNavigator from './MainNavigator';
 
 import ScreenSettings from './ScreenSettings';
@@ -19,7 +20,7 @@ const AuthNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen
       name="Welcome"
-      component={ResetPasswordConfirmationScreen}
+      component={PaymentScreen}
       options={{headerShown: false}}
     />
     <Stack.Screen
