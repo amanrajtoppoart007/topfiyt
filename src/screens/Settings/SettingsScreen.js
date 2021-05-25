@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
-import Colors from '../layout/Colors';
-import Font from '../layout/Font';
+import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import Colors from '../../layout/Colors';
+import Font from '../../layout/Font';
 import {Switch} from 'react-native-elements';
-import NavBar from '../components/NavBar';
+import NavBar from '../../components/NavBar';
 
 class SettingsScreen extends Component {
   constructor() {
@@ -44,7 +44,12 @@ class SettingsScreen extends Component {
             </View>
             <View>
               <View style={{marginHorizontal: 10}}>
-                <Text style={styles.text}>Change Password</Text>
+                <TouchableOpacity
+                  onPress={() =>
+                    this.props.navigation.navigate('ChangePassword')
+                  }>
+                  <Text style={styles.text}>Change Password</Text>
+                </TouchableOpacity>
               </View>
               <View style={styles.line} />
             </View>

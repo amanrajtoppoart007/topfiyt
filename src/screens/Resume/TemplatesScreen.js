@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
-  FlatList, Pressable,
+  FlatList,
+  Pressable,
   SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-} from "react-native";
+} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Colors from '../../layout/Colors';
 import Font from '../../layout/Font';
@@ -25,7 +26,7 @@ class TemplatesScreen extends Component {
           key: 'template-item-one',
           title: 'Template 1',
           value: 'template_one',
-          checked: false,
+          checked: true,
         },
         {
           key: 'template-item-two',

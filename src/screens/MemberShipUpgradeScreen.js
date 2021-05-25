@@ -119,7 +119,9 @@ class MemberShipUpgradeScreen extends Component {
             </View>
             <View>
               <View style={{marginVertical: 3}}>
-                <Pressable style={styles.button}>
+                <Pressable
+                  onPress={() => this.props.navigation.navigate('Payment')}
+                  style={styles.button}>
                   <Text style={styles.buttonText}>Upgrade now</Text>
                 </Pressable>
               </View>

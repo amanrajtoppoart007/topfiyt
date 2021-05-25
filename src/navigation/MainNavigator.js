@@ -6,6 +6,7 @@ import MyJobNavigator from './MyJobNavigator';
 import JobSectionNavigator from './JobSectionNavigator';
 import ProfileNavigator from './ProfileNavigator';
 import ResumeServiceNavigator from './ResumeServiceNavigator';
+import SettingsNavigator from './SettingsNavigator';
 import ScreenSettings from './ScreenSettings';
 
 import FeaturedProfessionalScreen from '../screens/FeaturedProfessionalScreen';
@@ -13,8 +14,6 @@ import EmployerListScreen from '../screens/EmployerListScreen';
 import AgentListScreen from '../screens/AgentListScreen';
 import ForumScreen from '../screens/ForumScreen';
 import NewsListScreen from '../screens/NewsListScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-
 const Drawer = createDrawerNavigator();
 
 const MainNavigator = () => {
@@ -99,7 +98,7 @@ const MainNavigator = () => {
       />
       <Drawer.Screen
         name="Setting"
-        component={SettingsScreen}
+        component={SettingsNavigator}
         options={{
           title: 'Setting',
         }}

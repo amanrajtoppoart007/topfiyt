@@ -30,7 +30,7 @@ class UploadResumeScreen extends Component {
       showAlert: true,
     });
     setTimeout(() => {
-      this.props.navigation.navigate('Login');
+      this.props.navigation.navigate('MemberShipUpgrade');
     }, 6000);
   };
 
@@ -121,19 +121,11 @@ class UploadResumeScreen extends Component {
           show={showAlert}
           showProgress={false}
           title="Success!"
-          message="Thanks For Registering, You Can Continue With Login"
+          message="Thanks For Registering"
           closeOnTouchOutside={false}
           closeOnHardwareBackPress={false}
           showCancelButton={false}
           showConfirmButton={false}
-          onCancelPressed={() => {
-            this.hideAlert();
-            this.navigation.navigate('Login');
-          }}
-          onConfirmPressed={() => {
-            this.hideAlert();
-            this.navigation.navigate('Login');
-          }}
           contentContainerStyle={styles.alertContentContainerStyle}
           titleStyle={styles.alertTitleStyle}
           messageStyle={styles.alertMessageStyle}

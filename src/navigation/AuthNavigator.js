@@ -8,6 +8,9 @@ import AddPersonalDetailScreen from '../screens/AddPersonalDetailScreen';
 import AddWorkScreen from '../screens/AddWorkScreen';
 import SubmissionConfirmationScreen from '../screens/SubmissionConfirmationScreen';
 import UploadResumeScreen from '../screens/UploadResumeScreen';
+import MemberShipUpgradeScreen from '../screens/MemberShipUpgradeScreen';
+import PaymentScreen from '../screens/PaymentScreen';
+import PaymentConfirmationScreen from '../screens/PaymentConfirmationScreen';
 import MainNavigator from './MainNavigator';
 
 import ScreenSettings from './ScreenSettings';
@@ -52,6 +55,21 @@ const AuthNavigator = () => (
     <Stack.Screen
       name="UploadResume"
       component={UploadResumeScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="MemberShipUpgrade"
+      component={MemberShipUpgradeScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="Payment"
+      component={PaymentScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="PaymentConfirmation"
+      component={PaymentConfirmationScreen}
       options={{headerShown: false}}
     />
     <Stack.Screen

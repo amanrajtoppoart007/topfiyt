@@ -57,6 +57,7 @@ NavBar.propTypes = {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: StatusBar.currentHeight,
     height: 48,
     backgroundColor: Colors.white,
   },

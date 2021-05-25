@@ -7,10 +7,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Colors from '../layout/Colors';
-import Font from '../layout/Font';
-import CustomStatusBar from '../components/CustomStatusBar';
-import BackButtonNavBar from '../components/BackButtonNavBar';
+import Colors from '../../layout/Colors';
+import Font from '../../layout/Font';
+import CustomStatusBar from '../../components/CustomStatusBar';
+import BackButtonNavBar from '../../components/BackButtonNavBar';
 import {Input} from 'react-native-elements';
 
 class ChangePasswordScreen extends Component {
@@ -74,7 +74,13 @@ class ChangePasswordScreen extends Component {
               </View>
               <View style={styles.inputBox}>
                 <View style={styles.center}>
-                  <TouchableOpacity style={styles.submitButton}>
+                  <TouchableOpacity
+                    onPress={() =>
+                      this.props.navigation.navigate(
+                        'ResetPasswordConfirmation',
+                      )
+                    }
+                    style={styles.submitButton}>
                     <Text style={styles.submitButtonText}>Update Password</Text>
                   </TouchableOpacity>
                 </View>

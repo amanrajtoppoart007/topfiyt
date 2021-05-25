@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Pressable,
+} from 'react-native';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 import Layout from '../layout/Layout';
@@ -202,9 +209,13 @@ class PaymentScreen extends Component {
           </View>
           <View style={{marginVertical: 50}}>
             <View style={styles.center}>
-              <TouchableOpacity style={styles.submitButton}>
+              <Pressable
+                onPress={() =>
+                  this.props.navigation.navigate('PaymentConfirmation')
+                }
+                style={styles.submitButton}>
                 <Text style={styles.submitButtonText}>Pay Now</Text>
-              </TouchableOpacity>
+              </Pressable>
             </View>
           </View>
         </View>

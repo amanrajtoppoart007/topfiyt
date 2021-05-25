@@ -3,8 +3,7 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 import Success from '../assets/images/svg/success.svg';
-
-export default class ResetPasswordConfirmationScreen extends Component {
+class PaymentConfirmationScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -16,15 +15,13 @@ export default class ResetPasswordConfirmationScreen extends Component {
             <Text style={styles.successText}>SUCCESS !</Text>
           </View>
           <View style={[styles.center, styles.textWrapper]}>
-            <Text style={styles.text}>
-              You have successfully reset your password.
-            </Text>
+            <Text style={styles.text}>Your payment is successful.</Text>
           </View>
           <View style={[styles.center, {marginTop: 20}]}>
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Home')}
+              onPress={() => this.props.navigation.navigate('Login')}
               style={styles.homeButton}>
-              <Text style={styles.homeButtonText}>Back to Home</Text>
+              <Text style={styles.homeButtonText}>Login</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -78,3 +75,4 @@ const styles = StyleSheet.create({
     color: Colors.white,
   },
 });
+export default PaymentConfirmationScreen;
