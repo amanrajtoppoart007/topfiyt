@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
   SafeAreaView,
-  ScrollView,
+  ScrollView, StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from "react-native";
 import Colors from '../../layout/Colors';
 import Font from '../../layout/Font';
 import {Input} from 'react-native-elements';
@@ -19,7 +19,7 @@ class CreatePersonalDetailScreen extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <CustomStatusBar />
-        <BackButtonNavBar navigation={this.props.navigation} />
+          <BackButtonNavBar navigation={this.props.navigation} />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.content}>
             <View>
@@ -283,7 +283,9 @@ class CreatePersonalDetailScreen extends Component {
               </View>
               <View style={styles.inputBox}>
                 <View style={styles.center}>
-                  <TouchableOpacity style={styles.submitButton}>
+                  <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('WorkExperience')}
+                    style={styles.submitButton}>
                     <Text style={styles.submitButtonText}>Continue</Text>
                   </TouchableOpacity>
                 </View>

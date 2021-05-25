@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import ResumeWritingServiceScreen from '../screens/ResumeWritingServiceScreen';
+import ResumeWritingServiceScreen from '../screens/Resume/ResumeWritingServiceScreen';
 
 import CreatePersonalDetailScreen from '../screens/Resume/CreatePersonalDetailScreen';
 import WorkExperienceScreen from '../screens/Resume/WorkExperienceScreen';
@@ -74,7 +74,7 @@ const ResumeServiceNavigator = () => (
       options={{headerShown: false}}
     />
     <Stack.Screen
-      name="CreatePersonal"
+      name="CreatePersonalDetail"
       component={CreatePersonalDetailScreen}
       options={{headerShown: false}}
     />

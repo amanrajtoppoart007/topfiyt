@@ -108,7 +108,11 @@ class TemplatesScreen extends Component {
             <View>
               <View style={styles.inputBox}>
                 <View style={[styles.center, {marginHorizontal: 15}]}>
-                  <TouchableOpacity style={styles.submitButton}>
+                  <TouchableOpacity
+                    onPress={() =>
+                      this.props.navigation.navigate('CreatePersonalDetail')
+                    }
+                    style={styles.submitButton}>
                     <View style={{marginHorizontal: 3}}>
                       <FontAwesome
                         name={'eye'}

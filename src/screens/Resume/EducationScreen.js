@@ -93,7 +93,9 @@ class EducationScreen extends Component {
 
               <View style={styles.inputBox}>
                 <View style={styles.center}>
-                  <TouchableOpacity style={styles.submitButton}>
+                  <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Skills')}
+                    style={styles.submitButton}>
                     <Text style={styles.submitButtonText}>Continue</Text>
                   </TouchableOpacity>
                 </View>

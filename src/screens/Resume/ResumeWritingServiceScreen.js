@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, Pressable, Image} from 'react-native';
-import Colors from '../layout/Colors';
-import details from '../assets/images/profile/details.png';
-import competences from '../assets/images/profile/competences.png';
-import education from '../assets/images/profile/education.png';
-import experience from '../assets/images/profile/experience.png';
-import objective from '../assets/images/profile/objective.png';
-import preferences from '../assets/images/profile/preferences.png';
-import projects from '../assets/images/profile/projects.png';
-import reference from '../assets/images/profile/reference.png';
-import skills from '../assets/images/profile/skills.png';
-import Font from '../layout/Font';
-import NavBar from '../components/NavBar';
+import Colors from '../../layout/Colors';
+import details from '../../assets/images/profile/details.png';
+import competences from '../../assets/images/profile/competences.png';
+import education from '../../assets/images/profile/education.png';
+import experience from '../../assets/images/profile/experience.png';
+import objective from '../../assets/images/profile/objective.png';
+import preferences from '../../assets/images/profile/preferences.png';
+import projects from '../../assets/images/profile/projects.png';
+import reference from '../../assets/images/profile/reference.png';
+import skills from '../../assets/images/profile/skills.png';
+import Font from '../../layout/Font';
+import NavBar from '../../components/NavBar';
 class ResumeWritingServiceScreen extends Component {
   render() {
     return (
@@ -73,7 +73,9 @@ class ResumeWritingServiceScreen extends Component {
             <Text />
           </View>
           <View>
-            <Pressable style={styles.submit}>
+            <Pressable
+              onPress={() => this.props.navigation.navigate('Templates')}
+              style={styles.submit}>
               <Text style={styles.submitText}>SUBMIT</Text>
             </Pressable>
           </View>

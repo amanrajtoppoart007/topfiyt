@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   },
   header: {
+    marginTop: StatusBar.currentHeight,
     height: 48,
     flexDirection: 'row',
     justifyContent: 'center',
