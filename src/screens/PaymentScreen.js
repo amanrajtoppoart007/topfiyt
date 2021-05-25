@@ -24,6 +24,7 @@ const FirstRoute = () => (
     </View>
     <View>
       <Input
+        keyboardType={'number-pad'}
         placeholder="Card Number"
         leftIcon={{
           type: 'font-awesome',
@@ -36,6 +37,7 @@ const FirstRoute = () => (
       <View style={{width: '50%'}}>
         <Input
           placeholder="Date"
+          keyboardType={'number-pad'}
           leftIcon={{
             type: 'font-awesome',
             name: 'calendar',
@@ -46,6 +48,9 @@ const FirstRoute = () => (
       <View style={{width: '50%'}}>
         <Input
           placeholder="CVV"
+          keyboardType={'number-pad'}
+          secureTextEntry={true}
+          maxLength={3}
           leftIcon={{
             type: 'font-awesome',
             name: 'code',
