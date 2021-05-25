@@ -22,4 +22,5 @@ export default {
   border: '#c7bdbd',
   invertBackground: '#F9F9F9',
   newsDescription: '#7E7373',
+  clock: '#213C45',
 };

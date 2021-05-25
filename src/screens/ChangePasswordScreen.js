@@ -7,13 +7,13 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Colors from '../../layout/Colors';
-import Font from '../../layout/Font';
-import CustomStatusBar from '../../components/CustomStatusBar';
-import BackButtonNavBar from '../../components/BackButtonNavBar';
+import Colors from '../layout/Colors';
+import Font from '../layout/Font';
+import CustomStatusBar from '../components/CustomStatusBar';
+import BackButtonNavBar from '../components/BackButtonNavBar';
 import {Input} from 'react-native-elements';
 
-class ReferenceScreen extends Component {
+class ChangePasswordScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -27,17 +27,17 @@ class ReferenceScreen extends Component {
         <View style={styles.content}>
           <View>
             <View style={{marginHorizontal: 5}}>
-              <Text style={styles.pageTitle}>Reference</Text>
+              <Text style={styles.pageTitle}>Reset Password</Text>
             </View>
             <View>
               <View style={styles.inputBox}>
                 <View style={styles.labelWrapper}>
-                  <Text style={styles.label}>Reference Name</Text>
+                  <Text style={styles.label}>Old Password</Text>
                 </View>
                 <View style={styles.center}>
                   <Input
-                    placeholder={'Reference Name'}
-                    containerStyle={[styles.containerStyle, {width: 342}]}
+                    placeholder={'Old Password'}
+                    containerStyle={[styles.containerStyle, {width: 350}]}
                     inputContainerStyle={styles.inputContainerStyle}
                     inputStyle={styles.input}
                     placeholderTextColor={Colors.mutedText}
@@ -46,12 +46,12 @@ class ReferenceScreen extends Component {
               </View>
               <View style={styles.inputBox}>
                 <View style={styles.labelWrapper}>
-                  <Text style={styles.label}>Reference ID</Text>
+                  <Text style={styles.label}>New Password</Text>
                 </View>
                 <View style={styles.center}>
                   <Input
-                    placeholder={'Reference ID'}
-                    containerStyle={[styles.containerStyle, {width: 342}]}
+                    placeholder={'New Password'}
+                    containerStyle={[styles.containerStyle, {width: 350}]}
                     inputContainerStyle={styles.inputContainerStyle}
                     inputStyle={styles.input}
                     placeholderTextColor={Colors.mutedText}
@@ -60,37 +60,22 @@ class ReferenceScreen extends Component {
               </View>
               <View style={styles.inputBox}>
                 <View style={styles.labelWrapper}>
-                  <Text style={styles.label}>Mobile No</Text>
+                  <Text style={styles.label}>Confirm Password</Text>
                 </View>
                 <View style={styles.center}>
                   <Input
-                    placeholder={'Mobile No'}
-                    containerStyle={[styles.containerStyle, {width: 342}]}
+                    placeholder={'Confirm Password'}
+                    containerStyle={[styles.containerStyle, {width: 350}]}
                     inputContainerStyle={styles.inputContainerStyle}
                     inputStyle={styles.input}
                     placeholderTextColor={Colors.mutedText}
                   />
                 </View>
               </View>
-              <View style={styles.inputBox}>
-                <View style={styles.labelWrapper}>
-                  <Text style={styles.label}>Email Id</Text>
-                </View>
-                <View style={styles.center}>
-                  <Input
-                    placeholder={'Email Id'}
-                    containerStyle={[styles.containerStyle, {width: 342}]}
-                    inputContainerStyle={styles.inputContainerStyle}
-                    inputStyle={styles.input}
-                    placeholderTextColor={Colors.mutedText}
-                  />
-                </View>
-              </View>
-
               <View style={styles.inputBox}>
                 <View style={styles.center}>
                   <TouchableOpacity style={styles.submitButton}>
-                    <Text style={styles.submitButtonText}>Continue</Text>
+                    <Text style={styles.submitButtonText}>Update Password</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -112,7 +97,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   content: {
-    padding: 15,
+    padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -168,8 +153,8 @@ const styles = StyleSheet.create({
   },
 });
 
-ReferenceScreen.propTypes = {
+ChangePasswordScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-export default ReferenceScreen;
+export default ChangePasswordScreen;

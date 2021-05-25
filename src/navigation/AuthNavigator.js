@@ -8,51 +8,18 @@ import AddPersonalDetailScreen from '../screens/AddPersonalDetailScreen';
 import AddWorkScreen from '../screens/AddWorkScreen';
 import SubmissionConfirmationScreen from '../screens/SubmissionConfirmationScreen';
 import UploadResumeScreen from '../screens/UploadResumeScreen';
+import MemberShipUpgradeScreen from '../screens/MemberShipUpgradeScreen';
+import ChangePasswordScreen from '../screens/ChangePasswordScreen';
+import ResetPasswordConfirmationScreen from '../screens/ResetPasswordConfirmationScreen';
 import MainNavigator from './MainNavigator';
 
-import CreatePersonalDetailScreen from '../screens/Resume/CreatePersonalDetailScreen';
-import WorkExperienceScreen from '../screens/Resume/WorkExperienceScreen';
-import EducationScreen from '../screens/Resume/EducationScreen';
-import ProjectScreen from '../screens/Resume/ProjectScreen';
-import ReferenceScreen from '../screens/Resume/ReferenceScreen';
-import CompetencesScreen from '../screens/Resume/CompetencesScreen';
 import ScreenSettings from './ScreenSettings';
 const Stack = createStackNavigator();
 const AuthNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen
-      name="Competences"
-      component={CompetencesScreen}
-      options={{headerShown: false}}
-    />
-    <Stack.Screen
-      name="Reference"
-      component={ReferenceScreen}
-      options={{headerShown: false}}
-    />
-    <Stack.Screen
-      name="Project"
-      component={ProjectScreen}
-      options={{headerShown: false}}
-    />
-    <Stack.Screen
-      name="Education"
-      component={EducationScreen}
-      options={{headerShown: false}}
-    />
-    <Stack.Screen
-      name="WorkExperience"
-      component={WorkExperienceScreen}
-      options={{headerShown: false}}
-    />
-    <Stack.Screen
-      name="CreatePersonal"
-      component={CreatePersonalDetailScreen}
-      options={{headerShown: false}}
-    />
-    <Stack.Screen
       name="Welcome"
-      component={WelcomeScreen}
+      component={ResetPasswordConfirmationScreen}
       options={{headerShown: false}}
     />
     <Stack.Screen

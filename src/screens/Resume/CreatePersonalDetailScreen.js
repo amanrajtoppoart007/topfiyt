@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Colors from '../../layout/Colors';
 import Font from '../../layout/Font';
 import {Input} from 'react-native-elements';
