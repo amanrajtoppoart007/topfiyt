@@ -4,6 +4,7 @@ import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 import Layout from '../layout/Layout';
 import {TabView, SceneMap} from 'react-native-tab-view';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {Input} from 'react-native-elements';
 
 const FirstRoute = () => (
@@ -31,7 +32,7 @@ const FirstRoute = () => (
         }}
       />
     </View>
-    <View style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center'}}>
+    <View style={styles.rowCenter}>
       <View style={{width: '50%'}}>
         <Input
           placeholder="Date"
@@ -56,10 +57,36 @@ const FirstRoute = () => (
   </View>
 );
 const SecondRoute = () => (
-  <View style={[styles.tab, {backgroundColor: Colors.white}]} />
+  <View style={[styles.tab, {backgroundColor: Colors.white}]}>
+    <View>
+      <Text style={styles.paymentTitle}>Payment Details</Text>
+    </View>
+    <View>
+      <Input
+        placeholder="Google Pay Id"
+        leftIcon={{
+          type: 'font-awesome',
+          name: 'google-wallet',
+          color: Colors.mutedText,
+        }}
+      />
+    </View>
+  </View>
 );
 const ThirdRoute = () => (
-  <View style={[styles.tab, {backgroundColor: Colors.white}]} />
+  <View style={[styles.tab, {backgroundColor: Colors.white}]}>
+    <View>
+      <Text style={styles.paymentTitle}>Payment Details</Text>
+    </View>
+    <View>
+      <Input
+        placeholder="Apple Pay Id"
+        leftIcon={
+          <FontAwesome5 name="apple-pay" size={35} color={Colors.mutedText} />
+        }
+      />
+    </View>
+  </View>
 );
 
 class PaymentScreen extends Component {
@@ -139,6 +166,13 @@ class PaymentScreen extends Component {
               </View>
             </View>
           </View>
+          <View style={{marginVertical: 50}}>
+            <View style={styles.center}>
+              <TouchableOpacity style={styles.submitButton}>
+                <Text style={styles.submitButtonText}>Pay Now</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
       </View>
     );
@@ -157,6 +191,11 @@ const styles = StyleSheet.create({
   },
   center: {
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  rowCenter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   title: {
@@ -209,6 +248,21 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.grayText,
     textAlign: 'center',
+  },
+  submitButton: {
+    width: '100%',
+    height: 40,
+    borderRadius: 5,
+    backgroundColor: Colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  submitButtonText: {
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 16,
+    color: Colors.white,
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
   },
 });
 
