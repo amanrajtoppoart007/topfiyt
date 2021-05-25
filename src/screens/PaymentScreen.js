@@ -104,16 +104,19 @@ class PaymentScreen extends Component {
           key: 'first',
           title: 'Credit Card',
           image: require('../assets/images/icons/credit-card.png'),
+          selected: true,
         },
         {
           key: 'second',
           title: 'GPay',
           image: require('../assets/images/icons/gpay.png'),
+          selected: false,
         },
         {
           key: 'third',
           title: 'ApplePay',
           image: require('../assets/images/icons/apple-pay.png'),
+          selected: false,
         },
       ],
     };
@@ -126,6 +129,27 @@ class PaymentScreen extends Component {
     third: ThirdRoute,
   });
 
+  check = i => {
+    this.setState(state => {
+      const routes = state.routes.map((item, j) => {
+        if (j === i) {
+          return {...item, selected: true};
+        } else {
+          return {...item, selected: false};
+        }
+      });
+
+      return {
+        routes,
+      };
+    });
+  };
+
+  select = i => {
+    this.setState({index: i});
+    this.check(i);
+  };
+
   _renderTabBar = props => {
     return (
       <View style={styles.tabBar}>
@@ -134,14 +158,10 @@ class PaymentScreen extends Component {
             <TouchableOpacity
               key={i.toString()}
               style={styles.tabItem}
-              onPress={() => this.setState({index: i})}>
-              {route && (
+              onPress={() => this.select(i)}>
+              {route.selected && (
                 <View style={styles.check}>
-                  <FontAwesome
-                    name={'check'}
-                    color={Colors.primary}
-                    size={9}
-                  />
+                  <FontAwesome name={'check'} color={Colors.primary} size={9} />
                 </View>
               )}
               <Image source={route.image} style={{width: 68, height: 24}} />
