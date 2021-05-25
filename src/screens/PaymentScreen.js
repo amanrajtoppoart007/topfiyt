@@ -6,6 +6,7 @@ import Layout from '../layout/Layout';
 import {TabView, SceneMap} from 'react-native-tab-view';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {Input} from 'react-native-elements';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const FirstRoute = () => (
   <View style={[styles.tab, {backgroundColor: Colors.white}]}>
@@ -49,7 +50,6 @@ const FirstRoute = () => (
         <Input
           placeholder="CVV"
           keyboardType={'number-pad'}
-          secureTextEntry={true}
           maxLength={3}
           leftIcon={{
             type: 'font-awesome',
@@ -135,6 +135,15 @@ class PaymentScreen extends Component {
               key={i.toString()}
               style={styles.tabItem}
               onPress={() => this.setState({index: i})}>
+              {route && (
+                <View style={styles.check}>
+                  <FontAwesome
+                    name={'check'}
+                    color={Colors.primary}
+                    size={9}
+                  />
+                </View>
+              )}
               <Image source={route.image} style={{width: 68, height: 24}} />
             </TouchableOpacity>
           );
@@ -185,6 +194,19 @@ class PaymentScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+  check: {
+    position: 'absolute',
+    zIndex: 1,
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    backgroundColor: Colors.primaryLight,
+    top: -5,
+    left: -5,
+    alignSelf: 'flex-start',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   container: {
     height: '100%',
     backgroundColor: Colors.white,
@@ -243,7 +265,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: Colors.white,
   },
-  tabItem: {width: '33%'},
+  tabItem: {width: '33%', marginHorizontal: 5},
   textWrapper: {
     marginVertical: 10,
     marginHorizontal: 20,
