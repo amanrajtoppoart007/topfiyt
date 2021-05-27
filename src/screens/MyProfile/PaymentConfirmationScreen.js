@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import Colors from '../layout/Colors';
-import Font from '../layout/Font';
-import Success from '../assets/images/svg/success.svg';
+import Colors from '../../layout/Colors';
+import Font from '../../layout/Font';
+import Success from '../../assets/images/svg/success.svg';
 class PaymentConfirmationScreen extends Component {
   render() {
     return (
@@ -19,9 +19,9 @@ class PaymentConfirmationScreen extends Component {
           </View>
           <View style={[styles.center, {marginTop: 20}]}>
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Login')}
+              onPress={() => this.props.navigation.navigate('Home')}
               style={styles.homeButton}>
-              <Text style={styles.homeButtonText}>Login</Text>
+              <Text style={styles.homeButtonText}>Back To Home</Text>
             </TouchableOpacity>
           </View>
         </View>

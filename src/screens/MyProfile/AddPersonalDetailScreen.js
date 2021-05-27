@@ -20,11 +20,15 @@ import Layout from '../../layout/Layout';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Input} from 'react-native-elements';
+import CustomStatusBar from '../../components/CustomStatusBar';
+import BackButtonNavBar from '../../components/BackButtonNavBar';
 
 class AddPersonalDetailScreen extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+        <CustomStatusBar />
+        <BackButtonNavBar navigation={this.props.navigation} />
         <View style={styles.wrapper}>
           <View style={styles.titleWrapper}>
             <Text style={styles.title}>Personal Details</Text>

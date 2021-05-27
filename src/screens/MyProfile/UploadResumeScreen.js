@@ -92,7 +92,9 @@ class UploadResumeScreen extends Component {
           </View>
           <View style={styles.marginVertical}>
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Home')}
+              onPress={() =>
+                this.props.navigation.navigate('MemberShipUpgrade')
+              }
               style={styles.button}>
               <Text style={styles.buttonText}>SUBMIT & CONTINUE</Text>
             </TouchableOpacity>

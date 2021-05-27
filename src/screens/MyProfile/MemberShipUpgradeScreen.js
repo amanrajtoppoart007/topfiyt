@@ -8,10 +8,10 @@ import {
   Text,
   View,
 } from "react-native";
-import Colors from '../layout/Colors';
-import Font from '../layout/Font';
-import CustomStatusBar from '../components/CustomStatusBar';
-import BackButtonNavBar from '../components/BackButtonNavBar';
+import Colors from '../../layout/Colors';
+import Font from '../../layout/Font';
+import CustomStatusBar from '../../components/CustomStatusBar';
+import BackButtonNavBar from '../../components/BackButtonNavBar';
 
 class MemberShipUpgradeScreen extends Component {
   constructor(props) {
@@ -81,10 +81,10 @@ class MemberShipUpgradeScreen extends Component {
               <View style={{marginHorizontal: 5}}>
                 {item.access ? (
                   <Image
-                    source={require('../assets/images/icons/checked.png')}
+                    source={require('../../assets/images/icons/checked.png')}
                   />
                 ) : (
-                  <Image source={require('../assets/images/icons/close.png')} />
+                  <Image source={require('../../assets/images/icons/close.png')} />
                 )}
               </View>
               <View style={{marginHorizontal: 5}}>
@@ -126,7 +126,9 @@ class MemberShipUpgradeScreen extends Component {
                 </Pressable>
               </View>
               <View>
-                <Pressable style={styles.button}>
+                <Pressable
+                  onPress={() => this.props.navigation.navigate('Home')}
+                  style={styles.button}>
                   <Text style={styles.buttonText}>
                     Continue without upgrading
                   </Text>

@@ -11,6 +11,8 @@ import {
 import Colors from '../../layout/Colors';
 import Font from '../../layout/Font';
 import CountrySelect from '../../components/CountrySelect';
+import CustomStatusBar from "../../components/CustomStatusBar";
+import NavBar from "../../components/NavBar";
 
 class AddProfileScreen extends Component {
   constructor(props) {
@@ -76,13 +78,9 @@ class AddProfileScreen extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+        <CustomStatusBar />
+        <NavBar navigation={this.props.navigation} />
         <View style={styles.wrapper}>
-          <View style={styles.logoWrapper}>
-            <Image
-              style={styles.logo}
-              source={require('../../assets/images/logo/logo-with-title.png')}
-            />
-          </View>
           <View style={styles.inputBoxContainer}>
             <Text style={styles.title}>Create your profile</Text>
             <View style={{marginTop: 15, marginBottom: 10}}>

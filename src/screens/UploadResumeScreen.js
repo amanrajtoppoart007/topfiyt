@@ -30,7 +30,7 @@ class UploadResumeScreen extends Component {
       showAlert: true,
     });
     setTimeout(() => {
-      this.props.navigation.navigate('MemberShipUpgrade');
+      this.props.navigation.navigate('Login');
     }, 6000);
   };
 
