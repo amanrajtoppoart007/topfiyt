@@ -11,10 +11,10 @@ import logo from '../assets/images/logo/logo.png';
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
 
-function BackButtonNavBar({navigation}) {
+function BackButtonNavBar({navigation, containerStyle}) {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
+    <React.Fragment>
+      <View style={[styles.header, containerStyle ?? {}]}>
         <View style={{width: '10%'}}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Icon style={styles.backArrow} name="keyboard-backspace" />
@@ -27,16 +27,13 @@ function BackButtonNavBar({navigation}) {
           <Icon style={styles.icon} name="notifications" />
         </View>
       </View>
-    </View>
+    </React.Fragment>
   );
 }
 
 export default BackButtonNavBar;
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: Colors.white,
-  },
   header: {
     marginTop: StatusBar.currentHeight,
     height: 48,

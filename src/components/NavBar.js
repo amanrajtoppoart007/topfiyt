@@ -5,8 +5,8 @@ import {
   Image,
   StyleSheet,
   StatusBar,
-  Pressable,
-} from 'react-native';
+  Pressable, TouchableOpacity,
+} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from '../assets/images/logo/logo.png';
 import Colors from '../layout/Colors';
@@ -43,7 +43,11 @@ class NavBar extends Component {
             <Image style={styles.logo} source={logo} />
           </View>
           <View style={styles.icons}>
-            <Icon style={styles.icon} name="notifications" />
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('Notification')}>
+              <Icon style={styles.icon} name="notifications" />
+            </TouchableOpacity>
+
           </View>
         </View>
       </View>
