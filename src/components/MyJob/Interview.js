@@ -9,8 +9,8 @@ class Interview extends Component {
     super(props);
   }
 
-  toggleAddPostModal() {
-    this.props.toggleAddPostModal();
+  toggleInterviewModal() {
+    this.props.toggleInterviewModal();
   }
   render() {
     return (
@@ -21,8 +21,8 @@ class Interview extends Component {
           alignItems: 'center',
         }}
         fullScreen={true}
-        isVisible={this.props.isAddPostVisible}
-        onBackdropPress={() => this.toggleAddPostModal()}>
+        isVisible={this.props.isInterviewModalVisible}
+        onBackdropPress={() => this.toggleInterviewModal()}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View>
@@ -33,14 +33,14 @@ class Interview extends Component {
                     name="close"
                     type={'material'}
                     color={Colors.primary}
-                    onPress={() => this.toggleAddPostModal()}
+                    onPress={() => this.toggleInterviewModal()}
                   />
                 </View>
               </View>
             </View>
             <View style={styles.meetingButtonContainer}>
               <Pressable
-                onPress={() => this.toggleAddPostModal()}
+                onPress={() => this.toggleInterviewModal()}
                 style={styles.meetingButton}>
                 <Text style={styles.meetingButtonText}>Post Now</Text>
               </Pressable>
