@@ -14,6 +14,7 @@ class SearchBox extends Component {
           <User width={50} height={50} />
           <View style={styles.inputContainerStyle}>
             <TextInput
+              editable={this.props.editable ?? true}
               placeholder={'Write something here...'}
               style={styles.input}
               placeholderTextColor={Colors.mutedText}

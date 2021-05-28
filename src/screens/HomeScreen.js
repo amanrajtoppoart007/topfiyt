@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {ScrollView, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  ScrollView,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+} from 'react-native';
 import Colors from '../layout/Colors';
 
 import PostCard from '../components/Home/PostCard';
@@ -9,6 +16,7 @@ import CustomStatusBar from '../components/CustomStatusBar';
 import Font from '../layout/Font';
 import SearchBox from '../components/Home/SearchBox';
 import {FAB} from 'react-native-elements';
+import CreatePost from '../components/Home/CreatePost';
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -34,7 +42,12 @@ class HomeScreen extends Component {
           key: 'job-item-six',
         },
       ],
+      isAddPostVisible: false,
     };
+  }
+
+  toggleAddPostModal() {
+    this.setState({isAddPostVisible: !this.state.isAddPostVisible});
   }
   _renderItem = item => {
     return <PostCard item={item} />;
@@ -47,7 +60,9 @@ class HomeScreen extends Component {
         <ScrollView>
           <View style={styles.wrapper}>
             <View>
-              <SearchBox />
+              <Pressable onPress={() => this.toggleAddPostModal()}>
+                <SearchBox editable={false} />
+              </Pressable>
               <View style={{marginVertical: 8, marginHorizontal: 8}}>
                 <Text style={styles.pageTitle}>Recent Post</Text>
               </View>
@@ -72,6 +87,10 @@ class HomeScreen extends Component {
           containerStyle={styles.floatingButtonStyle}
           placement={'right'}
           color={Colors.primary}
+        />
+        <CreatePost
+          toggleAddPostModal={() => this.toggleAddPostModal()}
+          isAddPostVisible={this.state.isAddPostVisible}
         />
       </SafeAreaView>
     );
