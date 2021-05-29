@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, SafeAreaView, Text, Pressable} from 'react-native';
+import { View, StyleSheet, SafeAreaView, Text, Pressable, ScrollView } from "react-native";
 import CardItem from '../components/News/CardItem';
 import Colors from '../layout/Colors';
 import CustomStatusBar from '../components/CustomStatusBar';
@@ -172,8 +172,9 @@ class NewsListScreen extends Component {
         <NavBar navigation={this.props.navigation} />
         <View style={styles.content}>
           <View>
-            <View style={styles.tabContainer}>
+            <View>
               <TabView
+                swipeEnabled={false}
                 navigationState={this.state}
                 renderScene={this._renderScene}
                 renderTabBar={this._renderTabBar}
@@ -215,7 +216,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: Font.PoppinsSemiBold,
-    fontSize: 16,
+    fontSize: 14,
     color: Colors.mutedText,
     fontWeight: 'bold',
   },
