@@ -23,4 +23,5 @@ export default {
   invertBackground: '#F9F9F9',
   newsDescription: '#7E7373',
   clock: '#213C45',
+  inputBg: '#F5F5F5',
 };

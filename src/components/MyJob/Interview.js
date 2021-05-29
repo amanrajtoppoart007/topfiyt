@@ -25,26 +25,73 @@ class Interview extends Component {
         onBackdropPress={() => this.toggleInterviewModal()}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <View>
-              <View style={styles.closeButtonContainer}>
-                <View style={styles.closeButton}>
-                  <Icon
-                    style={styles.closeButtonText}
-                    name="close"
-                    type={'material'}
-                    color={Colors.primary}
-                    onPress={() => this.toggleInterviewModal()}
-                  />
+            <View style={{paddingHorizontal: 20}}>
+              <View>
+                <View style={styles.closeButtonContainer}>
+                  <View style={styles.closeButton}>
+                    <Icon
+                      style={styles.closeButtonText}
+                      name="close"
+                      type={'material'}
+                      color={Colors.primary}
+                      onPress={() => this.toggleInterviewModal()}
+                    />
+                  </View>
                 </View>
               </View>
+
+              <View style={styles.inputBox}>
+                <View style={{marginVertical: 3}}>
+                  <Input
+                    placeholder={'Meeting Id / Or Personal Link Name'}
+                    containerStyle={[styles.containerStyle, {width: 360}]}
+                    inputContainerStyle={styles.inputContainerStyle}
+                    inputStyle={styles.input}
+                    placeholderTextColor={Colors.mutedText}
+                  />
+                </View>
+                <View style={{marginVertical: 3}}>
+                  <Input
+                    placeholder={'Password'}
+                    containerStyle={[styles.containerStyle, {width: 360}]}
+                    inputContainerStyle={styles.inputContainerStyle}
+                    inputStyle={styles.input}
+                    placeholderTextColor={Colors.mutedText}
+                  />
+                </View>
+                <View style={styles.meetingButtonContainer}>
+                  <View style={{marginHorizontal: 3}}>
+                    <Pressable
+                      onPress={() => this.toggleInterviewModal()}
+                      style={[
+                        styles.meetingButton,
+                        {
+                          borderWidth: 1,
+                          borderColor: Colors.primary,
+                          backgroundColor: Colors.white,
+                        },
+                      ]}>
+                      <Text
+                        style={[
+                          styles.meetingButtonText,
+                          {color: Colors.primary},
+                        ]}>
+                        Cancel
+                      </Text>
+                    </Pressable>
+                  </View>
+                  <View>
+                    <Pressable
+                      onPress={() => this.toggleInterviewModal()}
+                      style={styles.meetingButton}>
+                      <Text style={styles.meetingButtonText}>Join</Text>
+                    </Pressable>
+                  </View>
+                </View>
+              </View>
+
             </View>
-            <View style={styles.meetingButtonContainer}>
-              <Pressable
-                onPress={() => this.toggleInterviewModal()}
-                style={styles.meetingButton}>
-                <Text style={styles.meetingButtonText}>Post Now</Text>
-              </Pressable>
-            </View>
+
           </View>
         </View>
       </Overlay>
@@ -62,14 +109,14 @@ const styles = StyleSheet.create({
   },
   modalView: {
     width: Layout.window.width * 0.98,
-    padding: 10,
+    padding: 5,
     backgroundColor: Colors.white,
     borderRadius: 2,
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeButtonContainer: {
-    width: Layout.window.width * 0.95,
+    width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
     backgroundColor: Colors.transparent,
@@ -81,11 +128,7 @@ const styles = StyleSheet.create({
   },
   closeButtonText: {
     color: Colors.primary,
-    fontSize: 20,
-  },
-  userInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    fontSize: 15,
   },
   name: {
     fontFamily: Font.PoppinsSemiBold,
@@ -109,10 +152,10 @@ const styles = StyleSheet.create({
   },
   meetingButtonContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     width: '100%',
-    marginVertical: 5,
+    marginVertical: 10,
   },
   meetingButton: {
     width: 74,
@@ -124,6 +167,35 @@ const styles = StyleSheet.create({
   meetingButtonText: {
     fontFamily: Font.PoppinsRegular,
     fontSize: 10,
+    color: Colors.white,
+  },
+  containerStyle: {
+    width: '100%',
+    height: 40,
+    borderRadius: 5,
+    borderWidth: 0.5,
+    borderColor: Colors.mutedText,
+  },
+  inputContainerStyle: {
+    borderWidth: 0,
+    borderColor: Colors.transparent,
+  },
+  inputBox: {
+    marginVertical: 8,
+    marginHorizontal: 3,
+  },
+  input: {
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 10,
+    color: Colors.primary,
+  },
+  labelWrapper: {
+    marginBottom: 3,
+    marginHorizontal: 10,
+  },
+  label: {
+    fontFamily: Font.PoppinsRegular,
+    fontSize: 16,
     color: Colors.white,
   },
 });

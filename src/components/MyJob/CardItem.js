@@ -23,7 +23,7 @@ class CardItem extends Component {
     }
   }
   render() {
-    const {item,navigation} = this.props;
+    const {item, navigation, interview} = this.props;
     return (
       <View style={styles.card}>
         <View style={styles.cardHeader}>
@@ -51,6 +51,7 @@ class CardItem extends Component {
                     name="phone"
                     type="feather"
                     color={Colors.primary}
+                    onPress={() => this.props.toggleInterviewModal()}
                   />
                 </TouchableOpacity>
               </View>
@@ -61,6 +62,7 @@ class CardItem extends Component {
                     name="ios-videocam-outline"
                     type="ionicon"
                     color={Colors.primary}
+                    onPress={() => this.props.toggleInterviewModal()}
                   />
                 </TouchableOpacity>
               </View>

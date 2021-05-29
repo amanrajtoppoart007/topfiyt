@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, SafeAreaView, FlatList, Text } from 'react-native';
+import {View, StyleSheet, SafeAreaView, FlatList, Text} from 'react-native';
 import CardItem from '../components/MyJob/CardItem';
 import Colors from '../layout/Colors';
 import CustomStatusBar from '../components/CustomStatusBar';
 import NavBar from '../components/NavBar';
 import Font from '../layout/Font';
+import Interview from "../components/MyJob/Interview";
 
 class MyJobScreen extends Component {
   constructor(props) {
@@ -92,13 +93,24 @@ class MyJobScreen extends Component {
           status: 'pending',
         },
       ],
+      isInterviewModalVisible:false,
     };
+  }
+
+  toggleInterviewModal() {
+    this.setState({
+      isInterviewModalVisible: !this.state.isInterviewModalVisible,
+    });
   }
 
   _renderItem = ({item}) => {
     return (
       <View style={{marginVertical: 5}}>
-        <CardItem navigation={this.props.navigation} item={item} />
+        <CardItem
+          toggleInterviewModal={() => this.toggleInterviewModal()}
+          navigation={this.props.navigation}
+          item={item}
+        />
       </View>
     );
   };
@@ -123,6 +135,10 @@ class MyJobScreen extends Component {
             </View>
           </View>
         </View>
+        <Interview
+          toggleInterviewModal={() => this.toggleInterviewModal()}
+          isInterviewModalVisible={this.state.isInterviewModalVisible}
+        />
       </SafeAreaView>
     );
   }
