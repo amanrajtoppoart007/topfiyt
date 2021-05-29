@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {Divider, Input, Overlay, Icon} from 'react-native-elements';
+import {Input, Overlay, Icon} from 'react-native-elements';
 import Colors from '../../layout/Colors';
 import Layout from '../../layout/Layout';
 import Font from '../../layout/Font';
