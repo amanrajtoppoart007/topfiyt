@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalView: {
-    width: Layout.window.width * 0.98,
+    width: Layout.window.width * 0.95,
     padding: 10,
     backgroundColor: Colors.white,
     borderRadius: 2,
@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
     backgroundColor: Colors.transparent,
+    paddingHorizontal: 10,
   },
   closeButton: {
     borderWidth: 1,

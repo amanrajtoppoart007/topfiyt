@@ -74,7 +74,9 @@ class ResumeWritingServiceScreen extends Component {
           </View>
           <View>
             <Pressable
-              onPress={() => this.props.navigation.navigate('Templates')}
+              onPress={() =>
+                this.props.navigation.navigate('CreatePersonalDetail')
+              }
               style={styles.submit}>
               <Text style={styles.submitText}>SUBMIT</Text>
             </Pressable>

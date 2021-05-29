@@ -1,6 +1,14 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import Colors from '../../layout/Colors';
 import CustomStatusBar from '../../components/CustomStatusBar';
 import BackButtonNavBar from '../../components/BackButtonNavBar';
@@ -14,7 +22,7 @@ class ResumeViewScreen extends Component {
       <SafeAreaView style={styles.container}>
         <CustomStatusBar />
         <BackButtonNavBar
-          containerStyle={{marginTop: 0}}
+          containerStyle={{marginTop: StatusBar.currentHeight}}
           navigation={this.props.navigation}
         />
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -174,6 +182,14 @@ class ResumeViewScreen extends Component {
                       </View>
                     </View>
                   </View>
+
+                  <View style={{marginVertical: 10}}>
+                    <Pressable
+                      onPress={() => this.props.navigation.navigate('Home')}
+                      style={styles.homeButton}>
+                      <Text style={styles.homeButtonText}>Go To Home</Text>
+                    </Pressable>
+                  </View>
                 </View>
               </View>
             </View>
@@ -246,6 +262,18 @@ const styles = StyleSheet.create({
   divider: {
     backgroundColor: Colors.primary,
     marginVertical: 10,
+  },
+  homeButton: {
+    backgroundColor: Colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 45,
+    borderRadius: 5,
+  },
+  homeButtonText: {
+    fontFamily: Font.PoppinsSemiBold,
+    color: Colors.white,
+    fontSize: 15,
   },
 });
 

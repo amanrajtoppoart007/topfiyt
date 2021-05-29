@@ -15,6 +15,7 @@ import SkillsScreen from '../screens/Resume/SkillsScreen';
 import TemplatesScreen from '../screens/Resume/TemplatesScreen';
 
 import ScreenSettings from './ScreenSettings';
+import ResumeViewScreen from '../screens/Resume/ResumeViewScreen';
 const Stack = createStackNavigator();
 const ResumeServiceNavigator = () => (
   <Stack.Navigator
@@ -26,6 +27,11 @@ const ResumeServiceNavigator = () => (
     <Stack.Screen
       name="ResumeWritingServiceSection"
       component={ResumeWritingServiceScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="CreatePersonalDetail"
+      component={CreatePersonalDetailScreen}
       options={{headerShown: false}}
     />
     <Stack.Screen
@@ -74,8 +80,8 @@ const ResumeServiceNavigator = () => (
       options={{headerShown: false}}
     />
     <Stack.Screen
-      name="CreatePersonalDetail"
-      component={CreatePersonalDetailScreen}
+      name="PreviewResume"
+      component={ResumeViewScreen}
       options={{headerShown: false}}
     />
   </Stack.Navigator>

@@ -13,7 +13,6 @@ import Font from '../../layout/Font';
 import CustomStatusBar from '../../components/CustomStatusBar';
 import BackButtonNavBar from '../../components/BackButtonNavBar';
 import {CheckBox} from 'react-native-elements';
-import CardItem from '../../components/News/CardItem';
 import Layout from '../../layout/Layout';
 
 class PreferencesScreen extends Component {
@@ -143,7 +142,9 @@ class PreferencesScreen extends Component {
             <View>
               <View style={styles.inputBox}>
                 <View style={styles.center}>
-                  <TouchableOpacity style={styles.submitButton}>
+                  <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Templates')}
+                    style={styles.submitButton}>
                     <Text style={styles.submitButtonText}>Continue</Text>
                   </TouchableOpacity>
                 </View>

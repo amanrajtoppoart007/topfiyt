@@ -111,7 +111,7 @@ class TemplatesScreen extends Component {
                 <View style={[styles.center, {marginHorizontal: 15}]}>
                   <TouchableOpacity
                     onPress={() =>
-                      this.props.navigation.navigate('CreatePersonalDetail')
+                      this.props.navigation.navigate('PreviewResume')
                     }
                     style={styles.submitButton}>
                     <View style={{marginHorizontal: 3}}>

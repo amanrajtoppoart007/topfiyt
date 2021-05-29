@@ -5,10 +5,11 @@ import {
   StyleSheet,
   Text,
   FlatList,
-  Pressable, StatusBar,
-} from "react-native";
+  Pressable,
+  StatusBar,
+} from 'react-native';
 
-import {Icon, ListItem, Divider} from 'react-native-elements';
+import {Icon, Divider} from 'react-native-elements';
 
 import Colors from '../layout/Colors';
 import Font from '../layout/Font';
@@ -100,20 +101,6 @@ const SideBar = props => {
         <View>
           <Text style={{color: Colors.white}}>{item.title}</Text>
         </View>
-        <View>
-          <Icon
-            iconStyle={[
-              styles.menuIconStyle,
-              {color: Colors.white, fontSize: 10},
-            ]}
-            containerStyle={[
-              styles.menuIconContainerStyle,
-              {backgroundColor: Colors.primary},
-            ]}
-            name={'chevron-right'}
-            type={'font-awesome-5'}
-          />
-        </View>
       </View>
     </Pressable>
   );
@@ -184,9 +171,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   menuContentWrapper: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    paddingHorizontal: 8,
   },
   menuIconStyle: {
     fontSize: 20,

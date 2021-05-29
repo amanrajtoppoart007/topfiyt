@@ -89,9 +89,7 @@ class Interview extends Component {
                   </View>
                 </View>
               </View>
-
             </View>
-
           </View>
         </View>
       </Overlay>
@@ -108,7 +106,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalView: {
-    width: Layout.window.width * 0.98,
+    width: Layout.window.width * 0.95,
     padding: 5,
     backgroundColor: Colors.white,
     borderRadius: 2,

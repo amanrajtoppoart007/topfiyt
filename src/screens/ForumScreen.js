@@ -1,320 +1,277 @@
 import React, {Component} from 'react';
-import {
-  Image,
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
-import arrow from '../assets/images/logo/arrow.png';
-import HeaderSearch from '../components/HeaderSearch';
+import {View, StyleSheet, SafeAreaView, Text, Pressable} from 'react-native';
 import Colors from '../layout/Colors';
+import CustomStatusBar from '../components/CustomStatusBar';
+import NavBar from '../components/NavBar';
+import Layout from '../layout/Layout';
+import {TabView, TabBar} from 'react-native-tab-view';
 import Font from '../layout/Font';
+import TabItem from '../components/Forum/TabItem';
+import Arrow from '../assets/images/icons/arrow.svg';
 
-export default class ForumScreen extends Component {
+class ForumScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      news: [
+        {
+          title: 'What is Lorem Ipsum mean ',
+          key: 'news-item-one',
+        },
+        {
+          title: 'What is Lorem Ipsum mean ',
+          key: 'news-item-two',
+        },
+        {
+          title: 'What is Lorem Ipsum mean ',
+          key: 'news-item-three',
+        },
+        {
+          title: 'What is Lorem Ipsum mean ',
+          key: 'news-item-four',
+        },
+        {
+          title: 'What is Lorem Ipsum mean ',
+          key: 'news-item-five',
+        },
+        {
+          title: 'What is Lorem Ipsum mean ',
+          key: 'news-item-six',
+        },
+        {
+          title: 'What is Lorem Ipsum mean ',
+          key: 'news-item-seven',
+        },
+        {
+          title: 'What is Lorem Ipsum mean ',
+          key: 'news-item-eight',
+        },
+        {
+          title: 'What is Lorem Ipsum mean ',
+          key: 'news-item-nine',
+        },
+        {
+          title: 'What is Lorem Ipsum mean ',
+          key: 'news-item-ten',
+        },
+        {
+          title: 'News Eleven',
+          key: 'news-item-eleven',
+        },
+        {
+          title: 'News Twelve',
+          key: 'news-item-twelve',
+        },
+        {
+          title: 'News thirteen',
+          key: 'news-item-thirteen',
+        },
+        {
+          title: 'News fourteen',
+          key: 'news-item-fourteen',
+        },
+        {
+          title: 'News fifteen',
+          key: 'news-item-fifteen',
+        },
+        {
+          title: 'News Sixteen',
+          key: 'news-item-sixteen',
+        },
+      ],
+      routes: [
+        {
+          key: 'first',
+          title: 'Actors',
+          selected: true,
+        },
+        {
+          key: 'second',
+          title: ' Films & Production',
+          selected: false,
+        },
+        {
+          key: 'third',
+          title: 'Theatre Professional',
+          selected: false,
+        },
+        {
+          key: 'fourth',
+          title: 'Singing',
+          selected: false,
+        },
+        {
+          key: 'fifth',
+          title: 'Dancing',
+          selected: false,
+        },
+        {
+          key: 'sixth',
+          title: 'Drama',
+          selected: false,
+        },
+      ],
+      index: 0,
+    };
+  }
+
+  _handleIndexChange = index => this.setState({index});
+  _renderScene = ({route}) => {
+    switch (route.key) {
+      default:
+      case 'first':
+      case 'second':
+      case 'third':
+      case 'fourth':
+      case 'fifth':
+      case 'sixth':
+        return <TabItem news={this.state.news} />;
+    }
+  };
+
+  check = i => {
+    this.setState(state => {
+      const routes = state.routes.map((item, j) => {
+        if (j === i) {
+          return {...item, selected: true};
+        } else {
+          return {...item, selected: false};
+        }
+      });
+
+      return {
+        routes,
+      };
+    });
+  };
+
+  select = i => {
+    this.setState({index: i});
+    this.check(i);
+  };
+
+  _renderTabBar = props => {
+    return (
+      <TabBar
+        getAccessibilityLabel={({route}) => route.accessibilityLabel}
+        renderLabel={({route, focused, color}) => (
+          <Text style={{color, margin: 8}}>{route.title}</Text>
+        )}
+      />
+    );
+  };
+  keyExtractor = item => item.key.toString();
   render() {
     return (
-      <View style={styles.container}>
-        <HeaderSearch navigation={this.props.navigation} />
-        <View style={styles.header}>
-          <View style={styles.upperLine}>
-            <Text style={styles.community}>COMMUNITY</Text>
-            <Image style={styles.arrow} source={arrow} />
-            <Text style={styles.forum}>FORUM</Text>
-          </View>
-
-          <View style={styles.bottomLine}>
-            <Text style={styles.bottomLineText}>Actors</Text>
-            <Text style={styles.bottomLineText}>Films & Production</Text>
-            <Text style={styles.bottomLineText}>Theatre Professional</Text>
-          </View>
-        </View>
-
-        <View>
-          <Text style={styles.discussions}>Recent Discussions</Text>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <View style={{marginBottom: 200}}>
-              <View style={styles.card}>
-                <View style={styles.cardHeader}>
-                  <Text style={styles.webinar}>
-                    Webinar How to Promote Your Film
-                  </Text>
-                  <Text style={styles.time}>05:34 pm</Text>
-                </View>
-
-                <View style={styles.cardBody}>
-                  <View style={{marginLeft: 7}}>
-                    <Text style={styles.cardForum}>Posted in Forum</Text>
-                    <Text style={styles.generalChat}>General Chat</Text>
+      <SafeAreaView style={styles.container}>
+        <CustomStatusBar />
+        <NavBar navigation={this.props.navigation} />
+        <View style={styles.content}>
+          <View>
+            <View>
+              <View style={styles.header}>
+                <View style={styles.pageTitleWrapper}>
+                  <View style={{marginHorizontal: 3}}>
+                    <Text style={styles.pageTitle}>COMMUNITY</Text>
                   </View>
-                  <TouchableOpacity style={styles.postParent}>
-                    <Text style={styles.post}>See Post</Text>
-                  </TouchableOpacity>
+                  <View style={{marginHorizontal: 3}}>
+                    <Arrow width={20} height={15} />
+                  </View>
+                  <View style={{marginHorizontal: 3}}>
+                    <Text style={styles.pageTitle}>FORUM</Text>
+                  </View>
                 </View>
               </View>
-              <View style={styles.card}>
-                <View style={styles.cardHeader}>
-                  <Text style={styles.webinar}>
-                    Webinar How to Promote Your Film
-                  </Text>
-                  <Text style={styles.time}>05:34 pm</Text>
-                </View>
-
-                <View style={styles.cardBody}>
-                  <View style={{marginLeft: 7}}>
-                    <Text style={styles.cardForum}>Posted in Forum</Text>
-                    <Text style={styles.generalChat}>General Chat</Text>
-                  </View>
-                  <TouchableOpacity style={styles.postParent}>
-                    <Text style={styles.post}>See Post</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-              <View style={styles.card}>
-                <View style={styles.cardHeader}>
-                  <Text style={styles.webinar}>
-                    Webinar How to Promote Your Film
-                  </Text>
-                  <Text style={styles.time}>05:34 pm</Text>
-                </View>
-
-                <View style={styles.cardBody}>
-                  <View style={{marginLeft: 7}}>
-                    <Text style={styles.cardForum}>Posted in Forum</Text>
-                    <Text style={styles.generalChat}>General Chat</Text>
-                  </View>
-                  <TouchableOpacity style={styles.postParent}>
-                    <Text style={styles.post}>See Post</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-              <View style={styles.card}>
-                <View style={styles.cardHeader}>
-                  <Text style={styles.webinar}>
-                    Webinar How to Promote Your Film
-                  </Text>
-                  <Text style={styles.time}>05:34 pm</Text>
-                </View>
-
-                <View style={styles.cardBody}>
-                  <View style={{marginLeft: 7}}>
-                    <Text style={styles.cardForum}>Posted in Forum</Text>
-                    <Text style={styles.generalChat}>General Chat</Text>
-                  </View>
-                  <TouchableOpacity style={styles.postParent}>
-                    <Text style={styles.post}>See Post</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-              <View style={styles.card}>
-                <View style={styles.cardHeader}>
-                  <Text style={styles.webinar}>
-                    Webinar How to Promote Your Film
-                  </Text>
-                  <Text style={styles.time}>05:34 pm</Text>
-                </View>
-
-                <View style={styles.cardBody}>
-                  <View style={{marginLeft: 7}}>
-                    <Text style={styles.cardForum}>Posted in Forum</Text>
-                    <Text style={styles.generalChat}>General Chat</Text>
-                  </View>
-                  <TouchableOpacity style={styles.postParent}>
-                    <Text style={styles.post}>See Post</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-              <View style={styles.card}>
-                <View style={styles.cardHeader}>
-                  <Text style={styles.webinar}>
-                    Webinar How to Promote Your Film
-                  </Text>
-                  <Text style={styles.time}>05:34 pm</Text>
-                </View>
-
-                <View style={styles.cardBody}>
-                  <View style={{marginLeft: 7}}>
-                    <Text style={styles.cardForum}>Posted in Forum</Text>
-                    <Text style={styles.generalChat}>General Chat</Text>
-                  </View>
-                  <TouchableOpacity style={styles.postParent}>
-                    <Text style={styles.post}>See Post</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-              <View style={styles.card}>
-                <View style={styles.cardHeader}>
-                  <Text style={styles.webinar}>
-                    Webinar How to Promote Your Film
-                  </Text>
-                  <Text style={styles.time}>05:34 pm</Text>
-                </View>
-
-                <View style={styles.cardBody}>
-                  <View style={{marginLeft: 7}}>
-                    <Text style={styles.cardForum}>Posted in Forum</Text>
-                    <Text style={styles.generalChat}>General Chat</Text>
-                  </View>
-                  <TouchableOpacity style={styles.postParent}>
-                    <Text style={styles.post}>See Post</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-              <View style={styles.card}>
-                <View style={styles.cardHeader}>
-                  <Text style={styles.webinar}>
-                    Webinar How to Promote Your Film
-                  </Text>
-                  <Text style={styles.time}>05:34 pm</Text>
-                </View>
-
-                <View style={styles.cardBody}>
-                  <View style={{marginLeft: 7}}>
-                    <Text style={styles.cardForum}>Posted in Forum</Text>
-                    <Text style={styles.generalChat}>General Chat</Text>
-                  </View>
-                  <TouchableOpacity style={styles.postParent}>
-                    <Text style={styles.post}>See Post</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-              <View style={styles.card}>
-                <View style={styles.cardHeader}>
-                  <Text style={styles.webinar}>
-                    Webinar How to Promote Your Film
-                  </Text>
-                  <Text style={styles.time}>05:34 pm</Text>
-                </View>
-
-                <View style={styles.cardBody}>
-                  <View style={{marginLeft: 7}}>
-                    <Text style={styles.cardForum}>Posted in Forum</Text>
-                    <Text style={styles.generalChat}>General Chat</Text>
-                  </View>
-                  <TouchableOpacity style={styles.postParent}>
-                    <Text style={styles.post}>See Post</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
+              <TabView
+                swipeEnabled={false}
+                navigationState={this.state}
+                renderScene={this._renderScene}
+                renderTabBar={props => (
+                  <TabBar
+                    scrollEnabled={true}
+                    tabStyle={{
+                      width: Layout.window.width * 0.45,
+                      height: 50,
+                      justifyContent: 'flex-start',
+                      alignItems: 'center',
+                    }}
+                    indicatorStyle={{backgroundColor: Colors.primaryLight}}
+                    renderLabel={({route, focused, color}) => (
+                      <Text style={styles.title}>{route.title}</Text>
+                    )}
+                    style={{backgroundColor: Colors.primary}}
+                    {...props}
+                  />
+                )}
+                onIndexChange={this._handleIndexChange}
+                initialLayout={{
+                  width: Layout.window.width,
+                }}
+                sceneContainerStyle={styles.sceneContainerStyle}
+                style={styles.tabViewStyle}
+              />
             </View>
-          </ScrollView>
+          </View>
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: 'gray',
-    // height: '100%',
+    flex: 1,
+    backgroundColor: Colors.invertBackground,
   },
   header: {
     backgroundColor: Colors.primary,
     paddingVertical: 10,
-    // flexDirection : 'row',
-    // alignItems : 'center',
-    // margin: 10,
+    paddingHorizontal: 20,
   },
-  upperLine: {
+  pageTitleWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: 10,
-    marginVertical: 7,
   },
-  community: {
-    fontSize: 12,
+  pageTitle: {
+    fontSize: 14,
     fontFamily: Font.PoppinsRegular,
     color: Colors.white,
-    marginLeft: 5,
+    fontWeight: 'bold',
   },
-  arrow: {
-    position: 'relative',
-    top: -1,
-    width: 18.08,
-    height: 12.05,
-    marginLeft: 10,
-  },
-  forum: {
-    fontSize: 12,
-    fontFamily: Font.PoppinsRegular,
-    color: Colors.white,
-    marginLeft: 10,
-  },
-  bottomLine: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginLeft: 5,
-  },
-  discussions: {
-    fontSize: 12,
-    fontFamily: Font.PoppinsRegular,
-    marginTop: 10,
-    marginHorizontal: 15,
-    color: Colors.black,
-  },
-  bottomLineText: {
-    fontSize: 12,
-    fontFamily: Font.PoppinsRegular,
-    color: Colors.white,
-    marginHorizontal: 10,
-    opacity: 0.6,
-  },
-  card: {
-    borderWidth: 1,
-    borderRadius: 5,
-    borderColor: 'lightgray',
-    margin: 10,
-    marginVertical: 5,
-    shadowColor: Colors.black,
-  },
-  cardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 10,
-  },
-  webinar: {
-    fontSize: 12,
-    fontFamily: Font.PoppinsRegular,
-    color: Colors.black,
-    width: 160,
-    marginVertical: 5,
-  },
-  time: {
-    fontSize: 12,
-    fontFamily: Font.PoppinsRegular,
-    marginVertical: 5,
-    opacity: 0.5,
-  },
-  cardBody: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 15,
-    paddingBottom: 10,
-    marginTop: 5,
-  },
-  cardForum: {
-    fontSize: 10,
-    fontFamily: Font.PoppinsRegular,
-    color: Colors.primary,
-  },
-  generalChat: {
-    fontSize: 10,
-    fontFamily: Font.PoppinsRegular,
-  },
-  postParent: {
+  content: {
     justifyContent: 'center',
-    borderWidth: 0.7,
-    borderRadius: 5,
-    borderColor: Colors.primary,
+    alignItems: 'center',
   },
-  post: {
-    fontSize: 10,
-    fontFamily: Font.PoppinsRegular,
-    color: Colors.primary,
-    textAlign: 'center',
-    marginHorizontal: 14,
-    paddingVertical: -5,
+  tabViewStyle: {
+    width: Layout.window.width,
+    padding: 0,
+    margin: 0,
+  },
+  sceneContainerStyle: {
+    width: Layout.window.width,
+    padding: 0,
+    margin: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    fontFamily: Font.PoppinsSemiBold,
+    fontSize: 14,
+    color: Colors.white,
+  },
+  tabBar: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  tab: {},
+  tabItem: {
+    marginHorizontal: 5,
+  },
+  textWrapper: {
+    marginVertical: 10,
+    marginHorizontal: 20,
   },
 });
+export default ForumScreen;
